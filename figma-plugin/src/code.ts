@@ -36,6 +36,35 @@ function setNestedValue(
 }
 
 /**
+ * Determines the correct DTCG $type for a FLOAT variable by inspecting
+ * its Figma scopes. Dimensional scopes (CORNER_RADIUS, FONT_SIZE, etc.)
+ * map to "dimension" and will be output with px units. Unitless scopes
+ * (FONT_WEIGHT, LINE_HEIGHT, OPACITY) stay as "number".
+ */
+const DIMENSIONAL_SCOPES: ReadonlyArray<VariableScope> = [
+  "CORNER_RADIUS",
+  "WIDTH_HEIGHT",
+  "GAP",
+  "FONT_SIZE",
+  "STROKE_FLOAT",
+  "PARAGRAPH_SPACING",
+];
+
+const UNITLESS_SCOPES: ReadonlyArray<VariableScope> = [
+  "FONT_WEIGHT",
+  "LINE_HEIGHT",
+  "OPACITY",
+];
+
+function floatTokenType(variable: Variable): "dimension" | "number" {
+  const { scopes } = variable;
+  if (scopes.some((s) => UNITLESS_SCOPES.includes(s))) return "number";
+  if (scopes.includes("ALL_SCOPES")) return "number"; // ambiguous — stay safe
+  if (scopes.some((s) => DIMENSIONAL_SCOPES.includes(s))) return "dimension";
+  return "number"; // safe default
+}
+
+/**
  * Maps Figma font style strings to numeric CSS font-weight values.
  * Handles composite style names like "Bold Italic" by substring match.
  */
@@ -88,7 +117,8 @@ function buildVariableTokens(): Record<string, unknown> {
     if (!collection) continue;
 
     const rawValue = variable.valuesByMode[collection.defaultModeId];
-    const tokenPath = `${collection.name.toLowerCase()}/${variable.name}`;
+    const tokenPath = `${collection.name.toLowerCase()}/${variable.name}`
+      .replace(/\s+/g, "-");
 
     // Alias reference: translate to DTCG {collection.path.to.token} syntax
     if (
@@ -110,7 +140,7 @@ function buildVariableTokens(): Record<string, unknown> {
       const $value = `{${refPath.replace(/\//g, ".")}}`;
       const $type =
         referencedVar.resolvedType === "COLOR" ? "color" :
-        referencedVar.resolvedType === "FLOAT" ? "number" : "string";
+        referencedVar.resolvedType === "FLOAT" ? floatTokenType(referencedVar) : "string";
 
       setNestedValue(tokens, tokenPath, { $value, $type });
       continue;
@@ -125,10 +155,14 @@ function buildVariableTokens(): Record<string, unknown> {
         $value = rgbaToHex(rawValue as RGBA);
         $type = "color";
         break;
-      case "FLOAT":
-        $value = rawValue as number;
-        $type = "number";
+      case "FLOAT": {
+        const floatType = floatTokenType(variable);
+        $type = floatType;
+        $value = floatType === "dimension"
+          ? `${rawValue as number}px`
+          : rawValue as number;
         break;
+      }
       case "STRING":
         $value = rawValue as string;
         $type = "string";
