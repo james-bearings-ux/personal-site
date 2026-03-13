@@ -1,0 +1,55 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-theme="light"] {
+  --semantic-color-text-primary: #0e1521;
+  --semantic-color-text-secondary: #16202e;
+  --semantic-color-text-disabled: #849eb3;
+  --semantic-color-text-error: #cc004b;
+  --semantic-color-text-reverse: #ffffff;
+  --semantic-color-surface-ground: #aac1d3;
+  --semantic-color-surface-low: #ffffff;
+  --semantic-color-surface-base: #e0e8ef;
+  --semantic-color-surface-high: #aac1d3;
+  --semantic-color-alert-error-text: #cc004b;
+  --semantic-color-alert-warning-text: #661f00;
+  --semantic-color-alert-success-text: #3a7317;
+  --semantic-color-border-primary: #233142;
+  --semantic-color-border-secondary: #849eb3;
+  --semantic-color-border-disabled: #aac1d3;
+  --semantic-color-border-error: #cc004b;
+  --semantic-color-icon-primary: #0e1521;
+  --semantic-color-icon-secondary: #16202e;
+  --semantic-color-icon-disabled: #849eb3;
+  --semantic-color-icon-error: #cc004b;
+  --semantic-color-icon-reverse: #ffffff;
+  --semantic-color-interaction-default: #2048ac;
+  --semantic-color-interaction-hover: #2859d7;
+}
+
+[data-theme="dark"] {
+  --semantic-color-text-primary: #aac1d3;
+  --semantic-color-text-secondary: #849eb3;
+  --semantic-color-text-disabled: #3c5471;
+  --semantic-color-text-error: #ff2975;
+  --semantic-color-text-reverse: #0e1521;
+  --semantic-color-surface-ground: #000000;
+  --semantic-color-surface-low: #0e1521;
+  --semantic-color-surface-base: #16202e;
+  --semantic-color-surface-high: #233142;
+  --semantic-color-alert-error-text: #ff2975;
+  --semantic-color-alert-warning-text: #ffc700;
+  --semantic-color-alert-success-text: #6bd52a;
+  --semantic-color-border-primary: #aac1d3;
+  --semantic-color-border-secondary: #849eb3;
+  --semantic-color-border-disabled: #233142;
+  --semantic-color-border-error: #ff2975;
+  --semantic-color-icon-primary: #aac1d3;
+  --semantic-color-icon-secondary: #e0e8ef;
+  --semantic-color-icon-disabled: #233142;
+  --semantic-color-icon-error: #ff2975;
+  --semantic-color-icon-reverse: #0e1521;
+  --semantic-color-interaction-default: #2859d7;
+  --semantic-color-interaction-hover: #2048ac;
+}

@@ -1,0 +1,30 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+[data-density="compact"] {
+  --component-button-border-radius: 4px;
+  --component-button-border-width: 1px;
+  --component-button-surface-v-padding: 4px;
+  --component-button-surface-h-padding: 8px;
+  --component-button-surface-gap: 4px;
+  --component-button-text-font-size: 12px;
+}
+
+[data-density="default"] {
+  --component-button-border-radius: 4px;
+  --component-button-border-width: 1px;
+  --component-button-surface-v-padding: 8px;
+  --component-button-surface-h-padding: 12px;
+  --component-button-surface-gap: 4px;
+  --component-button-text-font-size: 14px;
+}
+
+[data-density="spacious"] {
+  --component-button-border-radius: 999px;
+  --component-button-border-width: 2px;
+  --component-button-surface-v-padding: 16px;
+  --component-button-surface-h-padding: 32px;
+  --component-button-surface-gap: 4px;
+  --component-button-text-font-size: 18px;
+}

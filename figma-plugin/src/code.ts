@@ -131,8 +131,9 @@ function buildVariableTokens(): Record<string, unknown> {
         .replace(/\s+/g, "-");
 
       // Alias reference: translate to DTCG {collection.path.to.token} syntax.
-      // For multi-mode aliases we still point to the single target path —
-      // Style Dictionary resolves the reference within the correct theme block.
+      // For multi-mode referenced collections, append the current mode name so
+      // the reference resolves to the correct themed key in the JSON output
+      // (e.g. {semantic-light.color.alert.error-text} instead of {semantic.…}).
       if (
         typeof rawValue === "object" &&
         rawValue !== null &&
@@ -148,7 +149,14 @@ function buildVariableTokens(): Record<string, unknown> {
         );
         if (!referencedCollection) continue;
 
-        const refPath = `${referencedCollection.name.toLowerCase()}/${referencedVar.name}`;
+        const refIsMultiMode = referencedCollection.modes.length > 1;
+        const sanitizedModeName = mode.name.toLowerCase().replace(/\s+/g, "-");
+        const refCollectionKey = refIsMultiMode
+          ? `${referencedCollection.name.toLowerCase().replace(/\s+/g, "-")}-${sanitizedModeName}`
+          : referencedCollection.name.toLowerCase().replace(/\s+/g, "-");
+
+        const refVarName = referencedVar.name.replace(/\s+/g, "-");
+        const refPath = `${refCollectionKey}/${refVarName}`;
         const $value = `{${refPath.replace(/\//g, ".")}}`;
         const $type =
           referencedVar.resolvedType === "COLOR" ? "color" :

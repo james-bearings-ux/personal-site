@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Nixie_One, Quicksand } from "next/font/google";
 import "./globals.css";
 import "../styles/tokens.css";
+import "../styles/tokens.semantic.css";
+import "../styles/tokens.component.css";
 import "../styles/tokens.typography.css";
 
 const nixieOne = Nixie_One({
@@ -26,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="light" data-density="default">
       <body className={`${nixieOne.variable} ${quicksand.variable}`}>
         {children}
       </body>
