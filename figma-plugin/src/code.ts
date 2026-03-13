@@ -116,66 +116,79 @@ function buildVariableTokens(): Record<string, unknown> {
     const collection = collectionMap.get(variable.variableCollectionId);
     if (!collection) continue;
 
-    const rawValue = variable.valuesByMode[collection.defaultModeId];
-    const tokenPath = `${collection.name.toLowerCase()}/${variable.name}`
-      .replace(/\s+/g, "-");
+    const isMultiMode = collection.modes.length > 1;
 
-    // Alias reference: translate to DTCG {collection.path.to.token} syntax
-    if (
-      typeof rawValue === "object" &&
-      rawValue !== null &&
-      "type" in rawValue &&
-      (rawValue as VariableAlias).type === "VARIABLE_ALIAS"
-    ) {
-      const alias = rawValue as VariableAlias;
-      const referencedVar = variableMap.get(alias.id);
-      if (!referencedVar) continue;
+    for (const mode of collection.modes) {
+      const rawValue = variable.valuesByMode[mode.modeId];
 
-      const referencedCollection = collectionMap.get(
-        referencedVar.variableCollectionId
-      );
-      if (!referencedCollection) continue;
+      // Build the top-level key: single-mode uses collection name,
+      // multi-mode uses "{collectionName}-{modeName}" to separate themes.
+      const collectionKey = isMultiMode
+        ? `${collection.name}-${mode.name}`
+        : collection.name;
 
-      const refPath = `${referencedCollection.name.toLowerCase()}/${referencedVar.name}`;
-      const $value = `{${refPath.replace(/\//g, ".")}}`;
-      const $type =
-        referencedVar.resolvedType === "COLOR" ? "color" :
-        referencedVar.resolvedType === "FLOAT" ? floatTokenType(referencedVar) : "string";
+      const tokenPath = `${collectionKey.toLowerCase()}/${variable.name}`
+        .replace(/\s+/g, "-");
+
+      // Alias reference: translate to DTCG {collection.path.to.token} syntax.
+      // For multi-mode aliases we still point to the single target path —
+      // Style Dictionary resolves the reference within the correct theme block.
+      if (
+        typeof rawValue === "object" &&
+        rawValue !== null &&
+        "type" in rawValue &&
+        (rawValue as VariableAlias).type === "VARIABLE_ALIAS"
+      ) {
+        const alias = rawValue as VariableAlias;
+        const referencedVar = variableMap.get(alias.id);
+        if (!referencedVar) continue;
+
+        const referencedCollection = collectionMap.get(
+          referencedVar.variableCollectionId
+        );
+        if (!referencedCollection) continue;
+
+        const refPath = `${referencedCollection.name.toLowerCase()}/${referencedVar.name}`;
+        const $value = `{${refPath.replace(/\//g, ".")}}`;
+        const $type =
+          referencedVar.resolvedType === "COLOR" ? "color" :
+          referencedVar.resolvedType === "FLOAT" ? floatTokenType(referencedVar) : "string";
+
+        setNestedValue(tokens, tokenPath, { $value, $type });
+        continue;
+      }
+
+      // Direct value
+      let $value: unknown;
+      let $type: string;
+
+      switch (variable.resolvedType) {
+        case "COLOR":
+          $value = rgbaToHex(rawValue as RGBA);
+          $type = "color";
+          break;
+        case "FLOAT": {
+          const floatType = floatTokenType(variable);
+          $type = floatType;
+          $value = floatType === "dimension"
+            ? `${rawValue as number}px`
+            : rawValue as number;
+          break;
+        }
+        case "STRING":
+          $value = rawValue as string;
+          $type = "string";
+          break;
+        case "BOOLEAN":
+          $value = rawValue as boolean;
+          $type = "boolean";
+          break;
+        default:
+          continue;
+      }
 
       setNestedValue(tokens, tokenPath, { $value, $type });
-      continue;
     }
-
-    // Direct value
-    let $value: unknown;
-    let $type: string;
-
-    switch (variable.resolvedType) {
-      case "COLOR":
-        $value = rgbaToHex(rawValue as RGBA);
-        $type = "color";
-        break;
-      case "FLOAT": {
-        const floatType = floatTokenType(variable);
-        $type = floatType;
-        $value = floatType === "dimension"
-          ? `${rawValue as number}px`
-          : rawValue as number;
-        break;
-      }
-      case "STRING":
-        $value = rawValue as string;
-        $type = "string";
-        break;
-      case "BOOLEAN":
-        $value = rawValue as boolean;
-        $type = "boolean";
-        break;
-      default:
-        continue;
-    }
-
-    setNestedValue(tokens, tokenPath, { $value, $type });
   }
 
   return tokens;
