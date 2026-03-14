@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Nixie_One, Quicksand } from "next/font/google";
+import { Overpass, Quicksand } from "next/font/google";
 import "./globals.css";
 import "../styles/tokens.css";
 import "../styles/tokens.semantic.css";
@@ -7,10 +7,10 @@ import "../styles/tokens.component.css";
 import "../styles/tokens.breakpoints.css";
 import "../styles/tokens.typography.css";
 
-const nixieOne = Nixie_One({
-  weight: "400",
+const overpass = Overpass({
+  weight: ["400", "600"],
   subsets: ["latin"],
-  variable: "--font-nixie-one",
+  variable: "--font-overpass",
 });
 
 const quicksand = Quicksand({
@@ -21,6 +21,7 @@ const quicksand = Quicksand({
 export const metadata: Metadata = {
   title: "James Melzer, User Experience Designer",
   description: "Personal site of James Melzer, UX Designer and Information Architect.",
+  icons: { icon: [] },
 };
 
 export default function RootLayout({
@@ -30,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light" data-density="default">
-      <body className={`${nixieOne.variable} ${quicksand.variable}`}>
+      <body className={`${overpass.variable} ${quicksand.variable}`}>
         {children}
       </body>
     </html>

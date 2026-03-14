@@ -1,15 +1,17 @@
 .page {
   min-height: 100vh;
   background-color: var(--semantic-color-surface-ground);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
 }
 
-/* Controls bar ------------------------------------------------------------ */
+/* Controls bar — sticky, sits outside the content container -------------- */
 
-.controls {
+.controlsBar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--semantic-color-surface-base);
+  border-bottom: 1px solid var(--semantic-color-border-secondary);
+  padding: 10px var(--grid-edge);
   display: flex;
   align-items: center;
   gap: 16px;
@@ -48,6 +50,31 @@
   color: var(--semantic-color-text-reverse);
 }
 
+/* Grid container ---------------------------------------------------------- */
+
+.container {
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-edge);
+}
+
+/* Sections ---------------------------------------------------------------- */
+
+.section {
+  padding: var(--layout-helpers-v-margin-xl) 0;
+  border-bottom: 1px solid var(--semantic-color-border-secondary);
+}
+
+.sectionLabel {
+  color: var(--semantic-color-text-disabled);
+  margin-bottom: var(--layout-helpers-v-margin-l);
+}
+
+/* Constrain showcase content to a readable/realistic width */
+.sectionContent {
+  max-width: var(--grid-narrow-max-width);
+}
+
 /* Cards ------------------------------------------------------------------- */
 
 .card {
@@ -58,7 +85,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 640px;
 }
 
 .cardTitle {

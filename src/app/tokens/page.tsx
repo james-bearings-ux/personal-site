@@ -24,7 +24,6 @@ export default function TokensPage() {
   const [theme, setTheme] = useState<Theme>("light");
   const [density, setDensity] = useState<Density>("default");
 
-  // On mount: restore from localStorage, fall back to prefers-color-scheme.
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme | null;
     if (savedTheme === "light" || savedTheme === "dark") {
@@ -39,26 +38,18 @@ export default function TokensPage() {
     }
   }, []);
 
-  // Persist changes.
   useEffect(() => { localStorage.setItem("theme", theme); }, [theme]);
   useEffect(() => { localStorage.setItem("density", density); }, [density]);
 
   return (
-    <div
-      className={styles.page}
-      data-theme={theme}
-      data-density={density}
-    >
-      {/* Controls */}
-      <div className={styles.controls}>
+    <div className={styles.page} data-theme={theme} data-density={density}>
+
+      {/* Sticky controls bar */}
+      <div className={styles.controlsBar}>
         <span className={`${styles.controlLabel} type-ui-small`}>Theme</span>
         <div className={styles.segmented} role="group" aria-label="Theme">
           {(["light", "dark"] as Theme[]).map((t) => (
-            <button
-              key={t}
-              aria-pressed={theme === t}
-              onClick={() => setTheme(t)}
-            >
+            <button key={t} aria-pressed={theme === t} onClick={() => setTheme(t)}>
               {t.charAt(0).toUpperCase() + t.slice(1)}
             </button>
           ))}
@@ -67,47 +58,60 @@ export default function TokensPage() {
         <span className={`${styles.controlLabel} type-ui-small`}>Density</span>
         <div className={styles.segmented} role="group" aria-label="Density">
           {(["compact", "default", "spacious"] as Density[]).map((d) => (
-            <button
-              key={d}
-              aria-pressed={density === d}
-              onClick={() => setDensity(d)}
-            >
+            <button key={d} aria-pressed={density === d} onClick={() => setDensity(d)}>
               {d.charAt(0).toUpperCase() + d.slice(1)}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Typography */}
-      <div className={styles.card}>
-        <p className={`type-ui-small ${styles.cardTitle}`}>Typography</p>
-        {TYPE_STACK.map(({ cls, label, sample }) => (
-          <div key={cls} className={styles.typeRow}>
-            <span className={`type-ui-small ${styles.typeLabel}`}>{label}</span>
-            <span className={`${cls} ${styles.typeSample}`}>{sample}</span>
+      {/* Page content */}
+      <div className={styles.container}>
+
+        {/* Typography */}
+        <section className={styles.section}>
+          <p className={`type-ui-small ${styles.sectionLabel}`}>Typography</p>
+          <div className={styles.sectionContent}>
+            <div className={styles.card}>
+              {TYPE_STACK.map(({ cls, label, sample }) => (
+                <div key={cls} className={styles.typeRow}>
+                  <span className={`type-ui-small ${styles.typeLabel}`}>{label}</span>
+                  <span className={`${cls} ${styles.typeSample}`}>{sample}</span>
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        </section>
 
-      {/* Buttons */}
-      <div className={styles.card}>
-        <p className={`type-ui-small ${styles.cardTitle}`}>Button</p>
-        <div className={styles.buttonRow}>
-          <Button hierarchy="primary">Primary</Button>
-          <Button hierarchy="alt">Alt</Button>
-          <Button hierarchy="secondary">Secondary</Button>
-          <Button hierarchy="ghost">Ghost</Button>
-        </div>
-      </div>
+        {/* Buttons */}
+        <section className={styles.section}>
+          <p className={`type-ui-small ${styles.sectionLabel}`}>Button</p>
+          <div className={styles.sectionContent}>
+            <div className={styles.card}>
+              <div className={styles.buttonRow}>
+                <Button hierarchy="primary">Primary</Button>
+                <Button hierarchy="alt">Alt</Button>
+                <Button hierarchy="secondary">Secondary</Button>
+                <Button hierarchy="ghost">Ghost</Button>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      {/* Tabs */}
-      <div className={styles.card}>
-        <p className={`type-ui-small ${styles.cardTitle}`}>Tabs</p>
-        <Tabs defaultValue="one">
-          <Tab value="one">One</Tab>
-          <Tab value="two">Two</Tab>
-          <Tab value="three">Three</Tab>
-        </Tabs>
+        {/* Tabs */}
+        <section className={styles.section}>
+          <p className={`type-ui-small ${styles.sectionLabel}`}>Tabs</p>
+          <div className={styles.sectionContent}>
+            <div className={styles.card}>
+              <Tabs defaultValue="one">
+                <Tab value="one">One</Tab>
+                <Tab value="two">Two</Tab>
+                <Tab value="three">Three</Tab>
+              </Tabs>
+            </div>
+          </div>
+        </section>
+
       </div>
     </div>
   );
