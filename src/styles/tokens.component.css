@@ -9,6 +9,16 @@
   --component-button-surface-h-padding: 8px;
   --component-button-surface-gap: 4px;
   --component-button-text-font-size: 12px;
+  --component-tab-text-font-size: 12px;
+  --component-tab-surface-gap: 4px;
+  --component-tab-surface-h-padding: 8px;
+  --component-tab-surface-v-padding: 4px;
+  --component-tab-border-radius: 999px;
+  --component-tab-border-width: 1px;
+  --component-tabs-surface-gap: 4px;
+  --component-tabs-surface-h-padding: 4px;
+  --component-tabs-surface-v-padding: 4px;
+  --component-tabs-border-radius: 999px;
 }
 
 [data-density="default"] {
@@ -18,6 +28,16 @@
   --component-button-surface-h-padding: 12px;
   --component-button-surface-gap: 4px;
   --component-button-text-font-size: 14px;
+  --component-tab-text-font-size: 14px;
+  --component-tab-surface-gap: 4px;
+  --component-tab-surface-h-padding: 12px;
+  --component-tab-surface-v-padding: 8px;
+  --component-tab-border-radius: 999px;
+  --component-tab-border-width: 1px;
+  --component-tabs-surface-gap: 8px;
+  --component-tabs-surface-h-padding: 4px;
+  --component-tabs-surface-v-padding: 4px;
+  --component-tabs-border-radius: 999px;
 }
 
 [data-density="spacious"] {
@@ -27,4 +47,14 @@
   --component-button-surface-h-padding: 32px;
   --component-button-surface-gap: 4px;
   --component-button-text-font-size: 18px;
+  --component-tab-text-font-size: 18px;
+  --component-tab-surface-gap: 4px;
+  --component-tab-surface-h-padding: 32px;
+  --component-tab-surface-v-padding: 16px;
+  --component-tab-border-radius: 999px;
+  --component-tab-border-width: 2px;
+  --component-tabs-surface-gap: 12px;
+  --component-tabs-surface-h-padding: 8px;
+  --component-tabs-surface-v-padding: 8px;
+  --component-tabs-border-radius: 999px;
 }

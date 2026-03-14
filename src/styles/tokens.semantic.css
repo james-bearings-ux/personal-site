@@ -10,8 +10,8 @@
   --semantic-color-text-reverse: #ffffff;
   --semantic-color-surface-ground: #aac1d3;
   --semantic-color-surface-low: #ffffff;
-  --semantic-color-surface-base: #e0e8ef;
-  --semantic-color-surface-high: #aac1d3;
+  --semantic-color-surface-base: #f2f5f8;
+  --semantic-color-surface-high: #e0e8ef;
   --semantic-color-alert-error-text: #cc004b;
   --semantic-color-alert-warning-text: #661f00;
   --semantic-color-alert-success-text: #3a7317;
@@ -26,6 +26,10 @@
   --semantic-color-icon-reverse: #ffffff;
   --semantic-color-interaction-default: #2048ac;
   --semantic-color-interaction-hover: #2859d7;
+  --semantic-color-interaction-alt: #16202e;
+  --semantic-color-interaction-alt-hover: #233142;
+  --semantic-color-interaction-subtle-hover: #233142;
+  --semantic-color-interaction-subtle: rgba(22, 32, 46, 0.33);
 }
 
 [data-theme="dark"] {
@@ -52,4 +56,8 @@
   --semantic-color-icon-reverse: #0e1521;
   --semantic-color-interaction-default: #2859d7;
   --semantic-color-interaction-hover: #2048ac;
+  --semantic-color-interaction-alt: #849eb3;
+  --semantic-color-interaction-alt-hover: #aac1d3;
+  --semantic-color-interaction-subtle-hover: #aac1d3;
+  --semantic-color-interaction-subtle: rgba(132, 158, 179, 0.33);
 }
