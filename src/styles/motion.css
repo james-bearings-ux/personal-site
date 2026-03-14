@@ -3,25 +3,17 @@
  * Global (not CSS Modules) so class names are stable for IntersectionObserver.
  *
  * Proto-token candidates captured here for future extraction:
- *   duration-translate:  560ms
- *   duration-fade:       300ms
- *   easing-translate:    cubic-bezier(0.16, 1, 0.3, 1)  — spring ease-out
- *   easing-fade:         ease-out
- *   distance:            32px
- *   delay:               via --reveal-delay custom property (default 0ms)
- *
- * Opacity and transform intentionally use different durations and easings.
- * The spring easing reads as instantaneous on opacity (80% progress in ~100ms),
- * so opacity uses a slower ease-out that produces a perceptible fade while the
- * translation is still mid-spring. The fade finishes around the halfway point
- * of the translation, creating a layered two-stage feel.
+ *   duration:  560ms
+ *   easing:    cubic-bezier(0.16, 1, 0.3, 1)  — spring ease-out
+ *   distance:  32px
+ *   delay:     via --reveal-delay custom property (default 0ms)
  */
 
 .scroll-reveal {
   opacity: 0;
   transform: translateY(32px);
   transition:
-    opacity   300ms ease-out var(--reveal-delay, 0ms),
+    opacity  560ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms),
     transform 560ms cubic-bezier(0.16, 1, 0.3, 1) var(--reveal-delay, 0ms);
 }
 

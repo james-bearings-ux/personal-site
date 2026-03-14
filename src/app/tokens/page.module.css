@@ -1,0 +1,128 @@
+.page {
+  min-height: 100vh;
+  background-color: var(--semantic-color-surface-ground);
+}
+
+/* Controls bar — sticky, sits outside the content container -------------- */
+
+.controlsBar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--semantic-color-surface-base);
+  border-bottom: 1px solid var(--semantic-color-border-secondary);
+  padding: 10px var(--grid-edge);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.controlLabel {
+  color: var(--semantic-color-text-secondary);
+}
+
+.segmented {
+  display: flex;
+  border: var(--component-button-border-width) solid var(--semantic-color-border-primary);
+  border-radius: var(--component-button-border-radius);
+  overflow: hidden;
+}
+
+.segmented button {
+  background: none;
+  border: none;
+  border-left: var(--component-button-border-width) solid var(--semantic-color-border-primary);
+  color: var(--semantic-color-text-primary);
+  cursor: pointer;
+  font-size: var(--component-button-text-font-size);
+  font-family: inherit;
+  font-weight: 600;
+  padding: var(--component-button-surface-v-padding) var(--component-button-surface-h-padding);
+}
+
+.segmented button:first-child {
+  border-left: none;
+}
+
+.segmented button[aria-pressed="true"] {
+  background-color: var(--semantic-color-interaction-default);
+  color: var(--semantic-color-text-reverse);
+}
+
+/* Grid container ---------------------------------------------------------- */
+
+.container {
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-edge);
+}
+
+/* Sections ---------------------------------------------------------------- */
+
+.section {
+  padding: var(--layout-helpers-v-margin-xl) 0;
+  border-bottom: 1px solid var(--semantic-color-border-secondary);
+}
+
+.sectionHeading {
+  color: var(--semantic-color-text-primary);
+  margin-bottom: var(--layout-helpers-v-margin-l);
+}
+
+/* Sections fill the full container width */
+.sectionContent {
+  width: 100%;
+}
+
+/* Cards ------------------------------------------------------------------- */
+
+.card {
+  background-color: var(--semantic-color-surface-low);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardOutlined {
+  border: 1px solid var(--semantic-color-border-secondary);
+  border-radius: var(--primitives-border-radius-large);
+}
+
+.cardCentered {
+  align-items: center;
+}
+
+.cardTitle {
+  color: var(--semantic-color-text-secondary);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--semantic-color-border-secondary);
+}
+
+/* Typography stack -------------------------------------------------------- */
+
+.typeRow {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.typeLabel {
+  color: var(--semantic-color-text-disabled);
+  min-width: 96px;
+  flex-shrink: 0;
+}
+
+.typeSample {
+  color: var(--semantic-color-text-primary);
+}
+
+/* Component rows ---------------------------------------------------------- */
+
+.buttonRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
