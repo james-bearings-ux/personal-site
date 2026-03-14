@@ -28,7 +28,7 @@
 }
 
 .tab.unselected {
-  background: transparent;
+  background: var(--semantic-color-interaction-subtle);
 }
 
 .tab.unselected:hover {

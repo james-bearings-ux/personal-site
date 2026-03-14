@@ -44,6 +44,7 @@
   color: var(--semantic-color-interaction-default);
 }
 .secondary:hover {
+  background: var(--semantic-color-interaction-subtle);
   border-color: var(--semantic-color-interaction-hover);
   color: var(--semantic-color-interaction-hover);
 }
@@ -55,5 +56,5 @@
   color: var(--semantic-color-interaction-default);
 }
 .ghost:hover {
-  background: var(--semantic-color-interaction-subtle-hover);
+  background: var(--semantic-color-interaction-subtle);
 }
