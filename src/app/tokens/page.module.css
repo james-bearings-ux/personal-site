@@ -85,46 +85,11 @@
   color: var(--semantic-color-text-primary);
 }
 
-/* Button examples --------------------------------------------------------- */
+/* Component rows ---------------------------------------------------------- */
 
 .buttonRow {
   display: flex;
   align-items: center;
   gap: 12px;
   flex-wrap: wrap;
-}
-
-.btnPrimary {
-  background-color: var(--semantic-color-interaction-default);
-  color: var(--semantic-color-text-reverse);
-  border: var(--component-button-border-width) solid var(--semantic-color-interaction-default);
-  border-radius: var(--component-button-border-radius);
-  padding: var(--component-button-surface-v-padding) var(--component-button-surface-h-padding);
-  font-size: var(--component-button-text-font-size);
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
-  gap: var(--component-button-surface-gap);
-}
-
-.btnPrimary:hover {
-  background-color: var(--semantic-color-interaction-hover);
-  border-color: var(--semantic-color-interaction-hover);
-}
-
-.btnSecondary {
-  background-color: transparent;
-  color: var(--semantic-color-interaction-default);
-  border: var(--component-button-border-width) solid var(--semantic-color-interaction-default);
-  border-radius: var(--component-button-border-radius);
-  padding: var(--component-button-surface-v-padding) var(--component-button-surface-h-padding);
-  font-size: var(--component-button-text-font-size);
-  font-family: inherit;
-  font-weight: 600;
-  cursor: pointer;
-}
-
-.btnSecondary:hover {
-  border-color: var(--semantic-color-interaction-hover);
-  color: var(--semantic-color-interaction-hover);
 }
