@@ -47,25 +47,25 @@
 }
 
 @keyframes panelSlideForward {
-  from { transform: translateX(40px); }
+  from { transform: translateX(var(--primitives-motion-distance-xlarge)); }
   to   { transform: translateX(0); }
 }
 
 @keyframes panelSlideBackward {
-  from { transform: translateX(-40px); }
+  from { transform: translateX(calc(var(--primitives-motion-distance-xlarge) * -1)); }
   to   { transform: translateX(0); }
 }
 
 .panel[data-direction="forward"] {
   animation:
-    panelFadeIn        400ms ease-out                        both,
-    panelSlideForward 1000ms cubic-bezier(0.16, 1, 0.3, 1)  both;
+    panelFadeIn       var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear) both,
+    panelSlideForward var(--primitives-motion-duration-slow)   var(--primitives-motion-easing-spring) both;
 }
 
 .panel[data-direction="backward"] {
   animation:
-    panelFadeIn         400ms ease-out                         both,
-    panelSlideBackward 1000ms cubic-bezier(0.16, 1, 0.3, 1)   both;
+    panelFadeIn        var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear) both,
+    panelSlideBackward var(--primitives-motion-duration-slow)   var(--primitives-motion-easing-spring) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

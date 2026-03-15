@@ -53,11 +53,11 @@
           "$type": "color"
         },
         "13a": {
-          "$value": "#16202e54",
+          "$value": "#16202e14",
           "$type": "color"
         },
         "61a": {
-          "$value": "#849eb354",
+          "$value": "#849eb31a",
           "$type": "color"
         }
       },
@@ -345,6 +345,58 @@
         "body": {
           "$value": "16px",
           "$type": "dimension"
+        }
+      }
+    },
+    "motion": {
+      "duration": {
+        "quick": {
+          "$value": 250,
+          "$type": "number"
+        },
+        "normal": {
+          "$value": 400,
+          "$type": "number"
+        },
+        "slow": {
+          "$value": 1000,
+          "$type": "number"
+        },
+        "easy": {
+          "$value": 560,
+          "$type": "number"
+        }
+      },
+      "distance": {
+        "xsmall": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "small": {
+          "$value": "8px",
+          "$type": "dimension"
+        },
+        "medium": {
+          "$value": "16px",
+          "$type": "dimension"
+        },
+        "large": {
+          "$value": "32px",
+          "$type": "dimension"
+        },
+        "xlarge": {
+          "$value": "40px",
+          "$type": "dimension"
+        }
+      },
+      "easing": {
+        "spring": {
+          "$value": "cubic-bezier(0.16, 1, 0.3, 1)",
+          "$type": "string"
+        },
+        "appear": {
+          "$value": "ease-out",
+          "$type": "string"
         }
       }
     }

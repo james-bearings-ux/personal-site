@@ -15,6 +15,32 @@
 import StyleDictionary from 'style-dictionary';
 
 // ---------------------------------------------------------------------------
+// Custom transform: motion duration → ms
+//
+// Duration tokens use $type: "number" (raw integer milliseconds) because
+// Figma has no native duration type. The css transformGroup does not add
+// units to number tokens, so we append "ms" here.
+//
+// Scoped to tokens whose path includes "duration" so other number tokens
+// (e.g. grid columns) are unaffected.
+// ---------------------------------------------------------------------------
+
+StyleDictionary.registerTransform({
+  name: 'motion/duration-ms',
+  type: 'value',
+  filter: (token) => token.$type === 'number' && token.path.includes('duration'),
+  transform: (token) => `${token.$value}ms`,
+});
+
+StyleDictionary.registerTransformGroup({
+  name: 'css/extended',
+  transforms: [
+    ...(StyleDictionary.hooks.transformGroups['css'] ?? []),
+    'motion/duration-ms',
+  ],
+});
+
+// ---------------------------------------------------------------------------
 // Custom format: themed CSS blocks
 //
 // Groups tokens by their first path segment (e.g. "semantic-light",
@@ -239,7 +265,7 @@ const sd = new StyleDictionary({
   source: ['tokens/figma.raw.json'],
   platforms: {
     css: {
-      transformGroup: 'css',
+      transformGroup: 'css/extended',
       buildPath: 'src/styles/',
       files: [
         {

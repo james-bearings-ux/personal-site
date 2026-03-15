@@ -15,8 +15,8 @@
   --primitives-color-slate-91: #e0e8ef;
   --primitives-color-slate-96: #f2f5f8;
   --primitives-color-slate-100: #ffffff;
-  --primitives-color-slate-13a: rgba(22, 32, 46, 0.33);
-  --primitives-color-slate-61a: rgba(132, 158, 179, 0.33);
+  --primitives-color-slate-13a: rgba(22, 32, 46, 0.08);
+  --primitives-color-slate-61a: rgba(132, 158, 179, 0.1);
   --primitives-color-red-20: #660025;
   --primitives-color-red-40: #cc004b;
   --primitives-color-red-50: #ff005c;
@@ -79,4 +79,15 @@
   --primitives-typography-line-height-body-small: 18;
   --primitives-typography-line-height-body-large: 28;
   --primitives-typography-line-spacing-body: 16px;
+  --primitives-motion-duration-quick: 250ms;
+  --primitives-motion-duration-normal: 400ms;
+  --primitives-motion-duration-slow: 1000ms;
+  --primitives-motion-duration-easy: 560ms;
+  --primitives-motion-distance-xsmall: 4px;
+  --primitives-motion-distance-small: 8px;
+  --primitives-motion-distance-medium: 16px;
+  --primitives-motion-distance-large: 32px;
+  --primitives-motion-distance-xlarge: 40px;
+  --primitives-motion-easing-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --primitives-motion-easing-appear: ease-out;
 }
