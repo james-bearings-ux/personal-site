@@ -190,6 +190,48 @@ StyleDictionary.registerFormat({
 });
 
 // ---------------------------------------------------------------------------
+// Custom format: breakpoint constants (TypeScript)
+//
+// Outputs breakpoint min-width values as a typed TypeScript const object
+// for use in JS/TS contexts (e.g. matchMedia, window.innerWidth comparisons).
+// Values are output as plain numbers (px stripped) to avoid string coercion
+// at the call site.
+//
+// Output: export const breakpoints = { mobile: 0, tablet: 800, ... } as const;
+// ---------------------------------------------------------------------------
+
+StyleDictionary.registerFormat({
+  name: 'typescript/breakpoint-constants',
+  format: ({ dictionary }) => {
+    const tokens = [...dictionary.allTokens].sort(
+      (a, b) => parseInt(a.$value, 10) - parseInt(b.$value, 10)
+    );
+
+    const lines = [
+      '/**',
+      ' * Do not edit directly, this file was auto-generated.',
+      ' */',
+      '',
+      '/** Breakpoint min-width values in px — for use with matchMedia / window.innerWidth. */',
+      'export const breakpoints = {',
+    ];
+
+    for (const token of tokens) {
+      // "breakpoints-tablet" → "tablet"
+      const name = token.path[0].replace('breakpoints-', '');
+      const value = parseInt(token.$value, 10);
+      lines.push(`  ${name}: ${value},`);
+    }
+
+    lines.push('} as const;');
+    lines.push('');
+    lines.push('export type Breakpoint = keyof typeof breakpoints;');
+    lines.push('');
+    return lines.join('\n');
+  },
+});
+
+// ---------------------------------------------------------------------------
 // Configuration
 // ---------------------------------------------------------------------------
 
@@ -238,8 +280,21 @@ const sd = new StyleDictionary({
         },
       ],
     },
+    js: {
+      transformGroup: 'js',
+      buildPath: 'src/styles/',
+      files: [
+        {
+          // Breakpoint min-widths → TypeScript const object
+          destination: 'tokens.breakpoints.ts',
+          format: 'typescript/breakpoint-constants',
+          filter: (token) =>
+            token.path[0].startsWith('breakpoints-') && token.path[1] === 'min-width',
+        },
+      ],
+    },
   },
 });
 
 await sd.buildAllPlatforms();
-console.log('✓ CSS tokens written to src/styles/');
+console.log('✓ Token files written to src/styles/');

@@ -17,10 +17,24 @@ GitHub Actions workflow that runs `npm run sync-tokens` on schedule or manual tr
 
 ---
 
+## Component System
+
+**Token-driven component density contracts**
+Components currently express breakpoint-responsive density intent via a `densityByBreakpoint` prop implemented with `matchMedia`. A future approach: encode this in the breakpoints token collection as component-specific overrides (e.g. `breakpoints-tablet/component/tabbed-slideshow/density = spacious`), with a Style Dictionary formatter outputting them as `@media`-scoped CSS attribute overrides. Eliminates JS matchMedia and makes the intent token-pipeline-visible — but couples the breakpoints and component collections. Evaluate when the component library grows enough to justify the machinery.
+
+---
+
 ## Token Structure — Figma
 
 **Space/sizing primitive scale**
 A numeric spacing scale (`space/1` through `space/16` or similar) in the Primitives collection. Referenced by semantic layout tokens and component tokens.
+
+---
+
+## Developer Experience
+
+**Codebase orientation tour**
+A guided walkthrough of where key artifacts live: Style Dictionary config, generated token files (CSS + TS), component prop files, centralized style definitions, Figma plugin source, and the docs/decisions structure. Intended for onboarding or after a period away from the project.
 
 ---
 

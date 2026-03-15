@@ -50,18 +50,17 @@
   color: var(--semantic-color-text-reverse);
 }
 
-/* Grid container ---------------------------------------------------------- */
+/* Page container — max-width + centering only, no padding -------------- */
 
-.container {
+.pageContainer {
   max-width: var(--grid-max-width);
   margin: 0 auto;
-  padding: 0 var(--grid-edge);
 }
 
-/* Sections ---------------------------------------------------------------- */
+/* Sections — each manages its own horizontal padding -------------------- */
 
 .section {
-  padding: var(--layout-helpers-v-margin-xl) 0;
+  padding: var(--layout-helpers-v-margin-xl) var(--grid-edge);
   border-bottom: 1px solid var(--semantic-color-border-secondary);
 }
 

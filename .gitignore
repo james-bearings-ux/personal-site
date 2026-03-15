@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Generated token files (src/styles/tokens.*.css, tokens.breakpoints.ts) are
+# intentionally committed. Vercel deploys from the repo without running
+# build-tokens, so the outputs must be present in source control.
