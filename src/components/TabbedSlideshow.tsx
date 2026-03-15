@@ -41,6 +41,7 @@ export function TabbedSlideshow({ heading, children, densityByBreakpoint }: Tabb
   ) as React.ReactElement<SlideshowPanelProps>[];
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState<"forward" | "backward" | null>(null);
   const [density, setDensity] = useState<Density | undefined>(undefined);
 
   useEffect(() => {
@@ -70,7 +71,14 @@ export function TabbedSlideshow({ heading, children, densityByBreakpoint }: Tabb
       </ScrollReveal>
       <ScrollReveal delay={120}>
         <div className={styles.tabsWrap}>
-          <Tabs value={String(activeIndex)} onChange={(v) => setActiveIndex(Number(v))}>
+          <Tabs
+            value={String(activeIndex)}
+            onChange={(v) => {
+              const next = Number(v);
+              setDirection(next > activeIndex ? "forward" : "backward");
+              setActiveIndex(next);
+            }}
+          >
             {panels.map((panel, i) => (
               <Tab key={i} value={String(i)}>{panel.props.label}</Tab>
             ))}
@@ -79,7 +87,13 @@ export function TabbedSlideshow({ heading, children, densityByBreakpoint }: Tabb
       </ScrollReveal>
       <ScrollReveal delay={240}>
         <div className={styles.slot}>
-          {panels[activeIndex]}
+          <div
+            key={activeIndex}
+            className={styles.panel}
+            {...(direction ? { "data-direction": direction } : {})}
+          >
+            {panels[activeIndex]}
+          </div>
         </div>
       </ScrollReveal>
     </div>

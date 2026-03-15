@@ -19,6 +19,7 @@
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 4 / 3; /* reserves space while loading; natural ratio takes over once image is decoded */
 }
 
 @media (min-width: 800px) {
