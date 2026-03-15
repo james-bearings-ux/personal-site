@@ -1,0 +1,37 @@
+name: Build tokens
+
+# Runs whenever figma.raw.json is updated on main.
+# Regenerates all token output files (src/styles/) and commits them back
+# so Vercel always deploys with current CSS and TS artifacts.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - tokens/figma.raw.json
+
+jobs:
+  build-tokens:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run build-tokens
+
+      - name: Commit regenerated token files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/styles/
+          git diff --staged --quiet || git commit -m "chore: regenerate token files [skip ci]"
+          git push
