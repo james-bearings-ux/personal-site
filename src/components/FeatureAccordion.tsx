@@ -105,7 +105,7 @@ export function FeatureAccordion({
             <h2 className={`type-heading-2 ${styles.heading}`}>{heading}</h2>
             <p className={`type-body-large ${styles.body}`}>{body}</p>
             {showCta && (
-              <Button label={label} href={href} onClick={onClick} hierarchy="secondary" />
+              <Button label={label} href={href} onClick={onClick} hierarchy="alt" />
             )}
           </div>
         </ScrollReveal>
