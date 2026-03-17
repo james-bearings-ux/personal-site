@@ -67,7 +67,7 @@ export default function TokensPage() {
 
         <TabbedSlideshow
           heading="Featured Work"
-          surface="base"
+          surface="low"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
@@ -77,6 +77,7 @@ export default function TokensPage() {
             <SideBySide
               image="/img/sample-img.jpg"
               imageAlt="Discovery phase work"
+              surface="base"
               heading="Understanding the problem space"
               body="Research, stakeholder interviews, and competitive analysis to frame the design challenge before touching a single wireframe."
             />
@@ -85,6 +86,7 @@ export default function TokensPage() {
             <SideBySide
               image="/img/sample-img-2.jpg"
               imageAlt="Information architecture work"
+              surface="base"
               heading="Shaping the information architecture"
               body="Card sorting, tree testing, and IA diagrams to establish a navigation model users can predict and trust."
             />
@@ -93,6 +95,7 @@ export default function TokensPage() {
             <SideBySide
               image="/img/sample-img-3.jpg"
               imageAlt="Final design work"
+              surface="base"
               heading="High-fidelity interaction design"
               body="Component-based layouts built on a token-driven design system, validated through usability testing before handoff."
             />
@@ -102,7 +105,7 @@ export default function TokensPage() {
         <FeatureAccordion
           heading="What I do"
           body="Design systems strategy and hands-on craft, from token architecture to shipped components."
-          surface="base"
+          surface="low"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
