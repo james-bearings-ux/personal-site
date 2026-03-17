@@ -16,6 +16,9 @@ When an Enterprise Figma account is available, restore `scripts/fetch-tokens.mjs
 
 ## Component System
 
+**Icon as a component**
+Formalize the CSS mask-image technique into a shared `<Icon>` component. Accepts an SVG filename (matching `/public/img/*.svg`) and renders a sized, theme-aware `<span>` using `background-color: currentColor` + `mask-image`. Would replace the inline `<Icon>` helper currently local to `Button.tsx` and the ad-hoc span in `FeatureAccordion.tsx`. Consider a token-backed size scale (e.g. `size?: "sm" | "md" | "lg"`) and an icon name union type derived from available SVG filenames.
+
 **Token-driven component density contracts**
 Components currently express breakpoint-responsive density intent via a `densityByBreakpoint` prop implemented with `matchMedia`. A future approach: encode this in the breakpoints token collection as component-specific overrides (e.g. `breakpoints-tablet/component/tabbed-slideshow/density = spacious`), with a Style Dictionary formatter outputting them as `@media`-scoped CSS attribute overrides. Eliminates JS matchMedia and makes the intent token-pipeline-visible — but couples the breakpoints and component collections. Evaluate when the component library grows enough to justify the machinery.
 

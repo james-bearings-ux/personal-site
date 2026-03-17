@@ -14,10 +14,10 @@ export function ButtonShowcase() {
       </ScrollReveal>
       <ScrollReveal delay={120}>
         <div className={styles.buttonRow}>
-          <Button hierarchy="primary">Primary</Button>
-          <Button hierarchy="alt">Alt</Button>
-          <Button hierarchy="secondary">Secondary</Button>
-          <Button hierarchy="ghost">Ghost</Button>
+          <Button hierarchy="primary" label="Primary" />
+          <Button hierarchy="alt" label="Alt" />
+          <Button hierarchy="secondary" label="Secondary" />
+          <Button hierarchy="ghost" label="Ghost" />
         </div>
       </ScrollReveal>
     </div>

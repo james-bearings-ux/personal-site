@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { Button } from "./Button";
 import { ScrollReveal } from "./ScrollReveal";
 import { breakpoints } from "@/styles/tokens.breakpoints";
 import { surfaceTokens, Surface } from "@/styles/tokens.surface";
@@ -55,6 +56,10 @@ interface FeatureAccordionProps {
   heading: string;
   body: string;
   surface?: Surface;
+  showCta?: boolean;
+  label?: string;
+  href?: string;
+  onClick?: () => void;
   densityByBreakpoint?: DensityBreakpoint[];
   children: React.ReactNode;
 }
@@ -63,6 +68,10 @@ export function FeatureAccordion({
   heading,
   body,
   surface = "base",
+  showCta,
+  label,
+  href,
+  onClick,
   densityByBreakpoint,
   children,
 }: FeatureAccordionProps) {
@@ -95,6 +104,9 @@ export function FeatureAccordion({
           <div className={styles.headingBlock}>
             <h2 className={`type-heading-2 ${styles.heading}`}>{heading}</h2>
             <p className={`type-body-large ${styles.body}`}>{body}</p>
+            {showCta && (
+              <Button label={label} href={href} onClick={onClick} hierarchy="secondary" />
+            )}
           </div>
         </ScrollReveal>
       </div>
