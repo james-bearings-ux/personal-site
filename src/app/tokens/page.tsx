@@ -103,9 +103,12 @@ export default function TokensPage() {
         </TabbedSlideshow>
 
         <FeatureAccordion
-          heading="What I do"
+          heading="Services"
           body="Design systems strategy and hands-on craft, from token architecture to shipped components."
           surface="low"
+          showCta
+          label="Get in touch"
+          href="/work"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },

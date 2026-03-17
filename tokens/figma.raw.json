@@ -726,6 +726,12 @@
           "$value": "{primitives.typography.size.ui.small}",
           "$type": "dimension"
         }
+      },
+      "icon": {
+        "width": {
+          "$value": "16px",
+          "$type": "dimension"
+        }
       }
     },
     "tab": {
@@ -840,6 +846,12 @@
           "$value": "{primitives.typography.size.ui.medium}",
           "$type": "dimension"
         }
+      },
+      "icon": {
+        "width": {
+          "$value": "24px",
+          "$type": "dimension"
+        }
       }
     },
     "tab": {
@@ -952,6 +964,12 @@
       "text": {
         "font-size": {
           "$value": "{primitives.typography.size.ui.large}",
+          "$type": "dimension"
+        }
+      },
+      "icon": {
+        "width": {
+          "$value": "24px",
           "$type": "dimension"
         }
       }
