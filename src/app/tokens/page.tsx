@@ -9,6 +9,8 @@ import { SideBySide } from "@/components/SideBySide";
 import { StackedImage } from "@/components/StackedImage";
 import { OffsetList } from "@/components/OffsetList";
 import { FeatureAccordion, AccordionPanel } from "@/components/FeatureAccordion";
+import { Button } from "@/components/Button";
+import { ButtonGroup } from "@/components/ButtonGroup";
 import { breakpoints } from "@/styles/tokens.breakpoints";
 import styles from "./page.module.css";
 
@@ -42,22 +44,28 @@ export default function TokensPage() {
       {/* Sticky controls bar */}
       <div className={styles.controlsBar}>
         <span className={`${styles.controlLabel} type-ui-small`}>Theme</span>
-        <div className={styles.segmented} role="group" aria-label="Theme">
+        <ButtonGroup>
           {(["light", "dark"] as Theme[]).map((t) => (
-            <button key={t} aria-pressed={theme === t} onClick={() => setTheme(t)}>
-              {t.charAt(0).toUpperCase() + t.slice(1)}
-            </button>
+            <Button
+              key={t}
+              hierarchy={theme === t ? "primary" : "secondary"}
+              label={t.charAt(0).toUpperCase() + t.slice(1)}
+              onClick={() => setTheme(t)}
+            />
           ))}
-        </div>
+        </ButtonGroup>
 
         <span className={`${styles.controlLabel} type-ui-small`}>Density</span>
-        <div className={styles.segmented} role="group" aria-label="Density">
+        <ButtonGroup>
           {(["compact", "default", "spacious"] as Density[]).map((d) => (
-            <button key={d} aria-pressed={density === d} onClick={() => setDensity(d)}>
-              {d.charAt(0).toUpperCase() + d.slice(1)}
-            </button>
+            <Button
+              key={d}
+              hierarchy={density === d ? "primary" : "secondary"}
+              label={d.charAt(0).toUpperCase() + d.slice(1)}
+              onClick={() => setDensity(d)}
+            />
           ))}
-        </div>
+        </ButtonGroup>
       </div>
 
       {/* Page content */}

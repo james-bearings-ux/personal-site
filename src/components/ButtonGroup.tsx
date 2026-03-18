@@ -1,13 +1,13 @@
 "use client";
 
 import React from "react";
-import styles from "./SplitButton.module.css";
+import styles from "./ButtonGroup.module.css";
 
-interface SplitButtonProps {
+interface ButtonGroupProps {
   children: React.ReactNode;
 }
 
-export function SplitButton({ children }: SplitButtonProps) {
+export function ButtonGroup({ children }: ButtonGroupProps) {
   const items = React.Children.toArray(children).filter(
     React.isValidElement
   ) as React.ReactElement[];

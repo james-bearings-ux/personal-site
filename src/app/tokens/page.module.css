@@ -22,34 +22,6 @@
   color: var(--semantic-color-text-secondary);
 }
 
-.segmented {
-  display: flex;
-  border: var(--component-button-border-width) solid var(--semantic-color-border-primary);
-  border-radius: var(--component-button-border-radius);
-  overflow: hidden;
-}
-
-.segmented button {
-  background: none;
-  border: none;
-  border-left: var(--component-button-border-width) solid var(--semantic-color-border-primary);
-  color: var(--semantic-color-text-primary);
-  cursor: pointer;
-  font-size: var(--component-button-text-font-size);
-  font-family: inherit;
-  font-weight: 600;
-  padding: var(--component-button-surface-v-padding) var(--component-button-surface-h-padding);
-}
-
-.segmented button:first-child {
-  border-left: none;
-}
-
-.segmented button[aria-pressed="true"] {
-  background-color: var(--semantic-color-interaction-default);
-  color: var(--semantic-color-text-reverse);
-}
-
 /* Page container — max-width + centering only, no padding -------------- */
 
 .pageContainer {
