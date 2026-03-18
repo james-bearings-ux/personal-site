@@ -18,6 +18,12 @@
   color: var(--semantic-color-text-primary);
 }
 
+.buttonRows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 .buttonRow {
   display: flex;
   justify-content: center;
