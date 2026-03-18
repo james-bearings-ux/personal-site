@@ -723,16 +723,6 @@
         "height": {
           "$value": "26px",
           "$type": "dimension"
-        },
-        "icon": {
-          "h-padding": {
-            "$value": "5px",
-            "$type": "dimension"
-          },
-          "v-padding": {
-            "$value": "4px",
-            "$type": "dimension"
-          }
         }
       },
       "text": {
@@ -742,9 +732,19 @@
         }
       },
       "icon": {
-        "width": {
-          "$value": "16px",
-          "$type": "dimension"
+        "surface": {
+          "width": {
+            "$value": "16px",
+            "$type": "dimension"
+          },
+          "h-padding": {
+            "$value": "5px",
+            "$type": "dimension"
+          },
+          "v-padding": {
+            "$value": "4px",
+            "$type": "dimension"
+          }
         }
       }
     },
@@ -857,16 +857,6 @@
         "height": {
           "$value": "34px",
           "$type": "dimension"
-        },
-        "icon": {
-          "h-padding": {
-            "$value": "5px",
-            "$type": "dimension"
-          },
-          "v-padding": {
-            "$value": "4px",
-            "$type": "dimension"
-          }
         }
       },
       "text": {
@@ -876,9 +866,19 @@
         }
       },
       "icon": {
-        "width": {
-          "$value": "24px",
-          "$type": "dimension"
+        "surface": {
+          "width": {
+            "$value": "24px",
+            "$type": "dimension"
+          },
+          "h-padding": {
+            "$value": "5px",
+            "$type": "dimension"
+          },
+          "v-padding": {
+            "$value": "4px",
+            "$type": "dimension"
+          }
         }
       }
     },
@@ -991,16 +991,6 @@
         "height": {
           "$value": "50px",
           "$type": "dimension"
-        },
-        "icon": {
-          "h-padding": {
-            "$value": "13px",
-            "$type": "dimension"
-          },
-          "v-padding": {
-            "$value": "4px",
-            "$type": "dimension"
-          }
         }
       },
       "text": {
@@ -1010,9 +1000,19 @@
         }
       },
       "icon": {
-        "width": {
-          "$value": "24px",
-          "$type": "dimension"
+        "surface": {
+          "width": {
+            "$value": "24px",
+            "$type": "dimension"
+          },
+          "h-padding": {
+            "$value": "13px",
+            "$type": "dimension"
+          },
+          "v-padding": {
+            "$value": "4px",
+            "$type": "dimension"
+          }
         }
       }
     },

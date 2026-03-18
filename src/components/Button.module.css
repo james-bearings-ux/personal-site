@@ -17,7 +17,7 @@
 }
 
 .iconOnly {
-  padding: 0 var(--component-button-surface-icon-h-padding);
+  padding: 0 var(--component-button-icon-surface-h-padding);
   height: var(--component-button-surface-height);
 }
 
@@ -60,8 +60,8 @@
 .icon {
   display: inline-block;
   flex-shrink: 0;
-  width: var(--component-button-icon-width);
-  height: var(--component-button-icon-width);
+  width: var(--component-button-icon-surface-width);
+  height: var(--component-button-icon-surface-width);
   background-color: currentColor;
   mask-size: contain;
   mask-repeat: no-repeat;
