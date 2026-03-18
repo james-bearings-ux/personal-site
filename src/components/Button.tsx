@@ -7,6 +7,7 @@ interface ButtonBaseProps {
   label?: string;
   iconBefore?: string;
   iconAfter?: string;
+  iconOnly?: boolean;
   className?: string;
   children?: React.ReactNode;
 }
@@ -38,11 +39,12 @@ export function Button({
   label,
   iconBefore,
   iconAfter,
+  iconOnly = false,
   className = "",
   children,
   ...props
 }: ButtonProps) {
-  const cls = `${styles.btn} ${styles[hierarchy]} ${className}`;
+  const cls = `${styles.btn} ${styles[hierarchy]} ${iconOnly ? styles.iconOnly : ""} ${className}`.trim();
   const content = (
     <>
       {iconBefore && <Icon src={iconBefore} />}

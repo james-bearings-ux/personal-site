@@ -719,6 +719,20 @@
         "gap": {
           "$value": "4px",
           "$type": "dimension"
+        },
+        "height": {
+          "$value": "26px",
+          "$type": "dimension"
+        },
+        "icon": {
+          "h-padding": {
+            "$value": "5px",
+            "$type": "dimension"
+          },
+          "v-padding": {
+            "$value": "4px",
+            "$type": "dimension"
+          }
         }
       },
       "text": {
@@ -829,16 +843,30 @@
       },
       "surface": {
         "v-padding": {
-          "$value": "8px",
+          "$value": "4px",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "12px",
+          "$value": "16px",
           "$type": "dimension"
         },
         "gap": {
           "$value": "4px",
           "$type": "dimension"
+        },
+        "height": {
+          "$value": "34px",
+          "$type": "dimension"
+        },
+        "icon": {
+          "h-padding": {
+            "$value": "5px",
+            "$type": "dimension"
+          },
+          "v-padding": {
+            "$value": "4px",
+            "$type": "dimension"
+          }
         }
       },
       "text": {
@@ -949,16 +977,30 @@
       },
       "surface": {
         "v-padding": {
-          "$value": "16px",
+          "$value": "4px",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "32px",
+          "$value": "24px",
           "$type": "dimension"
         },
         "gap": {
           "$value": "4px",
           "$type": "dimension"
+        },
+        "height": {
+          "$value": "50px",
+          "$type": "dimension"
+        },
+        "icon": {
+          "h-padding": {
+            "$value": "13px",
+            "$type": "dimension"
+          },
+          "v-padding": {
+            "$value": "4px",
+            "$type": "dimension"
+          }
         }
       },
       "text": {

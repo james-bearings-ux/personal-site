@@ -19,6 +19,12 @@ export function ButtonShowcase() {
           <Button hierarchy="secondary" label="Secondary" />
           <Button hierarchy="ghost" label="Ghost" />
         </div>
+        <div className={styles.buttonRow}>
+          <Button hierarchy="primary" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
+          <Button hierarchy="alt" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
+          <Button hierarchy="secondary" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
+          <Button hierarchy="ghost" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
+        </div>
       </ScrollReveal>
     </div>
   );

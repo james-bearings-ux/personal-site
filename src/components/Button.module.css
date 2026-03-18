@@ -3,7 +3,8 @@
   align-items: center;
   justify-content: center;
   gap: var(--component-button-surface-gap);
-  padding: var(--component-button-surface-v-padding) var(--component-button-surface-h-padding);
+  height: var(--component-button-surface-height);
+  padding: 0 var(--component-button-surface-h-padding);
   border-radius: var(--component-button-border-radius);
   border: var(--component-button-border-width) solid transparent;
   font-family: inherit;
@@ -13,6 +14,11 @@
   cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.iconOnly {
+  padding: 0 var(--component-button-surface-icon-h-padding);
+  height: var(--component-button-surface-height);
 }
 
 /* primary — solid interaction fill */
