@@ -65,11 +65,17 @@ export function AiPromptBar() {
   const paragraphs = visibleText.split("\n\n").filter((p) => p.trim().length > 0);
   const isStreaming = phase === "streaming";
   const isOpen = phase !== "idle" && phase !== "closing";
-  const showClose = phase !== "idle";
+  const showClose = phase === "streaming" || phase === "done";
 
   return (
     <div className={`${styles.container} ${isOpen ? styles.open : ""}`}>
       <div className={styles.responseArea} ref={responseRef}>
+        <div className={styles.background} aria-hidden="true">
+          <div className={`${styles.shape} ${styles.shape1}`} />
+          <div className={`${styles.shape} ${styles.shape2}`} />
+          <div className={`${styles.shape} ${styles.shape3}`} />
+          <div className={`${styles.shape} ${styles.shape4}`} />
+        </div>
         <div className={styles.responseContent}>
           {phase === "thinking" && (
             <div className={styles.thinking} aria-label="Thinking">
@@ -90,6 +96,17 @@ export function AiPromptBar() {
         </div>
       </div>
 
+      {showClose && (
+        <Button
+          className={styles.closeButton}
+          hierarchy="ghost"
+          iconOnly
+          iconBefore="close.svg"
+          aria-label="Dismiss"
+          onClick={handleClose}
+        />
+      )}
+
       <div className={styles.promptBar}>
         <div className={styles.inputGroup}>
           <Input
@@ -104,16 +121,6 @@ export function AiPromptBar() {
             onClick={handleSubmit}
           />
         </div>
-        {showClose && (
-          <Button
-            className={styles.closeButton}
-            hierarchy="ghost"
-            iconOnly
-            iconBefore="close.svg"
-            aria-label="Dismiss"
-            onClick={handleClose}
-          />
-        )}
       </div>
     </div>
   );

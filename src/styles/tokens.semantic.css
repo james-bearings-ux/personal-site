@@ -12,6 +12,7 @@
   --semantic-color-surface-low: #ffffff;
   --semantic-color-surface-base: #f2f5f8;
   --semantic-color-surface-high: #e0e8ef;
+  --semantic-color-surface-animated: #3c5471;
   --semantic-color-alert-error-text: #cc004b;
   --semantic-color-alert-warning-text: #661f00;
   --semantic-color-alert-success-text: #3a7317;
@@ -44,6 +45,7 @@
   --semantic-color-surface-low: #0e1521;
   --semantic-color-surface-base: #16202e;
   --semantic-color-surface-high: #233142;
+  --semantic-color-surface-animated: #849eb3;
   --semantic-color-alert-error-text: #ff2975;
   --semantic-color-alert-warning-text: #ffc700;
   --semantic-color-alert-success-text: #6bd52a;

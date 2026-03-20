@@ -491,6 +491,10 @@
         "high": {
           "$value": "{primitives.color.slate.91}",
           "$type": "color"
+        },
+        "animated": {
+          "$value": "{primitives.color.slate.34}",
+          "$type": "color"
         }
       },
       "alert": {
@@ -630,6 +634,10 @@
         },
         "high": {
           "$value": "{primitives.color.slate.20}",
+          "$type": "color"
+        },
+        "animated": {
+          "$value": "{primitives.color.slate.61}",
           "$type": "color"
         }
       },
