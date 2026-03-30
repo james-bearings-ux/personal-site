@@ -3,15 +3,15 @@
  */
 
 [data-density="compact"] {
-  --component-button-border-radius: 4px;
+  --component-button-border-radius: 999px;
   --component-button-border-width: 1px;
   --component-button-surface-v-padding: 4px;
   --component-button-surface-h-padding: 8px;
   --component-button-surface-gap: 4px;
-  --component-button-surface-height: 26px;
+  --component-button-surface-height: 32px;
   --component-button-text-font-size: 12px;
   --component-button-icon-surface-width: 16px;
-  --component-button-icon-surface-h-padding: 5px;
+  --component-button-icon-surface-h-padding: 6px;
   --component-button-icon-surface-v-padding: 4px;
   --component-tab-text-font-size: 12px;
   --component-tab-surface-gap: 4px;
@@ -38,12 +38,12 @@
 }
 
 [data-density="default"] {
-  --component-button-border-radius: 4px;
+  --component-button-border-radius: 999px;
   --component-button-border-width: 1px;
   --component-button-surface-v-padding: 4px;
-  --component-button-surface-h-padding: 16px;
+  --component-button-surface-h-padding: 12px;
   --component-button-surface-gap: 4px;
-  --component-button-surface-height: 34px;
+  --component-button-surface-height: 36px;
   --component-button-text-font-size: 14px;
   --component-button-icon-surface-width: 24px;
   --component-button-icon-surface-h-padding: 5px;
@@ -76,7 +76,7 @@
   --component-button-border-radius: 999px;
   --component-button-border-width: 2px;
   --component-button-surface-v-padding: 4px;
-  --component-button-surface-h-padding: 24px;
+  --component-button-surface-h-padding: 12px;
   --component-button-surface-gap: 4px;
   --component-button-surface-height: 50px;
   --component-button-text-font-size: 18px;

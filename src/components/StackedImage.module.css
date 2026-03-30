@@ -6,7 +6,7 @@
 
 .imageWrap {
   position: relative;
-  border-radius: var(--primitives-border-radius-large);
+  border-radius: var(--primitives-border-radius-none);
   overflow: hidden;
 }
 

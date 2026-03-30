@@ -82,7 +82,7 @@ export default function TokensPage() {
 
         <TabbedSlideshow
             heading="Travel"
-            surface="base"
+            surface="high"
             densityByBreakpoint={[
               { minWidth: breakpoints.mobile, density: "default" },
               { minWidth: breakpoints.tablet, density: "spacious" },
@@ -120,7 +120,7 @@ export default function TokensPage() {
         <FeatureAccordion
             heading="Services"
             body="Design systems strategy and hands-on craft, from token architecture to shipped components."
-            surface="low"
+            surface="base"
             showCta
             label="Get in touch"
             href="/work"
@@ -145,7 +145,7 @@ export default function TokensPage() {
 
         <OffsetList
             heading="Clients"
-            surface="low"
+            surface="base"
             items={[
               "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery", "Faire",
               "International Monetary Fund", "JDRF", "JLL", "Kelly Services", "Key Bank",
@@ -157,7 +157,7 @@ export default function TokensPage() {
 
         <TabbedSlideshow
           heading="Featured Work"
-          surface="low"
+          surface="base"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
@@ -193,7 +193,7 @@ export default function TokensPage() {
         </TabbedSlideshow>
 
 
-        <CardBand heading="Destinations" surface="low">
+        <CardBand heading="Destinations" surface="base">
           <Card
             variant="image"
             interactive="card-link"

@@ -274,7 +274,7 @@
             "$type": "dimension"
           },
           "small": {
-            "$value": "12px",
+            "$value": "14px",
             "$type": "dimension"
           }
         },
@@ -463,7 +463,7 @@
           "$type": "color"
         },
         "secondary": {
-          "$value": "{primitives.color.slate.13}",
+          "$value": "{primitives.color.slate.34}",
           "$type": "color"
         },
         "disabled": {
@@ -747,7 +747,7 @@
     "button": {
       "border": {
         "radius": {
-          "$value": "{primitives.border-radius.small}",
+          "$value": "{primitives.border-radius.infinite}",
           "$type": "dimension"
         },
         "width": {
@@ -769,7 +769,7 @@
           "$type": "dimension"
         },
         "height": {
-          "$value": "26px",
+          "$value": "32px",
           "$type": "dimension"
         }
       },
@@ -786,7 +786,7 @@
             "$type": "dimension"
           },
           "h-padding": {
-            "$value": "5px",
+            "$value": "6px",
             "$type": "dimension"
           },
           "v-padding": {
@@ -921,7 +921,7 @@
     "button": {
       "border": {
         "radius": {
-          "$value": "{primitives.border-radius.small}",
+          "$value": "{primitives.border-radius.infinite}",
           "$type": "dimension"
         },
         "width": {
@@ -935,7 +935,7 @@
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "16px",
+          "$value": "12px",
           "$type": "dimension"
         },
         "gap": {
@@ -943,7 +943,7 @@
           "$type": "dimension"
         },
         "height": {
-          "$value": "34px",
+          "$value": "36px",
           "$type": "dimension"
         }
       },
@@ -1109,7 +1109,7 @@
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "24px",
+          "$value": "12px",
           "$type": "dimension"
         },
         "gap": {
@@ -1582,7 +1582,7 @@
       "$value": {
         "fontFamily": "Quicksand",
         "fontWeight": 600,
-        "fontSize": "12px",
+        "fontSize": "14px",
         "lineHeight": 1.149999976158142,
         "letterSpacing": "0"
       },
@@ -1612,7 +1612,7 @@
       "$value": {
         "fontFamily": "Quicksand",
         "fontWeight": 400,
-        "fontSize": "12px",
+        "fontSize": "14px",
         "lineHeight": 1.350000023841858,
         "letterSpacing": "0"
       },
