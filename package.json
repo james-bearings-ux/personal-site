@@ -9,7 +9,9 @@
     "lint": "eslint",
     "fetch-tokens": "node scripts/fetch-tokens.mjs",
     "build-tokens": "node style-dictionary.config.mjs",
-    "sync-tokens": "npm run fetch-tokens && npm run build-tokens"
+    "sync-tokens": "npm run fetch-tokens && npm run build-tokens",
+    "ladle": "ladle serve",
+    "ladle:build": "ladle build"
   },
   "dependencies": {
     "next": "^16.2.1",
@@ -17,6 +19,7 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "@ladle/react": "^5.1.1",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
