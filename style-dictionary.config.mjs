@@ -203,7 +203,7 @@ StyleDictionary.registerFormat({
       lines.push(`  font-family: ${fontFamily};`);
       lines.push(`  font-size: ${val.fontSize};`);
       lines.push(`  font-weight: ${val.fontWeight};`);
-      lines.push(`  line-height: ${val.lineHeight};`);
+      lines.push(`  line-height: ${typeof val.lineHeight === 'number' ? parseFloat(val.lineHeight.toFixed(2)) : val.lineHeight};`);
       if (val.letterSpacing && val.letterSpacing !== '0') {
         lines.push(`  letter-spacing: ${val.letterSpacing};`);
       }
