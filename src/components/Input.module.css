@@ -37,7 +37,7 @@
 
 .input::placeholder {
   color: var(--semantic-color-text-disabled);
-  font-weight: 400;
+  font-weight: var(--primitives-typography-weight-default);
 }
 
 .input:disabled {

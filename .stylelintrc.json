@@ -1,0 +1,33 @@
+{
+  "rules": {
+    "color-named": "never",
+    "color-no-invalid-hex": true,
+    "declaration-property-value-disallowed-list": [
+      {
+        "color":            ["/^#/", "/^rgb/", "/^hsl/"],
+        "background-color": ["/^#/", "/^rgb/", "/^hsl/"],
+        "border-color":     ["/^#/", "/^rgb/", "/^hsl/"],
+        "outline-color":    ["/^#/", "/^rgb/", "/^hsl/"],
+        "fill":             ["/^#/", "/^rgb/", "/^hsl/"],
+        "stroke":           ["/^#/", "/^rgb/", "/^hsl/"],
+        "font-family":      ["/^[\"']/", "/^[A-Z][a-z]/"],
+        "font-size":        ["/^[0-9]/"],
+        "font-weight":      ["/^[0-9]/"],
+        "border-radius":    ["/^[1-9][0-9]*px/"]
+      },
+      {
+        "message": "Use a design token (var(--...)) instead of a hardcoded value"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["src/styles/**/*.css", "src/app/globals.css"],
+      "rules": {
+        "color-named": null,
+        "color-no-invalid-hex": null,
+        "declaration-property-value-disallowed-list": null
+      }
+    }
+  ]
+}

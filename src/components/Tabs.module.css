@@ -16,7 +16,7 @@
   border: none;
   font-family: inherit;
   font-size: var(--component-tab-text-font-size);
-  font-weight: 600;
+  font-weight: var(--primitives-typography-weight-bold);
   line-height: 1;
   color: var(--semantic-color-text-reverse);
   cursor: pointer;

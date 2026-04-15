@@ -11,7 +11,8 @@
     "build-tokens": "node style-dictionary.config.mjs",
     "sync-tokens": "npm run fetch-tokens && npm run build-tokens",
     "ladle": "ladle serve",
-    "ladle:build": "ladle build"
+    "ladle:build": "ladle build",
+    "lint:tokens": "stylelint 'src/**/*.css'"
   },
   "dependencies": {
     "next": "^16.2.1",
@@ -27,6 +28,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
     "style-dictionary": "^5.3.3",
+    "stylelint": "^17.8.0",
     "typescript": "^5"
   }
 }
