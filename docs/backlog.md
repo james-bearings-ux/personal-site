@@ -56,6 +56,28 @@ Findings from a 2026-03-18 audit of all component CSS modules, updated 2026-03-1
 
 ## Developer Experience
 
+**Ladle: page frame for full-row components**
+Full-row section components (CardBand, FeatureAccordion, TabbedSlideshow, OffsetList, SideBySide) render edge-to-edge in Ladle's canvas, which hides breakpoint and grid behavior. Add a reusable story decorator or wrapper that imposes realistic max-width and grid constraints — ideally a single import shared across all affected stories rather than a per-story div.
+
+**Ladle: story cleanup and coverage pass**
+Bring all component stories up to the standard established for Button and CardBand: tighter visual presentation, labelled rows, and exhaustive prop iteration. Currently Button and CardBand are the most complete; Input, Tabs, and the section components need a similar treatment.
+
+**axe-core accessibility integration in Ladle**
+Integrate `@axe-core/react` (or the `@storybook/addon-a11y` Ladle equivalent) into the Provider in `.ladle/components.tsx` so accessibility violations surface automatically in the Ladle panel for every story. Covers contrast ratios, missing ARIA labels, incorrect heading hierarchy, and keyboard interaction issues without a separate audit step.
+
+**Component token linter**
+A script (`npm run lint:tokens`) that scans all `*.module.css` files for:
+- Hardcoded color values (hex, `rgb()`, named colors)
+- Hardcoded `px` spacing values not on the 4px scale
+- `font-family`, `font-size`, `font-weight`, `line-height` declared outside a `.type-*` class
+Could run as a pre-commit hook. Pairs with the `/new-component` skill to enforce token discipline as the library scales.
+
+**Ladle: color theme switcher**
+Add a light/dark toggle to the Ladle environment that switches `data-theme` on the Provider wrapper and updates the ground background accordingly. Investigate whether this can be tied to Ladle's own built-in color mode toggle — likely not directly, but a custom control via `argTypes` at the global level or a toolbar addon may be feasible.
+
+**Ladle: content stress tests**
+For content-rich components (Card, SideBySide, StackedImage), add stories with extreme content — very short headings, very long headings, minimal body copy, and overflow-length body copy. Validates that layout assumptions hold outside of the happy-path content authored for the `/tokens` demo page.
+
 **Component QA with Ladle (or Storybook)**
 As the component library grows, the hand-authored `/tokens` page won't catch every prop permutation. A story-based tool generates coverage automatically — every `hierarchy`, `surface`, `iconOnly`, and density combination is explorable without manually adding examples. Suggested trigger: ~8–10 components with intersecting props, or the first time a prop combination is found broken that wasn't in the `/tokens` page.
 
