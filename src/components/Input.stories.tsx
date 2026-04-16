@@ -7,11 +7,11 @@ export default { title: "Input" } satisfies StoryDefault;
 
 export const Default: Story = () => <Input placeholder="Placeholder text" />;
 export const WithValue: Story = () => <Input defaultValue="Entered value" />;
-export const WithIcon: Story = () => <Input placeholder="Search" icon="search.svg" />;
+export const WithIcon: Story = () => <Input placeholder="Search" icon="search" />;
 export const ErrorState: Story = () => <Input defaultValue="Invalid entry" hasError />;
 export const Disabled: Story = () => <Input defaultValue="Disabled value" disabled />;
-export const DisabledWithIcon: Story = () => <Input defaultValue="Disabled" icon="search.svg" disabled />;
-export const ErrorWithIcon: Story = () => <Input defaultValue="Bad value" icon="search.svg" hasError />;
+export const DisabledWithIcon: Story = () => <Input defaultValue="Disabled" icon="search" disabled />;
+export const ErrorWithIcon: Story = () => <Input defaultValue="Bad value" icon="search" hasError />;
 
 // ── All states ───────────────────────────────────────────────────────
 
@@ -19,11 +19,11 @@ export const AllStates: Story = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 400 }}>
     <Input placeholder="Default" />
     <Input defaultValue="With value" />
-    <Input placeholder="With icon" icon="search.svg" />
+    <Input placeholder="With icon" icon="search" />
     <Input defaultValue="Error state" hasError />
-    <Input defaultValue="Error with icon" icon="search.svg" hasError />
+    <Input defaultValue="Error with icon" icon="search" hasError />
     <Input defaultValue="Disabled" disabled />
-    <Input defaultValue="Disabled with icon" icon="search.svg" disabled />
+    <Input defaultValue="Disabled with icon" icon="search" disabled />
   </div>
 );
 
@@ -34,7 +34,7 @@ export const Densities: Story = () => (
     {(["compact", "default", "spacious"] as const).map((density) => (
       <div key={density} style={{ display: "flex", alignItems: "center", gap: 12 }} data-density={density}>
         <span style={{ width: 72, fontSize: 11, color: "var(--semantic-color-text-secondary)", fontFamily: "monospace", flexShrink: 0 }}>{density}</span>
-        <Input placeholder="Placeholder" icon="search.svg" />
+        <Input placeholder="Placeholder" icon="search" />
       </div>
     ))}
   </div>

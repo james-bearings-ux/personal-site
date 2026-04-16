@@ -69,7 +69,6 @@
 }
 
 .arrowIcon {
-  display: inline-block;
   vertical-align: middle;
   /* stylelint-disable declaration-property-value-disallowed-list --
      em values are intentional — icon scales with surrounding text size. */
@@ -77,7 +76,6 @@
   height: 1em;
   margin-left: 0.2em;
   /* stylelint-enable declaration-property-value-disallowed-list */
-  mask: url("/img/arrow_forward.svg") center / contain no-repeat;
   background-color: var(--semantic-color-text-primary);
   transition: transform var(--primitive-motion-duration-quick) var(--primitive-motion-easing-appear);
 }

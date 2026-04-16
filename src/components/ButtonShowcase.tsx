@@ -25,23 +25,23 @@ export function ButtonShowcase() {
             <Button hierarchy="ghost" label="Ghost" />
           </div>
           <div className={styles.buttonRow}>
-            <Button hierarchy="primary" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
-            <Button hierarchy="alt" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
-            <Button hierarchy="secondary" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
-            <Button hierarchy="ghost" iconOnly iconBefore="arrow_forward.svg" aria-label="Forward" />
+            <Button hierarchy="primary" iconOnly iconBefore="arrow_forward" aria-label="Forward" />
+            <Button hierarchy="alt" iconOnly iconBefore="arrow_forward" aria-label="Forward" />
+            <Button hierarchy="secondary" iconOnly iconBefore="arrow_forward" aria-label="Forward" />
+            <Button hierarchy="ghost" iconOnly iconBefore="arrow_forward" aria-label="Forward" />
           </div>
           <div className={styles.buttonRow}>
             <ButtonGroup>
               <Button hierarchy="primary" label="Action" />
-              <Button hierarchy="primary" iconOnly iconBefore="keyboard_arrow_down.svg" aria-label="More options" />
+              <Button hierarchy="primary" iconOnly iconBefore="keyboard_arrow_down" aria-label="More options" />
             </ButtonGroup>
             <ButtonGroup>
               <Button hierarchy="alt" label="Action" />
-              <Button hierarchy="alt" iconOnly iconBefore="keyboard_arrow_down.svg" aria-label="More options" />
+              <Button hierarchy="alt" iconOnly iconBefore="keyboard_arrow_down" aria-label="More options" />
             </ButtonGroup>
             <ButtonGroup>
               <Button hierarchy="secondary" label="Action" />
-              <Button hierarchy="secondary" iconOnly iconBefore="keyboard_arrow_down.svg" aria-label="More options" />
+              <Button hierarchy="secondary" iconOnly iconBefore="keyboard_arrow_down" aria-label="More options" />
             </ButtonGroup>
           </div>
           <div className={styles.buttonRow}>

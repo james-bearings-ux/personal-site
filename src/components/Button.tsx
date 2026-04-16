@@ -1,3 +1,4 @@
+import { Icon, IconName } from "./Icon";
 import styles from "./Button.module.css";
 
 export type ButtonHierarchy = "primary" | "alt" | "secondary" | "ghost";
@@ -5,8 +6,8 @@ export type ButtonHierarchy = "primary" | "alt" | "secondary" | "ghost";
 interface ButtonBaseProps {
   hierarchy?: ButtonHierarchy;
   label?: string;
-  iconBefore?: string;
-  iconAfter?: string;
+  iconBefore?: IconName;
+  iconAfter?: IconName;
   iconOnly?: boolean;
   className?: string;
   children?: React.ReactNode;
@@ -24,16 +25,6 @@ type ButtonAsLink = ButtonBaseProps &
 
 type ButtonProps = ButtonAsButton | ButtonAsLink;
 
-function Icon({ src }: { src: string }) {
-  return (
-    <span
-      className={styles.icon}
-      aria-hidden="true"
-      style={{ maskImage: `url('/img/${src}')` }}
-    />
-  );
-}
-
 export function Button({
   hierarchy = "primary",
   label,
@@ -47,9 +38,9 @@ export function Button({
   const cls = `${styles.btn} ${styles[hierarchy]} ${iconOnly ? styles.iconOnly : ""} ${className}`.trim();
   const content = (
     <>
-      {iconBefore && <Icon src={iconBefore} />}
+      {iconBefore && <Icon name={iconBefore} className={styles.icon} />}
       {label ?? children}
-      {iconAfter && <Icon src={iconAfter} />}
+      {iconAfter && <Icon name={iconAfter} className={styles.icon} />}
     </>
   );
 

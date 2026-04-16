@@ -13,7 +13,7 @@ export function InputShowcase() {
       <ScrollReveal delay={120}>
         <div className={styles.inputRow}>
           <Input placeholder="Placeholder" />
-          <Input placeholder="Search" icon="search.svg" />
+          <Input placeholder="Search" icon="search" />
         </div>
       </ScrollReveal>
     </div>

@@ -1,0 +1,23 @@
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  background-color: currentColor;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+.small {
+  width: var(--component-icon-size-small);
+  height: var(--component-icon-size-small);
+}
+
+.medium {
+  width: var(--component-icon-size-medium);
+  height: var(--component-icon-size-medium);
+}
+
+.large {
+  width: var(--component-icon-size-large);
+  height: var(--component-icon-size-large);
+}

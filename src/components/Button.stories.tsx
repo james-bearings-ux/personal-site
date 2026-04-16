@@ -28,13 +28,13 @@ const propRows = (hierarchy: "primary" | "secondary" | "alt" | "ghost") => (
       <Button hierarchy={hierarchy} label="As link" href="/work" />
     </div>
     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-      <Button hierarchy={hierarchy} label="Icon before" iconBefore="search.svg" />
-      <Button hierarchy={hierarchy} label="Icon after" iconAfter="arrow_forward.svg" />
-      <Button hierarchy={hierarchy} iconOnly iconBefore="close.svg" aria-label="Close" />
+      <Button hierarchy={hierarchy} label="Icon before" iconBefore="search" />
+      <Button hierarchy={hierarchy} label="Icon after" iconAfter="arrow_forward" />
+      <Button hierarchy={hierarchy} iconOnly iconBefore="close" aria-label="Close" />
     </div>
     <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
       <Button hierarchy={hierarchy} label="Disabled" disabled />
-      <Button hierarchy={hierarchy} iconOnly iconBefore="close.svg" aria-label="Close" disabled />
+      <Button hierarchy={hierarchy} iconOnly iconBefore="close" aria-label="Close" disabled />
     </div>
   </div>
 );
@@ -56,7 +56,7 @@ export const Densities: Story = () => (
         <Button hierarchy="secondary" label="Secondary" />
         <Button hierarchy="alt" label="Alt" />
         <Button hierarchy="ghost" label="Ghost" />
-        <Button hierarchy="primary" label="Icon after" iconAfter="arrow_forward.svg" />
+        <Button hierarchy="primary" label="Icon after" iconAfter="arrow_forward" />
       </div>
     ))}
   </div>

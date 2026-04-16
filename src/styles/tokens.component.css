@@ -22,6 +22,9 @@
   --component-ai-prompt-bar-prompt-gap: 8px;
   --component-ai-prompt-bar-close-button-offset: 16px;
   --component-ai-prompt-bar-padding: 8px;
+  --component-icon-size-small: 16px;
+  --component-icon-size-medium: 24px;
+  --component-icon-size-large: 32px;
 }
 
 [data-density="compact"] {

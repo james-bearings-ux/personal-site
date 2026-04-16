@@ -55,17 +55,11 @@
   color: var(--semantic-color-interaction-hover);
 }
 
-/* icon — CSS mask, inherits text color from hierarchy */
+/* icon — sizing only; mask technique provided by Icon component */
 
 .icon {
-  display: inline-block;
-  flex-shrink: 0;
   width: var(--component-button-icon-surface-width);
   height: var(--component-button-icon-surface-width);
-  background-color: currentColor;
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
 }
 
 /* ghost — no fill, no border */

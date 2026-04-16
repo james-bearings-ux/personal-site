@@ -1,4 +1,5 @@
 import { Button } from "./Button";
+import { Icon } from "./Icon";
 import styles from "./Card.module.css";
 
 export type CardVariant = "image" | "heading" | "text";
@@ -45,7 +46,7 @@ export function Card({
           <h3 className={`type-heading-3 ${styles.heading}`}>
             {heading}
             {interactive === "card-link" && (
-              <span className={styles.arrowIcon} aria-hidden="true" />
+              <Icon name="arrow_forward" className={styles.arrowIcon} />
             )}
           </h3>
         </div>

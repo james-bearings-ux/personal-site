@@ -101,7 +101,7 @@ export function AiPromptBar() {
           className={styles.closeButton}
           hierarchy="ghost"
           iconOnly
-          iconBefore="close.svg"
+          iconBefore="close"
           aria-label="Dismiss"
           onClick={handleClose}
         />

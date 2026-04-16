@@ -74,18 +74,13 @@
   text-align: left;
 }
 
-/* Icon — CSS mask so color responds to theme tokens */
+/* Icon — sizing, color override, and rotation animation.
+   Mask technique provided by Icon component. */
 
 .icon {
-  flex-shrink: 0;
-  display: inline-block;
   width: var(--component-accordion-icon-size);
   height: var(--component-accordion-icon-size);
   background-color: var(--semantic-color-icon-primary);
-  mask-image: url('/img/keyboard_arrow_down.svg');
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
   transition: transform var(--primitive-motion-duration-normal) var(--primitive-motion-easing-spring);
 }
 

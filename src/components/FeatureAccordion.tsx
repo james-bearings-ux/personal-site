@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "./Button";
+import { Icon } from "./Icon";
 import { ScrollReveal } from "./ScrollReveal";
 import { breakpoints } from "@/styles/tokens.breakpoints";
 import { surfaceTokens, Surface } from "@/styles/tokens.surface";
@@ -39,7 +40,7 @@ function AccordionItem({ label, isOpen, onToggle, children }: AccordionItemProps
     <div className={styles.item} data-open={isOpen}>
       <button className={styles.face} onClick={onToggle} aria-expanded={isOpen}>
         <span className={`type-ui-large ${styles.label}`}>{label}</span>
-        <span className={styles.icon} aria-hidden="true" />
+        <Icon name="keyboard_arrow_down" className={styles.icon} />
       </button>
       <div className={styles.content}>
         <div className={styles.contentInner}>{children}</div>

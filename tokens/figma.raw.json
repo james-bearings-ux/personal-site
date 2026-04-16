@@ -1713,6 +1713,22 @@
         "$value": "{primitive.space.2x}",
         "$type": "dimension"
       }
+    },
+    "icon": {
+      "size": {
+        "small": {
+          "$value": "{primitive.space.4x}",
+          "$type": "dimension"
+        },
+        "medium": {
+          "$value": "{primitive.space.6x}",
+          "$type": "dimension"
+        },
+        "large": {
+          "$value": "{primitive.space.8x}",
+          "$type": "dimension"
+        }
+      }
     }
   },
   "typography": {
