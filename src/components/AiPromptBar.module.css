@@ -25,7 +25,10 @@
 }
 
 .open .responseArea {
-  /* Full viewport minus the prompt bar: input height + top/bottom padding + border */
+  /* Full viewport minus the prompt bar: input height + top/bottom padding + border.
+     The 4x padding offset has no component token yet — AiPromptBar is not fully
+     rationalized. Suppress linting until the component stabilizes. */
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
   height: calc(100vh - var(--component-input-surface-height) - var(--primitive-space-4x) - 1px);
   overflow-y: auto;
 }
