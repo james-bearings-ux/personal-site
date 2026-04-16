@@ -3,9 +3,17 @@
  * Reads tokens/figma.raw.json and outputs:
  *   src/styles/tokens.css              — primitive tokens as CSS custom properties on :root
  *   src/styles/tokens.semantic.css     — [data-theme="light"] and [data-theme="dark"] blocks
- *   src/styles/tokens.component.css    — [data-density="compact/default/spacious"] blocks
+ *   src/styles/tokens.component.css    — :root block (modeless component tokens) +
+ *                                        [data-density="compact/default/spacious"] blocks (density tokens)
+ *                                        Both collections emit --component-* CSS variable names.
  *   src/styles/tokens.breakpoints.css  — mobile-first @media query blocks for grid/layout tokens
  *   src/styles/tokens.typography.css   — typography composite tokens as .type-* utility classes
+ *
+ * Figma collections → CSS prefixes:
+ *   primitive            → --primitive-*         (tokens.css, :root)
+ *   semantic-light/dark  → --semantic-*          (tokens.semantic.css, [data-theme])
+ *   density-[mode]/component → --component-*     (tokens.component.css, [data-density] / :root)
+ *   breakpoint-*         → --grid-* / --layout-* (tokens.breakpoints.css, @media)
  *
  * Tokens with any path segment prefixed with "_" are Figma-only and skipped in all outputs.
  *
@@ -94,12 +102,79 @@ StyleDictionary.registerFormat({
 });
 
 // ---------------------------------------------------------------------------
+// Custom format: component + density CSS variables
+//
+// Outputs two kinds of blocks into tokens.component.css:
+//
+//   1. :root — modeless "component" collection (fixed attributes like border-radius,
+//      font-weight). No density variation; defined once.
+//      path ["component","button","border-radius"] → --component-button-border-radius
+//
+//   2. [data-density="compact/default/spacious"] — "density" collection (attributes
+//      that vary across density modes: padding, height, font-size, gap, etc.).
+//      path ["density-compact","button","padding"] → --component-button-padding
+//
+// Both collections normalize to the --component-* CSS prefix. The two-collection
+// split is a Figma authoring concern; CSS consumers see one unified namespace.
+// ---------------------------------------------------------------------------
+
+StyleDictionary.registerFormat({
+  name: 'css/component-variables',
+  format: ({ dictionary }) => {
+    const lines = [
+      '/**',
+      ' * Do not edit directly, this file was auto-generated.',
+      ' */',
+      '',
+    ];
+
+    // 1. Modeless component tokens → :root
+    const modeless = dictionary.allTokens.filter((t) => t.path[0] === 'component');
+    if (modeless.length > 0) {
+      lines.push(':root {');
+      for (const token of modeless) {
+        // path: ['component','button','border-radius'] → '--component-button-border-radius'
+        const varName = `--${token.path.join('-')}`;
+        lines.push(`  ${varName}: ${token.$value};`);
+      }
+      lines.push('}');
+      lines.push('');
+    }
+
+    // 2. Density-modal tokens → [data-density="..."] blocks
+    const groups = new Map();
+    for (const token of dictionary.allTokens) {
+      if (!token.path[0].startsWith('density-')) continue;
+      const key = token.path[0];
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(token);
+    }
+
+    const order = ['density-compact', 'density-default', 'density-spacious'];
+    for (const key of order) {
+      if (!groups.has(key)) continue;
+      const densityName = key.replace('density-', '');
+      lines.push(`[data-density="${densityName}"] {`);
+      for (const token of groups.get(key)) {
+        // path: ['density-compact','button','padding'] → '--component-button-padding'
+        const varName = `--component-${token.path.slice(1).join('-')}`;
+        lines.push(`  ${varName}: ${token.$value};`);
+      }
+      lines.push('}');
+      lines.push('');
+    }
+
+    return lines.join('\n');
+  },
+});
+
+// ---------------------------------------------------------------------------
 // Custom format: breakpoint-scoped CSS variables
 //
-// Groups tokens by breakpoint collection (breakpoints-mobile, -tablet,
+// Groups tokens by breakpoint collection (breakpoint-mobile, -tablet,
 // -desktop), reads the "min-width" token to construct the @media condition,
 // then outputs all other non-skipped tokens as CSS custom properties with the
-// collection prefix stripped: "breakpoints-desktop/grid/edge" → "--grid-edge".
+// collection prefix stripped: "breakpoint-desktop/grid/edge" → "--grid-edge".
 //
 // Mobile (min-width: 0) is output as :root defaults with no @media wrapper,
 // following the mobile-first convention.
@@ -243,8 +318,8 @@ StyleDictionary.registerFormat({
     ];
 
     for (const token of tokens) {
-      // "breakpoints-tablet" → "tablet"
-      const name = token.path[0].replace('breakpoints-', '');
+      // "breakpoint-tablet" → "tablet"
+      const name = token.path[0].replace('breakpoint-', '');
       const value = parseInt(token.$value, 10);
       lines.push(`  ${name}: ${value},`);
     }
@@ -272,7 +347,7 @@ const sd = new StyleDictionary({
           // Primitive tokens only → CSS custom properties on :root
           destination: 'tokens.css',
           format: 'css/variables',
-          filter: (token) => token.path[0] === 'primitives',
+          filter: (token) => token.path[0] === 'primitive',
           options: {
             selector: ':root',
             outputReferences: false,
@@ -286,17 +361,18 @@ const sd = new StyleDictionary({
           options: { attribute: 'data-theme' },
         },
         {
-          // Component tokens → [data-density="compact/default/spacious"] blocks
+          // Component tokens → :root (modeless) + [data-density="..."] (density-modal) blocks
+          // Both density-* and component collections normalize to --component-* CSS prefix.
           destination: 'tokens.component.css',
-          format: 'css/themed-variables',
-          filter: (token) => token.path[0].startsWith('component-'),
-          options: { attribute: 'data-density' },
+          format: 'css/component-variables',
+          filter: (token) =>
+            token.path[0] === 'component' || token.path[0].startsWith('density-'),
         },
         {
           // Breakpoint tokens → mobile-first @media query blocks
           destination: 'tokens.breakpoints.css',
           format: 'css/media-query-variables',
-          filter: (token) => token.path[0].startsWith('breakpoints-'),
+          filter: (token) => token.path[0].startsWith('breakpoint-'),
         },
         {
           // Typography composite tokens → .type-* utility classes
@@ -315,7 +391,7 @@ const sd = new StyleDictionary({
           destination: 'tokens.breakpoints.ts',
           format: 'typescript/breakpoint-constants',
           filter: (token) =>
-            token.path[0].startsWith('breakpoints-') && token.path[1] === 'min-width',
+            token.path[0].startsWith('breakpoint-') && token.path[1] === 'min-width',
         },
       ],
     },

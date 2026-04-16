@@ -18,10 +18,10 @@
 
 .scroll-reveal {
   opacity: 0;
-  transform: translateY(var(--primitives-motion-distance-large));
+  transform: translateY(var(--primitive-motion-distance-large));
   transition:
-    opacity   var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear)  var(--reveal-delay, 0ms),
-    transform var(--primitives-motion-duration-deliberate)   var(--primitives-motion-easing-spring)  var(--reveal-delay, 0ms);
+    opacity   var(--primitive-motion-duration-normal) var(--primitive-motion-easing-appear)  var(--reveal-delay, 0ms),
+    transform var(--primitive-motion-duration-deliberate)   var(--primitive-motion-easing-spring)  var(--reveal-delay, 0ms);
 }
 
 .scroll-reveal[data-revealed="true"] {

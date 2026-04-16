@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--primitives-space-4x);
+  gap: var(--primitive-space-4x);
 }
 
 .heading {
@@ -61,12 +61,12 @@
   font-family: inherit;
   cursor: pointer;
   padding: var(--component-accordion-surface-v-padding) var(--component-accordion-surface-h-padding);
-  transition: padding var(--primitives-motion-duration-quick) var(--primitives-motion-easing-appear);
+  transition: padding var(--primitive-motion-duration-quick) var(--primitive-motion-easing-appear);
 }
 
 .face:hover {
-  padding-top: calc(var(--component-accordion-surface-v-padding) + var(--primitives-motion-distance-xsmall));
-  padding-bottom: calc(var(--component-accordion-surface-v-padding) + var(--primitives-motion-distance-xsmall));
+  padding-top: calc(var(--component-accordion-surface-v-padding) + var(--primitive-motion-distance-xsmall));
+  padding-bottom: calc(var(--component-accordion-surface-v-padding) + var(--primitive-motion-distance-xsmall));
 }
 
 .label {
@@ -86,7 +86,7 @@
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  transition: transform var(--primitives-motion-duration-normal) var(--primitives-motion-easing-spring);
+  transition: transform var(--primitive-motion-duration-normal) var(--primitive-motion-easing-spring);
 }
 
 .item[data-open="true"] .icon {
@@ -98,7 +98,7 @@
 .content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--primitives-motion-duration-normal) var(--primitives-motion-easing-spring);
+  transition: grid-template-rows var(--primitive-motion-duration-normal) var(--primitive-motion-easing-spring);
 }
 
 .contentInner {

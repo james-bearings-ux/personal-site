@@ -2,6 +2,27 @@
  * Do not edit directly, this file was auto-generated.
  */
 
+:root {
+  --component-button-text-font-weight: 600;
+  --component-tab-text-font-weight: 600;
+  --component-input-text-font-weight: 600;
+  --component-input-placeholder-font-weight: 400;
+  --component-card-text-gap: 8px;
+  --component-card-text-padding-top: 16px;
+  --component-card-heading-block-gap: 4px;
+  --component-side-by-side-border-radius: 0px;
+  --component-side-by-side-caption-gap: 16px;
+  --component-stacked-image-border-radius: 0px;
+  --component-stacked-image-container-gap: 16px;
+  --component-stacked-image-caption-gap: 16px;
+  --component-accordion-heading-gap: 16px;
+  --component-tabbed-slideshow-gap: 24px;
+  --component-ai-prompt-bar-response-margin-bottom: 24px;
+  --component-ai-prompt-bar-thinking-dot-gap: 4px;
+  --component-ai-prompt-bar-prompt-gap: 8px;
+  --component-ai-prompt-bar-close-button-offset: 16px;
+}
+
 [data-density="compact"] {
   --component-button-border-radius: 999px;
   --component-button-border-width: 1px;

@@ -40,14 +40,14 @@
 .cardText {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-2x);
-  padding-top: var(--primitives-space-4x);
+  gap: var(--primitive-space-2x);
+  padding-top: var(--primitive-space-4x);
 }
 
 .headingBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-1x);
+  gap: var(--primitive-space-1x);
 }
 
 .metadata {
@@ -76,9 +76,9 @@
   margin-left: 0.2em;
   mask: url("/img/arrow_forward.svg") center / contain no-repeat;
   background-color: var(--semantic-color-text-primary);
-  transition: transform var(--primitives-motion-duration-quick) var(--primitives-motion-easing-appear);
+  transition: transform var(--primitive-motion-duration-quick) var(--primitive-motion-easing-appear);
 }
 
 .cardLink:hover .arrowIcon {
-  transform: translateX(var(--primitives-motion-distance-small));
+  transform: translateX(var(--primitive-motion-distance-small));
 }

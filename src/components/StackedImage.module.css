@@ -1,12 +1,12 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-4x);
+  gap: var(--primitive-space-4x);
 }
 
 .imageWrap {
   position: relative;
-  border-radius: var(--primitives-border-radius-none);
+  border-radius: var(--primitive-border-radius-none);
   overflow: hidden;
 }
 
@@ -25,13 +25,13 @@
   right: 0;
   padding: var(--space-10x) var(--grid-edge);
   color: var(--semantic-color-text-reverse);
-  text-shadow: var(--primitives-shadow-text-overlay-geometry) var(--semantic-color-shadow-text-overlay);
+  text-shadow: var(--primitive-shadow-text-overlay-geometry) var(--semantic-color-shadow-text-overlay);
 }
 
 .caption {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-4x);
+  gap: var(--primitive-space-4x);
 }
 
 .heading {
