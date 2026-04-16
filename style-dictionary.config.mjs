@@ -17,6 +17,12 @@
  *
  * Tokens with any path segment prefixed with "_" are Figma-only and skipped in all outputs.
  *
+ * Intentional exceptions to the primitive-alias convention:
+ *   density / button / surface / height       (32/36/50px) — optically derived target heights,
+ *   density / input  / surface / height       (26/34/50px)   not multiples of the space scale
+ *   density / button / icon / surface / h-padding (6/5/12px) — optical icon centering compensation
+ * These are hardcoded in Figma by design. There is no primitive they should alias to.
+ *
  * Run via: npm run build-tokens
  */
 
