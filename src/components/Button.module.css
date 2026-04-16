@@ -9,7 +9,7 @@
   border: var(--component-button-border-width) solid transparent;
   font-family: inherit;
   font-size: var(--component-button-text-font-size);
-  font-weight: var(--primitives-typography-weight-bold);
+  font-weight: var(--component-button-text-font-weight);
   line-height: 1;
   cursor: pointer;
   text-decoration: none;

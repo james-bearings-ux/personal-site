@@ -21,12 +21,15 @@
 .responseArea {
   height: 0;
   overflow: hidden;
-  transition: height 0.7s var(--primitives-motion-easing-spring);
+  transition: height 0.7s var(--primitive-motion-easing-spring);
 }
 
 .open .responseArea {
-  /* Full viewport minus the prompt bar: input height + top/bottom padding + border */
-  height: calc(100vh - var(--component-input-surface-height) - var(--primitives-space-4x) - 1px);
+  /* Full viewport minus the prompt bar: input height + top/bottom padding + border.
+     The 4x padding offset has no component token yet — AiPromptBar is not fully
+     rationalized. Suppress linting until the component stabilizes. */
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  height: calc(100vh - var(--component-input-surface-height) - var(--primitive-space-4x) - 1px);
   overflow-y: auto;
 }
 
@@ -162,7 +165,7 @@
 
 .paragraph {
   color: var(--semantic-color-text-primary);
-  margin-bottom: var(--primitives-space-6x);
+  margin-bottom: var(--component-ai-prompt-bar-response-margin-bottom);
 }
 
 .paragraph:last-child {
@@ -173,7 +176,7 @@
 
 .thinking {
   display: flex;
-  gap: var(--primitives-space-1x);
+  gap: var(--component-ai-prompt-bar-thinking-dot-gap);
   align-items: center;
   height: 2em;
 }
@@ -214,7 +217,7 @@
 /* ── Prompt bar ───────────────────────────────────────────────────── */
 
 .promptBar {
-  padding: var(--primitives-space-2x) var(--grid-edge);
+  padding: var(--component-ai-prompt-bar-padding) var(--grid-edge);
   border-bottom: 1px solid var(--semantic-color-border-secondary);
   background-color: var(--semantic-color-surface-base);
 }
@@ -227,7 +230,7 @@
 /* Input + Ask button — centered, wider than the response content */
 .inputGroup {
   display: flex;
-  gap: var(--primitives-space-2x);
+  gap: var(--component-ai-prompt-bar-prompt-gap);
   width: 100%;
   max-width: var(--grid-narrow-max-width);
   margin: 0 auto;
@@ -237,9 +240,9 @@
    streaming begins so it coincides with the answer appearing */
 .closeButton {
   position: absolute;
-  top: var(--primitives-space-4x);
-  right: var(--primitives-space-4x);
-  animation: popIn 0.4s var(--primitives-motion-easing-spring) both;
+  top: var(--component-ai-prompt-bar-close-button-offset);
+  right: var(--component-ai-prompt-bar-close-button-offset);
+  animation: popIn 0.4s var(--primitive-motion-easing-spring) both;
 }
 
 @keyframes popIn {

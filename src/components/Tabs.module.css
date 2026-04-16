@@ -16,12 +16,12 @@
   border: none;
   font-family: inherit;
   font-size: var(--component-tab-text-font-size);
-  font-weight: var(--primitives-typography-weight-bold);
+  font-weight: var(--component-tab-text-font-weight);
   line-height: 1;
   color: var(--semantic-color-text-reverse);
   cursor: pointer;
   white-space: nowrap;
-  transition: background var(--primitives-motion-duration-quick) var(--primitives-motion-easing-spring);
+  transition: background var(--primitive-motion-duration-quick) var(--primitive-motion-easing-spring);
 }
 
 .tab.selected {

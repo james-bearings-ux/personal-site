@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-6x);
+  gap: var(--primitive-space-6x);
   padding: var(--space-v-margin-xl) var(--grid-edge);
   width: 100%;
 }
@@ -46,25 +46,25 @@
 }
 
 @keyframes panelSlideForward {
-  from { transform: translateX(var(--primitives-motion-distance-xlarge)); }
+  from { transform: translateX(var(--primitive-motion-distance-xlarge)); }
   to   { transform: translateX(0); }
 }
 
 @keyframes panelSlideBackward {
-  from { transform: translateX(calc(var(--primitives-motion-distance-xlarge) * -1)); }
+  from { transform: translateX(calc(var(--primitive-motion-distance-xlarge) * -1)); }
   to   { transform: translateX(0); }
 }
 
 .panel[data-direction="forward"] {
   animation:
-    panelFadeIn       var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear) both,
-    panelSlideForward var(--primitives-motion-duration-slow)   var(--primitives-motion-easing-spring) both;
+    panelFadeIn       var(--primitive-motion-duration-normal) var(--primitive-motion-easing-appear) both,
+    panelSlideForward var(--primitive-motion-duration-slow)   var(--primitive-motion-easing-spring) both;
 }
 
 .panel[data-direction="backward"] {
   animation:
-    panelFadeIn        var(--primitives-motion-duration-normal) var(--primitives-motion-easing-appear) both,
-    panelSlideBackward var(--primitives-motion-duration-slow)   var(--primitives-motion-easing-spring) both;
+    panelFadeIn        var(--primitive-motion-duration-normal) var(--primitive-motion-easing-appear) both,
+    panelSlideBackward var(--primitive-motion-duration-slow)   var(--primitive-motion-easing-spring) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

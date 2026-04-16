@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-6x);
+  gap: var(--primitive-space-6x);
   padding: var(--space-v-margin-xl) var(--grid-edge);
   background-color: var(--semantic-color-surface-base);
   width: 100%;
@@ -21,16 +21,16 @@
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--primitives-space-4x);
+  gap: var(--primitive-space-4x);
   background: var(--semantic-color-surface-low);
-  padding: var(--primitives-space-6x);
-  border-radius: var(--primitives-border-radius-large);
+  padding: var(--primitive-space-6x);
+  border-radius: var(--primitive-border-radius-large);
 }
 
 .typeRow {
   display: flex;
   align-items: baseline;
-  gap: var(--primitives-space-4x);
+  gap: var(--primitive-space-4x);
 }
 
 .typeLabel {
