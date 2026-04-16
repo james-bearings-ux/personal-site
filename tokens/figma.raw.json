@@ -1664,6 +1664,10 @@
           "$value": "{primitive.space.4x}",
           "$type": "dimension"
         }
+      },
+      "padding": {
+        "$value": "{primitive.space.2x}",
+        "$type": "dimension"
       }
     }
   },

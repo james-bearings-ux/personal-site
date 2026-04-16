@@ -21,6 +21,7 @@
   --component-ai-prompt-bar-thinking-dot-gap: 4px;
   --component-ai-prompt-bar-prompt-gap: 8px;
   --component-ai-prompt-bar-close-button-offset: 16px;
+  --component-ai-prompt-bar-padding: 8px;
 }
 
 [data-density="compact"] {

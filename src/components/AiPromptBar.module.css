@@ -217,7 +217,7 @@
 /* ── Prompt bar ───────────────────────────────────────────────────── */
 
 .promptBar {
-  padding: var(--primitive-space-2x) var(--grid-edge);
+  padding: var(--component-ai-prompt-bar-padding) var(--grid-edge);
   border-bottom: 1px solid var(--semantic-color-border-secondary);
   background-color: var(--semantic-color-surface-base);
 }
