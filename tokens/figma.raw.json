@@ -849,8 +849,8 @@
           "$type": "dimension"
         },
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       }
     },
@@ -1023,8 +1023,8 @@
           "$type": "dimension"
         },
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       }
     },
@@ -1197,8 +1197,8 @@
           "$type": "dimension"
         },
         "width": {
-          "$value": "2px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.emphasis}",
+          "$type": "number"
         }
       }
     },
