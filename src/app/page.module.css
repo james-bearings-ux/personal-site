@@ -20,7 +20,7 @@
 .leading img,
 .trailing img {
   max-width: 400px;
-  width: 100%;
+  width: var(--primitive-layout-full);
   padding: 20px;
 }
 

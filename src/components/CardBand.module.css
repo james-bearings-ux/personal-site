@@ -3,13 +3,13 @@
   flex-direction: column;
   gap: var(--space-16x);
   padding: var(--space-v-margin-xl) var(--grid-edge);
-  width: 100%;
+  width: var(--primitive-layout-full);
 }
 
 .headingBlock {
   max-width: var(--grid-narrow-max-width);
   margin: 0 auto;
-  width: 100%;
+  width: var(--primitive-layout-full);
   text-align: center;
 }
 

@@ -12,8 +12,8 @@
 
 .image {
   display: block;
-  width: 100%;
-  height: auto;
+  width: var(--primitive-layout-full);
+  height: var(--primitive-layout-auto);
   aspect-ratio: 5 / 2;
   object-fit: cover;
 }

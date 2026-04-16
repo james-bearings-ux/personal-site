@@ -1,7 +1,7 @@
 .card {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: var(--primitive-space-0x);
   border-radius: 0; /* no token yet — border-radius-none: 0 is a candidate */
   overflow: hidden;
 }
@@ -10,7 +10,7 @@
 
 .media {
   position: relative;
-  width: 100%;
+  width: var(--primitive-layout-full);
 }
 
 .media::after {
@@ -28,8 +28,8 @@
 
 .image {
   display: block;
-  width: 100%;
-  height: auto;
+  width: var(--primitive-layout-full);
+  height: var(--primitive-layout-auto);
   aspect-ratio: 1;
   object-fit: cover;
   filter: saturate(0.6);
@@ -71,9 +71,12 @@
 .arrowIcon {
   display: inline-block;
   vertical-align: middle;
+  /* stylelint-disable declaration-property-value-disallowed-list --
+     em values are intentional — icon scales with surrounding text size. */
   width: 1em;
   height: 1em;
   margin-left: 0.2em;
+  /* stylelint-enable declaration-property-value-disallowed-list */
   mask: url("/img/arrow_forward.svg") center / contain no-repeat;
   background-color: var(--semantic-color-text-primary);
   transition: transform var(--primitive-motion-duration-quick) var(--primitive-motion-easing-appear);

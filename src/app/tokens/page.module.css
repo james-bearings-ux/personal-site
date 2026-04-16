@@ -8,7 +8,7 @@
 .controlsBar {
   margin-top: calc(var(--component-input-surface-height) + var(--primitive-space-4x) + 1px);
   background-color: var(--semantic-color-surface-base);
-  border-bottom: 1px solid var(--semantic-color-border-secondary);
+  border-bottom: var(--primitive-border-width-default) solid var(--semantic-color-border-secondary);
   padding: var(--primitive-space-2x) var(--grid-edge);
   display: flex;
   align-items: center;
@@ -19,8 +19,8 @@
 .controlsTitle {
   color: var(--semantic-color-text-primary);
   margin-right: auto;
-  margin-bottom: 0;
-  margin-top: 8px;
+  margin-bottom: var(--primitive-space-0x);
+  margin-top: var(--primitive-space-2x);
 }
 
 .controls {
@@ -39,6 +39,7 @@
 .pageContainer {
   max-width: var(--grid-max-width);
   margin: 0 auto;
-  padding-bottom: 200px;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  padding-bottom: 200px; /* bespoke scroll clearance — no token equivalent */
 }
 

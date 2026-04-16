@@ -19,7 +19,7 @@
 /* ── Response area ────────────────────────────────────────────────── */
 
 .responseArea {
-  height: 0;
+  height: var(--primitive-space-0x);
   overflow: hidden;
   transition: height 0.7s var(--primitive-motion-easing-spring);
 }
@@ -52,6 +52,9 @@
    Colors are tints of --semantic-color-surface-ground so they theme
    automatically in light and dark mode. */
 
+/* stylelint-disable declaration-property-value-disallowed-list --
+   Blob shape dimensions are animation geometry (bespoke percentages).
+   Not design-token values — no primitive or component token applies. */
 .shape1 {
   width: 48%;
   height: 57%;
@@ -114,6 +117,7 @@
   animation: drift4 33s ease-in-out infinite;
   animation-delay: -22s;
 }
+/* stylelint-enable declaration-property-value-disallowed-list */
 
 @keyframes drift1 {
   0%   { transform: translate(0%,   0%)   rotate(0deg)   scale(1);    border-radius: 42% 58% 54% 46% / 52% 44% 56% 48%; }
@@ -169,7 +173,7 @@
 }
 
 .paragraph:last-child {
-  margin-bottom: 0;
+  margin-bottom: var(--primitive-space-0x);
 }
 
 /* ── Thinking indicator ───────────────────────────────────────────── */
@@ -178,12 +182,15 @@
   display: flex;
   gap: var(--component-ai-prompt-bar-thinking-dot-gap);
   align-items: center;
-  height: 2em;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  height: 2em; /* em-based: scales with font context */
 }
 
 .dot {
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
   width: 8px;
-  height: 8px;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  height: 8px; /* bespoke indicator dot — no token equivalent yet */
   border-radius: 50%;
   background-color: var(--semantic-color-text-disabled);
   animation: pulse 1.2s ease-in-out infinite;
@@ -201,10 +208,14 @@
 
 .cursor {
   display: inline-block;
+  /* stylelint-disable declaration-property-value-disallowed-list --
+     Cursor micro-geometry: stroke width, em-scaled height, and pixel offset
+     are bespoke animation values — no token equivalent. */
   width: 2px;
   height: 0.85em;
   background-color: var(--semantic-color-text-primary);
   margin-left: 2px;
+  /* stylelint-enable declaration-property-value-disallowed-list */
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
 }
@@ -218,12 +229,12 @@
 
 .promptBar {
   padding: var(--component-ai-prompt-bar-padding) var(--grid-edge);
-  border-bottom: 1px solid var(--semantic-color-border-secondary);
+  border-bottom: var(--primitive-border-width-default) solid var(--semantic-color-border-secondary);
   background-color: var(--semantic-color-surface-base);
 }
 
 .open .promptBar {
-  border-top: 1px solid var(--semantic-color-border-secondary);
+  border-top: var(--primitive-border-width-default) solid var(--semantic-color-border-secondary);
   border-bottom: none;
 }
 
@@ -231,7 +242,7 @@
 .inputGroup {
   display: flex;
   gap: var(--component-ai-prompt-bar-prompt-gap);
-  width: 100%;
+  width: var(--primitive-layout-full);
   max-width: var(--grid-narrow-max-width);
   margin: 0 auto;
 }

@@ -1,6 +1,6 @@
 .wrap {
   display: flex;
-  width: 100%;
+  width: var(--primitive-layout-full);
   align-items: center;
   gap: var(--component-input-surface-gap);
   height: var(--component-input-surface-height);
@@ -25,7 +25,7 @@
 
 .input {
   flex: 1;
-  min-width: 0;
+  min-width: var(--primitive-space-0x);
   background: transparent;
   border: none;
   outline: none;
@@ -47,8 +47,10 @@
 
 .icon {
   flex-shrink: 0;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
   width: 24px;
-  height: 24px;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  height: 24px; /* pending --component-input-icon-size token */
   background-color: var(--semantic-color-icon-primary);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -56,6 +58,8 @@
 }
 
 :global([data-density="compact"]) .icon {
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
   width: 16px;
-  height: 16px;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  height: 16px; /* pending --component-input-icon-size token */
 }

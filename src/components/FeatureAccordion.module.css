@@ -5,7 +5,7 @@
   flex-direction: column;
   gap: var(--space-v-margin-xl);
   padding: var(--space-v-margin-xl) var(--grid-edge);
-  width: 100%;
+  width: var(--primitive-layout-full);
 }
 
 @media (min-width: 800px) {
@@ -55,7 +55,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+  width: var(--primitive-layout-full);
   background: none;
   border: none;
   font-family: inherit;

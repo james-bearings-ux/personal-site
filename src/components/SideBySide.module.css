@@ -4,7 +4,7 @@
   gap: var(--space-v-margin-l);
   border-radius: var(--component-side-by-side-border-radius);
   overflow: hidden;
-  width: 100%;
+  width: var(--primitive-layout-full);
 }
 
 /* Tablet and up: side by side */
@@ -19,8 +19,8 @@
 
 .image {
   display: block;
-  width: 100%;
-  height: auto;
+  width: var(--primitive-layout-full);
+  height: var(--primitive-layout-auto);
   aspect-ratio: 4 / 3; /* reserves space while loading; natural ratio takes over once image is decoded */
 }
 
@@ -29,7 +29,7 @@
     flex: 1;
     /* In row layout the image width is determined by flex,
        height follows naturally from aspect ratio. */
-    height: auto;
+    height: var(--primitive-layout-auto);
     grid-column: span 6;
   }
 }
@@ -45,7 +45,7 @@
 @media (min-width: 800px) {
   .caption {
     flex: 1;
-    padding-left: 0;
+    padding-left: var(--primitive-space-0x);
     grid-column: span 6;
   }
 }

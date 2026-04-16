@@ -4,13 +4,13 @@
   gap: var(--primitive-space-6x);
   padding: var(--space-v-margin-xl) var(--grid-edge);
   background-color: var(--semantic-color-surface-base);
-  width: 100%;
+  width: var(--primitive-layout-full);
 }
 
 .headingBlock {
   max-width: var(--grid-narrow-max-width);
   margin: 0 auto;
-  width: 100%;
+  width: var(--primitive-layout-full);
   text-align: center;
 }
 
@@ -35,7 +35,8 @@
 
 .typeLabel {
   color: var(--semantic-color-text-disabled);
-  min-width: 96px;
+  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
+  min-width: 96px; /* showcase label alignment — bespoke */
   flex-shrink: 0;
 }
 
