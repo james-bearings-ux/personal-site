@@ -47,19 +47,7 @@
 
 .icon {
   flex-shrink: 0;
-  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
-  width: 24px;
-  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
-  height: 24px; /* pending --component-input-icon-size token */
+  width: var(--component-input-icon-size);
+  height: var(--component-input-icon-size);
   background-color: var(--semantic-color-icon-primary);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-}
-
-:global([data-density="compact"]) .icon {
-  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
-  width: 16px;
-  /* stylelint-disable-next-line declaration-property-value-disallowed-list */
-  height: 16px; /* pending --component-input-icon-size token */
 }

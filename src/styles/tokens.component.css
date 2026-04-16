@@ -61,6 +61,7 @@
   --component-input-border-width: 1px;
   --component-input-border-radius: 4px;
   --component-input-text-font-size: 12px;
+  --component-input-icon-size: 16px;
 }
 
 [data-density="default"] {
@@ -97,6 +98,7 @@
   --component-input-border-width: 1px;
   --component-input-border-radius: 4px;
   --component-input-text-font-size: 14px;
+  --component-input-icon-size: 24px;
 }
 
 [data-density="spacious"] {
@@ -133,4 +135,5 @@
   --component-input-border-width: 2px;
   --component-input-border-radius: 999px;
   --component-input-text-font-size: 18px;
+  --component-input-icon-size: 24px;
 }

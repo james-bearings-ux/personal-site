@@ -946,6 +946,12 @@
           "$value": "{primitive.typography.size.ui.small}",
           "$type": "dimension"
         }
+      },
+      "icon": {
+        "size": {
+          "$value": "{primitive.space.4x}",
+          "$type": "dimension"
+        }
       }
     }
   },
@@ -1126,6 +1132,12 @@
           "$value": "{primitive.typography.size.ui.medium}",
           "$type": "dimension"
         }
+      },
+      "icon": {
+        "size": {
+          "$value": "{primitive.space.6x}",
+          "$type": "dimension"
+        }
       }
     }
   },
@@ -1304,6 +1316,12 @@
       "text": {
         "font-size": {
           "$value": "{primitive.typography.size.ui.large}",
+          "$type": "dimension"
+        }
+      },
+      "icon": {
+        "size": {
+          "$value": "{primitive.space.6x}",
           "$type": "dimension"
         }
       }
