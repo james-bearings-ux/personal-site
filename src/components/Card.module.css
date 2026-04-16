@@ -40,14 +40,14 @@
 .cardText {
   display: flex;
   flex-direction: column;
-  gap: var(--primitive-space-2x);
-  padding-top: var(--primitive-space-4x);
+  gap: var(--component-card-text-gap);
+  padding-top: var(--component-card-text-padding-top);
 }
 
 .headingBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--primitive-space-1x);
+  gap: var(--component-card-heading-block-gap);
 }
 
 .metadata {

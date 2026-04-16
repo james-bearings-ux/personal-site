@@ -31,13 +31,13 @@
   outline: none;
   font-family: inherit;
   font-size: var(--component-input-text-font-size);
-  font-weight: var(--primitive-typography-weight-bold);
+  font-weight: var(--component-input-text-font-weight);
   color: var(--semantic-color-text-primary);
 }
 
 .input::placeholder {
   color: var(--semantic-color-text-disabled);
-  font-weight: var(--primitive-typography-weight-default);
+  font-weight: var(--component-input-placeholder-font-weight);
 }
 
 .input:disabled {

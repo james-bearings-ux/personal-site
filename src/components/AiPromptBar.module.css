@@ -162,7 +162,7 @@
 
 .paragraph {
   color: var(--semantic-color-text-primary);
-  margin-bottom: var(--primitive-space-6x);
+  margin-bottom: var(--component-ai-prompt-bar-response-margin-bottom);
 }
 
 .paragraph:last-child {
@@ -173,7 +173,7 @@
 
 .thinking {
   display: flex;
-  gap: var(--primitive-space-1x);
+  gap: var(--component-ai-prompt-bar-thinking-dot-gap);
   align-items: center;
   height: 2em;
 }
@@ -227,7 +227,7 @@
 /* Input + Ask button — centered, wider than the response content */
 .inputGroup {
   display: flex;
-  gap: var(--primitive-space-2x);
+  gap: var(--component-ai-prompt-bar-prompt-gap);
   width: 100%;
   max-width: var(--grid-narrow-max-width);
   margin: 0 auto;
@@ -237,8 +237,8 @@
    streaming begins so it coincides with the answer appearing */
 .closeButton {
   position: absolute;
-  top: var(--primitive-space-4x);
-  right: var(--primitive-space-4x);
+  top: var(--component-ai-prompt-bar-close-button-offset);
+  right: var(--component-ai-prompt-bar-close-button-offset);
   animation: popIn 0.4s var(--primitive-motion-easing-spring) both;
 }
 
