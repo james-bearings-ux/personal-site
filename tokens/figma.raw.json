@@ -900,6 +900,12 @@
           "$value": "{primitive.space.0x}",
           "$type": "number"
         }
+      },
+      "icon": {
+        "size": {
+          "$value": "{primitive.space.4x}",
+          "$type": "dimension"
+        }
       }
     },
     "input": {
@@ -1074,6 +1080,12 @@
           "$value": "{primitive.space.0x}",
           "$type": "number"
         }
+      },
+      "icon": {
+        "size": {
+          "$value": "{primitive.space.6x}",
+          "$type": "dimension"
+        }
       }
     },
     "input": {
@@ -1247,6 +1259,12 @@
         "h-padding": {
           "$value": "{primitive.space.0x}",
           "$type": "number"
+        }
+      },
+      "icon": {
+        "size": {
+          "$value": "{primitive.space.6x}",
+          "$type": "dimension"
         }
       }
     },

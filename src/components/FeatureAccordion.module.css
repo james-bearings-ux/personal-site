@@ -79,8 +79,8 @@
 .icon {
   flex-shrink: 0;
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  width: var(--component-accordion-icon-size);
+  height: var(--component-accordion-icon-size);
   background-color: var(--semantic-color-icon-primary);
   mask-image: url('/img/keyboard_arrow_down.svg');
   mask-size: contain;
