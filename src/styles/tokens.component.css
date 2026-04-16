@@ -48,7 +48,7 @@
   --component-stacked-image-text-font-size: 24px;
   --component-accordion-border-width: 1px;
   --component-accordion-surface-v-padding: 4px;
-  --component-accordion-surface-h-padding: 0px;
+  --component-accordion-surface-h-padding: 0;
   --component-input-surface-height: 26px;
   --component-input-surface-gap: 4px;
   --component-input-surface-v-padding: 4px;
@@ -83,7 +83,7 @@
   --component-stacked-image-text-font-size: 36px;
   --component-accordion-border-width: 1px;
   --component-accordion-surface-v-padding: 8px;
-  --component-accordion-surface-h-padding: 0px;
+  --component-accordion-surface-h-padding: 0;
   --component-input-surface-height: 34px;
   --component-input-surface-gap: 4px;
   --component-input-surface-v-padding: 4px;
@@ -96,7 +96,7 @@
 
 [data-density="spacious"] {
   --component-button-border-radius: 999px;
-  --component-button-border-width: 2px;
+  --component-button-border-width: 1px;
   --component-button-surface-v-padding: 4px;
   --component-button-surface-h-padding: 12px;
   --component-button-surface-gap: 4px;
@@ -118,7 +118,7 @@
   --component-stacked-image-text-font-size: 48px;
   --component-accordion-border-width: 1px;
   --component-accordion-surface-v-padding: 12px;
-  --component-accordion-surface-h-padding: 0px;
+  --component-accordion-surface-h-padding: 0;
   --component-input-surface-height: 50px;
   --component-input-surface-gap: 4px;
   --component-input-surface-v-padding: 4px;

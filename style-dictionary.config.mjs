@@ -40,11 +40,21 @@ StyleDictionary.registerTransform({
   transform: (token) => `${token.$value}ms`,
 });
 
+// Figma has no native border-width type; tokens are stored as $type: "number"
+// (raw integer px) and need a "px" suffix added here.
+StyleDictionary.registerTransform({
+  name: 'border/width-px',
+  type: 'value',
+  filter: (token) => token.$type === 'number' && token.path.includes('width') && token.path.includes('border'),
+  transform: (token) => `${token.$value}px`,
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css/extended',
   transforms: [
     ...(StyleDictionary.hooks.transformGroups['css'] ?? []),
     'motion/duration-ms',
+    'border/width-px',
   ],
 });
 

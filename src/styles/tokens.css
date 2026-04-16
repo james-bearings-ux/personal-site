@@ -59,6 +59,8 @@
   --primitive-border-radius-infinite: 999px;
   --primitive-border-radius-small: 4px;
   --primitive-border-radius-none: 0px;
+  --primitive-border-width-default: 1px;
+  --primitive-border-width-emphasis: 2px;
   --primitive-typography-size-ui-small: 12px;
   --primitive-typography-size-ui-medium: 14px;
   --primitive-typography-size-ui-large: 18px;
@@ -102,4 +104,7 @@
   --primitive-space-20x: 80px;
   --primitive-space-8x: 32px;
   --primitive-space-16x: 64px;
+  --primitive-space-0x: 0;
+  --primitive-layout-auto: auto;
+  --primitive-layout-full: 100%;
 }

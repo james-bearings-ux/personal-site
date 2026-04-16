@@ -222,30 +222,42 @@
         }
       }
     },
-    "border-radius": {
-      "xsmall": {
-        "$value": "2px",
-        "$type": "dimension"
+    "border": {
+      "radius": {
+        "xsmall": {
+          "$value": "2px",
+          "$type": "dimension"
+        },
+        "medium": {
+          "$value": "8px",
+          "$type": "dimension"
+        },
+        "large": {
+          "$value": "16px",
+          "$type": "dimension"
+        },
+        "infinite": {
+          "$value": "999px",
+          "$type": "dimension"
+        },
+        "small": {
+          "$value": "4px",
+          "$type": "dimension"
+        },
+        "none": {
+          "$value": "0px",
+          "$type": "dimension"
+        }
       },
-      "medium": {
-        "$value": "8px",
-        "$type": "dimension"
-      },
-      "large": {
-        "$value": "16px",
-        "$type": "dimension"
-      },
-      "infinite": {
-        "$value": "999px",
-        "$type": "dimension"
-      },
-      "small": {
-        "$value": "4px",
-        "$type": "dimension"
-      },
-      "none": {
-        "$value": "0px",
-        "$type": "dimension"
+      "width": {
+        "default": {
+          "$value": 1,
+          "$type": "number"
+        },
+        "emphasis": {
+          "$value": 2,
+          "$type": "number"
+        }
       }
     },
     "typography": {
@@ -452,6 +464,20 @@
       "16x": {
         "$value": "64px",
         "$type": "dimension"
+      },
+      "0x": {
+        "$value": 0,
+        "$type": "number"
+      }
+    },
+    "layout": {
+      "auto": {
+        "$value": "auto",
+        "$type": "string"
+      },
+      "full": {
+        "$value": "100%",
+        "$type": "string"
       }
     }
   },
@@ -747,25 +773,25 @@
     "button": {
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         },
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       },
       "surface": {
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         },
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "height": {
@@ -782,7 +808,7 @@
       "icon": {
         "surface": {
           "width": {
-            "$value": "16px",
+            "$value": "{primitive.space.4x}",
             "$type": "dimension"
           },
           "h-padding": {
@@ -790,7 +816,7 @@
             "$type": "dimension"
           },
           "v-padding": {
-            "$value": "4px",
+            "$value": "{primitive.space.1x}",
             "$type": "dimension"
           }
         }
@@ -805,21 +831,21 @@
       },
       "surface": {
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         }
       },
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         },
         "width": {
@@ -831,21 +857,21 @@
     "tabs": {
       "surface": {
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         }
       },
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         }
       }
@@ -861,18 +887,18 @@
     "accordion": {
       "border": {
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       },
       "surface": {
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "0px",
-          "$type": "dimension"
+          "$value": "{primitive.space.0x}",
+          "$type": "number"
         }
       }
     },
@@ -883,29 +909,29 @@
           "$type": "dimension"
         },
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding-l": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         },
         "h-padding-r": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         }
       },
       "border": {
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         },
         "radius": {
-          "$value": "{primitive.border-radius.small}",
+          "$value": "{primitive.border.radius.small}",
           "$type": "dimension"
         }
       },
@@ -921,25 +947,25 @@
     "button": {
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         },
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       },
       "surface": {
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "12px",
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         },
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "height": {
@@ -956,7 +982,7 @@
       "icon": {
         "surface": {
           "width": {
-            "$value": "24px",
+            "$value": "{primitive.space.6x}",
             "$type": "dimension"
           },
           "h-padding": {
@@ -964,7 +990,7 @@
             "$type": "dimension"
           },
           "v-padding": {
-            "$value": "4px",
+            "$value": "{primitive.space.1x}",
             "$type": "dimension"
           }
         }
@@ -979,21 +1005,21 @@
       },
       "surface": {
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "12px",
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         }
       },
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         },
         "width": {
@@ -1005,21 +1031,21 @@
     "tabs": {
       "surface": {
         "gap": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         }
       },
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         }
       }
@@ -1035,18 +1061,18 @@
     "accordion": {
       "border": {
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       },
       "surface": {
         "v-padding": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "0px",
-          "$type": "dimension"
+          "$value": "{primitive.space.0x}",
+          "$type": "number"
         }
       }
     },
@@ -1057,29 +1083,29 @@
           "$type": "dimension"
         },
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding-l": {
-          "$value": "16px",
+          "$value": "{primitive.space.4x}",
           "$type": "dimension"
         },
         "h-padding-r": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         }
       },
       "border": {
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         },
         "radius": {
-          "$value": "{primitive.border-radius.small}",
+          "$value": "{primitive.border.radius.small}",
           "$type": "dimension"
         }
       },
@@ -1095,25 +1121,25 @@
     "button": {
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         },
         "width": {
-          "$value": "2px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       },
       "surface": {
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "12px",
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         },
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "height": {
@@ -1130,7 +1156,7 @@
       "icon": {
         "surface": {
           "width": {
-            "$value": "24px",
+            "$value": "{primitive.space.6x}",
             "$type": "dimension"
           },
           "h-padding": {
@@ -1138,7 +1164,7 @@
             "$type": "dimension"
           },
           "v-padding": {
-            "$value": "4px",
+            "$value": "{primitive.space.1x}",
             "$type": "dimension"
           }
         }
@@ -1153,21 +1179,21 @@
       },
       "surface": {
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "32px",
+          "$value": "{primitive.space.8x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "16px",
+          "$value": "{primitive.space.4x}",
           "$type": "dimension"
         }
       },
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         },
         "width": {
@@ -1179,21 +1205,21 @@
     "tabs": {
       "surface": {
         "gap": {
-          "$value": "12px",
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "8px",
+          "$value": "{primitive.space.2x}",
           "$type": "dimension"
         }
       },
       "border": {
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         }
       }
@@ -1209,18 +1235,18 @@
     "accordion": {
       "border": {
         "width": {
-          "$value": "1px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.default}",
+          "$type": "number"
         }
       },
       "surface": {
         "v-padding": {
-          "$value": "12px",
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         },
         "h-padding": {
-          "$value": "0px",
-          "$type": "dimension"
+          "$value": "{primitive.space.0x}",
+          "$type": "number"
         }
       }
     },
@@ -1231,29 +1257,29 @@
           "$type": "dimension"
         },
         "gap": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "v-padding": {
-          "$value": "4px",
+          "$value": "{primitive.space.1x}",
           "$type": "dimension"
         },
         "h-padding-l": {
-          "$value": "24px",
+          "$value": "{primitive.space.6x}",
           "$type": "dimension"
         },
         "h-padding-r": {
-          "$value": "12px",
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         }
       },
       "border": {
         "width": {
-          "$value": "2px",
-          "$type": "dimension"
+          "$value": "{primitive.border.width.emphasis}",
+          "$type": "number"
         },
         "radius": {
-          "$value": "{primitive.border-radius.infinite}",
+          "$value": "{primitive.border.radius.infinite}",
           "$type": "dimension"
         }
       },
@@ -1598,7 +1624,7 @@
     },
     "side-by-side": {
       "border-radius": {
-        "$value": "{primitive.border-radius.none}",
+        "$value": "{primitive.border.radius.none}",
         "$type": "dimension"
       },
       "caption": {
@@ -1610,7 +1636,7 @@
     },
     "stacked-image": {
       "border-radius": {
-        "$value": "{primitive.border-radius.none}",
+        "$value": "{primitive.border.radius.none}",
         "$type": "dimension"
       },
       "container": {
