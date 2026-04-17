@@ -15,8 +15,8 @@
   --semantic-motion-slide-duration: 400ms;
   --semantic-motion-scroll-easing: ease-out;
   --semantic-motion-scroll-duration: 400ms;
-  --semantic-motion-block-easing: cubic-bezier(0.16, 1, 0.3, 1);
-  --semantic-motion-block-duration: 1000ms;
+  --semantic-motion-block-easing: ease-out;
+  --semantic-motion-block-duration: 400ms;
 }
 
 [data-theme="light"] {
@@ -89,21 +89,4 @@
   --semantic-color-interaction-alt-active: #ffffff;
   --semantic-color-interaction-subtle-active: #becdf3;
   --semantic-color-shadow-text-overlay: #aac1d3;
-}
-
-[data-theme="motion"] {
-  --semantic-interactive-duration: 250ms;
-  --semantic-interactive-easing: ease-out;
-  --semantic-enter-easing: cubic-bezier(0.16, 1, 0.3, 1);
-  --semantic-enter-duration: 400ms;
-  --semantic-expand-easing: cubic-bezier(0.16, 1, 0.3, 1);
-  --semantic-expand-duration: 400ms;
-  --semantic-navigate-easing: cubic-bezier(0.16, 1, 0.3, 1);
-  --semantic-navigate-duration: 1000ms;
-  --semantic-slide-easing: ease-out;
-  --semantic-slide-duration: 400ms;
-  --semantic-scroll-easing: ease-out;
-  --semantic-scroll-duration: 400ms;
-  --semantic-block-easing: ease-out;
-  --semantic-block-duration: 400ms;
 }
