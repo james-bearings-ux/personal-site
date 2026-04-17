@@ -1,7 +1,7 @@
 # ADR-006: Figma Plugin Export Method
 
 ## Status
-Accepted (Phase 1)
+Accepted (Phase 2 — complete)
 
 ## Context
 The Figma plugin (see ADR-004) reads variables and needs to get them out of Figma and into the repo. Figma's plugin sandbox restricts what a plugin can do: the main plugin thread has no network access, but the UI iframe can make HTTP requests. This creates options with different complexity/automation trade-offs.
@@ -27,11 +27,11 @@ The Figma plugin (see ADR-004) reads variables and needs to get them out of Figm
 - Higher complexity; appropriate once the clipboard approach is proven
 
 ## Decision
-**Phase 1:** Option A (clipboard). Keeps the plugin simple while the pipeline is being validated. The manual paste-and-commit step is acceptable for a personal site and a learning context.
+**Phase 1:** Option A (clipboard). Kept the plugin simple while the pipeline was being validated. The manual paste-and-commit step was acceptable for a personal site and a learning context.
 
-**Phase 2:** Option C (GitHub API). The natural upgrade once the plugin is working. Tracked in `docs/backlog.md`.
+**Phase 2:** Option C (GitHub API). Implemented once the clipboard approach was proven. The plugin UI iframe calls the GitHub Contents API directly: GET to retrieve the current file SHA, then PUT the new content. The GitHub token is stored securely via `figma.clientStorage`, which is per-user and per-plugin. The token requires Contents read+write on the repo; a fine-grained PAT scoped to this repo only is the recommended setup.
 
 ## Consequences
-- Phase 1 requires one manual step per token update: run plugin → paste → commit
-- The commit itself triggers Vercel's production deploy, so the rest of the pipeline remains fully automated
-- Option C upgrade requires only changes to the plugin; nothing downstream changes
+- Phase 2 workflow: run plugin → click Commit → done. Vercel deploys automatically on the resulting commit.
+- The GitHub token is a one-time setup step; it persists across plugin sessions.
+- Nothing downstream changed — Style Dictionary, GitHub Actions, and Vercel are unaware of how the file was committed.
