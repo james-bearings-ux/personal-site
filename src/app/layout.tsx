@@ -32,6 +32,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" data-theme="light" data-density="default">
+      <head>
+        {/* Blocking script: reads localStorage and prefers-color-scheme before first paint
+            to prevent a flash of unstyled theme. Must be inline and synchronous. */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark'){document.documentElement.setAttribute('data-theme',t);}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark');}var d=localStorage.getItem('density');if(d==='compact'||d==='default'||d==='spacious'){document.documentElement.setAttribute('data-density',d);}}catch(e){}})();` }} />
+      </head>
       <body className={`${overpass.variable} ${quicksand.variable}`}>
         {children}
       </body>

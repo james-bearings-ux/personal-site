@@ -24,26 +24,33 @@ type Density = "compact" | "default" | "spacious";
 export default function TokensPage() {
   const [theme, setTheme] = useState<Theme>("light");
   const [density, setDensity] = useState<Density>("default");
+  const [mounted, setMounted] = useState(false);
 
+  // Read initial values from <html> — already set by the blocking inline script in layout.tsx.
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") as Theme | null;
-    if (savedTheme === "light" || savedTheme === "dark") {
-      setTheme(savedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      setTheme("dark");
-    }
-
-    const savedDensity = localStorage.getItem("density") as Density | null;
-    if (savedDensity === "compact" || savedDensity === "default" || savedDensity === "spacious") {
-      setDensity(savedDensity);
-    }
+    const t = document.documentElement.getAttribute("data-theme") as Theme | null;
+    if (t === "light" || t === "dark") setTheme(t);
+    const d = document.documentElement.getAttribute("data-density") as Density | null;
+    if (d === "compact" || d === "default" || d === "spacious") setDensity(d);
+    setMounted(true);
   }, []);
 
-  useEffect(() => { localStorage.setItem("theme", theme); }, [theme]);
-  useEffect(() => { localStorage.setItem("density", density); }, [density]);
+  // Sync state changes back to <html> and localStorage.
+  // Guard on mounted so the initial render doesn't overwrite the inline script's work.
+  useEffect(() => {
+    if (!mounted) return;
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme, mounted]);
+
+  useEffect(() => {
+    if (!mounted) return;
+    document.documentElement.setAttribute("data-density", density);
+    localStorage.setItem("density", density);
+  }, [density, mounted]);
 
   return (
-    <div className={styles.page} data-theme={theme} data-density={density}>
+    <div className={styles.page}>
 
       <AiPromptBar />
 
