@@ -21,15 +21,40 @@
   height: var(--component-button-surface-height);
 }
 
+/* Focus ring — shared across all hierarchies */
+.btn:focus-visible,
+.btn.pseudo-focus {
+  outline: var(--primitive-border-width-focus) solid var(--semantic-color-border-focus);
+  outline-offset: 2px;
+}
+
+/* Disabled base — cursor only; colors handled per-hierarchy below */
+.btn:disabled,
+.btn.pseudo-disabled {
+  cursor: not-allowed;
+}
+
 /* primary — solid interaction fill */
 .primary {
   background: var(--semantic-color-interaction-default);
   border-color: var(--semantic-color-interaction-default);
   color: var(--semantic-color-text-reverse);
 }
-.primary:hover {
+.primary:hover,
+.primary.pseudo-hover {
   background: var(--semantic-color-interaction-hover);
   border-color: var(--semantic-color-interaction-hover);
+}
+.primary:active,
+.primary.pseudo-pressed {
+  background: var(--semantic-color-interaction-active);
+  border-color: var(--semantic-color-interaction-active);
+}
+.primary:disabled,
+.primary.pseudo-disabled {
+  background: var(--semantic-color-border-disabled);
+  border-color: var(--semantic-color-border-disabled);
+  color: var(--semantic-color-text-disabled);
 }
 
 /* alt — solid dark slate fill */
@@ -38,9 +63,21 @@
   border-color: var(--semantic-color-interaction-alt);
   color: var(--semantic-color-text-reverse);
 }
-.alt:hover {
+.alt:hover,
+.alt.pseudo-hover {
   background: var(--semantic-color-interaction-alt-hover);
   border-color: var(--semantic-color-interaction-alt-hover);
+}
+.alt:active,
+.alt.pseudo-pressed {
+  background: var(--semantic-color-interaction-alt-active);
+  border-color: var(--semantic-color-interaction-alt-active);
+}
+.alt:disabled,
+.alt.pseudo-disabled {
+  background: var(--semantic-color-border-disabled);
+  border-color: var(--semantic-color-border-disabled);
+  color: var(--semantic-color-text-disabled);
 }
 
 /* secondary — outlined, no fill */
@@ -49,10 +86,22 @@
   border-color: var(--semantic-color-interaction-default);
   color: var(--semantic-color-interaction-default);
 }
-.secondary:hover {
+.secondary:hover,
+.secondary.pseudo-hover {
   background: var(--semantic-color-interaction-subtle);
   border-color: var(--semantic-color-interaction-hover);
   color: var(--semantic-color-interaction-hover);
+}
+.secondary:active,
+.secondary.pseudo-pressed {
+  background: var(--semantic-color-interaction-subtle-active);
+  border-color: var(--semantic-color-interaction-active);
+  color: var(--semantic-color-interaction-active);
+}
+.secondary:disabled,
+.secondary.pseudo-disabled {
+  border-color: var(--semantic-color-border-disabled);
+  color: var(--semantic-color-text-disabled);
 }
 
 /* icon — sizing only; mask technique provided by Icon component */
@@ -68,6 +117,15 @@
   border-color: transparent;
   color: var(--semantic-color-interaction-default);
 }
-.ghost:hover {
+.ghost:hover,
+.ghost.pseudo-hover {
   background: var(--semantic-color-interaction-subtle);
+}
+.ghost:active,
+.ghost.pseudo-pressed {
+  background: var(--semantic-color-interaction-subtle-active);
+}
+.ghost:disabled,
+.ghost.pseudo-disabled {
+  color: var(--semantic-color-text-disabled);
 }
