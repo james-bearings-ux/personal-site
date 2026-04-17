@@ -1,6 +1,6 @@
 import type { GlobalProvider } from "@ladle/react";
 import { useEffect } from "react";
-import axe from "axe-core";
+import * as axe from "axe-core";
 import "../src/app/globals.css";
 import "../src/styles/tokens.css";
 import "../src/styles/tokens.semantic.css";
