@@ -262,11 +262,30 @@ const UI_HTML = `
       color: #ffffff;
     }
 
-    p {
+    .settings {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .settings label {
       font-size: 11px;
       color: #999;
-      line-height: 1.5;
+      white-space: nowrap;
     }
+
+    .settings input {
+      flex: 1;
+      background: #2c2c2c;
+      border: 1px solid #3a3a3a;
+      border-radius: 4px;
+      color: #e0e0e0;
+      font-size: 11px;
+      padding: 5px 8px;
+      outline: none;
+    }
+
+    .settings input:focus { border-color: #0d99ff; }
 
     textarea {
       flex: 1;
@@ -298,47 +317,162 @@ const UI_HTML = `
       font-size: 12px;
       font-weight: 600;
       padding: 8px 16px;
+      white-space: nowrap;
     }
 
     button:hover { background: #0a7fd4; }
+    button:disabled { background: #444; color: #777; cursor: not-allowed; }
+
+    button.secondary {
+      background: #2c2c2c;
+      border: 1px solid #3a3a3a;
+      color: #e0e0e0;
+    }
+
+    button.secondary:hover { background: #383838; }
 
     .status {
       font-size: 11px;
-      color: #5dba7d;
       opacity: 0;
       transition: opacity 0.2s;
+      flex: 1;
     }
 
     .status.visible { opacity: 1; }
+    .status.ok { color: #5dba7d; }
+    .status.err { color: #e06c75; }
   </style>
 </head>
 <body>
   <h1>Token Exporter</h1>
-  <p>Copy the JSON below and paste it into <code>tokens/figma.raw.json</code> in the repo, then commit.</p>
+
+  <div class="settings">
+    <label for="gh-token">GitHub token</label>
+    <input type="password" id="gh-token" placeholder="ghp_…" autocomplete="off" />
+    <button class="secondary" id="save-token">Save</button>
+  </div>
+
   <textarea id="output" readonly placeholder="Loading tokens…"></textarea>
+
   <div class="actions">
-    <button id="copy">Copy to clipboard</button>
-    <span class="status" id="status">Copied!</span>
+    <button id="copy" class="secondary">Copy</button>
+    <button id="commit" disabled>Commit to GitHub</button>
+    <span class="status" id="status"></span>
   </div>
 
   <script>
-    const output = document.getElementById('output');
-    const copyBtn = document.getElementById('copy');
-    const status = document.getElementById('status');
+    const output    = document.getElementById('output');
+    const copyBtn   = document.getElementById('copy');
+    const commitBtn = document.getElementById('commit');
+    const tokenInput = document.getElementById('gh-token');
+    const saveBtn   = document.getElementById('save-token');
+    const status    = document.getElementById('status');
 
+    const OWNER  = 'james-bearings-ux';
+    const REPO   = 'personal-site';
+    const PATH   = 'tokens/figma.raw.json';
+    const BRANCH = 'main';
+
+    function showStatus(msg, isError) {
+      status.textContent = msg;
+      status.className = 'status visible ' + (isError ? 'err' : 'ok');
+      setTimeout(function() { status.className = 'status'; }, 3000);
+    }
+
+    // Receive messages from the plugin main thread
     window.onmessage = function(event) {
-      const msg = event.data.pluginMessage;
-      if (msg && msg.type === 'TOKENS') {
+      var msg = event.data.pluginMessage;
+      if (!msg) return;
+
+      if (msg.type === 'TOKENS') {
         output.value = msg.payload;
+      }
+
+      if (msg.type === 'GITHUB_TOKEN') {
+        if (msg.token) {
+          tokenInput.value = msg.token;
+          commitBtn.disabled = false;
+        }
+      }
+
+      if (msg.type === 'TOKEN_SAVED') {
+        showStatus('Token saved.', false);
+        commitBtn.disabled = !tokenInput.value;
       }
     };
 
+    // Copy to clipboard
     copyBtn.onclick = function() {
       output.select();
       document.execCommand('copy');
-      status.classList.add('visible');
-      setTimeout(function() { status.classList.remove('visible'); }, 2000);
+      showStatus('Copied!', false);
     };
+
+    // Save GitHub token via plugin storage
+    saveBtn.onclick = function() {
+      parent.postMessage({ pluginMessage: { type: 'SAVE_TOKEN', token: tokenInput.value.trim() } }, '*');
+    };
+
+    tokenInput.addEventListener('input', function() {
+      commitBtn.disabled = !tokenInput.value.trim();
+    });
+
+    // Commit to GitHub via Contents API
+    commitBtn.onclick = async function() {
+      var token = tokenInput.value.trim();
+      var content = output.value;
+      if (!token || !content) return;
+
+      commitBtn.disabled = true;
+      showStatus('Committing…', false);
+
+      try {
+        // 1. Get current file SHA
+        var getRes = await fetch(
+          'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + PATH + '?ref=' + BRANCH,
+          { headers: { Authorization: 'Bearer ' + token, Accept: 'application/vnd.github+json' } }
+        );
+        if (!getRes.ok) throw new Error('Could not read current file (' + getRes.status + ')');
+        var fileData = await getRes.json();
+
+        // 2. Base64-encode the new content (UTF-8 safe)
+        var bytes = new TextEncoder().encode(content);
+        var binary = Array.from(bytes).map(function(b) { return String.fromCharCode(b); }).join('');
+        var encoded = btoa(binary);
+
+        // 3. PUT the updated file
+        var putRes = await fetch(
+          'https://api.github.com/repos/' + OWNER + '/' + REPO + '/contents/' + PATH,
+          {
+            method: 'PUT',
+            headers: {
+              Authorization: 'Bearer ' + token,
+              Accept: 'application/vnd.github+json',
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              message: 'Update tokens from Figma',
+              content: encoded,
+              sha: fileData.sha,
+              branch: BRANCH,
+            }),
+          }
+        );
+        if (!putRes.ok) {
+          var err = await putRes.json();
+          throw new Error(err.message || 'Commit failed (' + putRes.status + ')');
+        }
+
+        showStatus('Committed to ' + BRANCH + ' ✓', false);
+      } catch(e) {
+        showStatus(e.message, true);
+      } finally {
+        commitBtn.disabled = false;
+      }
+    };
+
+    // Request stored token on load
+    parent.postMessage({ pluginMessage: { type: 'GET_TOKEN' } }, '*');
   </script>
 </body>
 </html>
@@ -348,7 +482,7 @@ const UI_HTML = `
 // Entry point
 // ---------------------------------------------------------------------------
 
-figma.showUI(UI_HTML, { width: 480, height: 500, title: "Token Exporter" });
+figma.showUI(UI_HTML, { width: 480, height: 560, title: "Token Exporter" });
 
 const tokens = {
   ...buildVariableTokens(),
@@ -359,3 +493,16 @@ figma.ui.postMessage({
   type: "TOKENS",
   payload: JSON.stringify(tokens, null, 2),
 });
+
+// Handle token storage requests from the UI iframe.
+// figma.clientStorage is only accessible from the main plugin thread.
+figma.ui.onmessage = async (msg: { type: string; token?: string }) => {
+  if (msg.type === "GET_TOKEN") {
+    const token = await figma.clientStorage.getAsync("github-token");
+    figma.ui.postMessage({ type: "GITHUB_TOKEN", token: token ?? "" });
+  }
+  if (msg.type === "SAVE_TOKEN") {
+    await figma.clientStorage.setAsync("github-token", msg.token ?? "");
+    figma.ui.postMessage({ type: "TOKEN_SAVED" });
+  }
+};
