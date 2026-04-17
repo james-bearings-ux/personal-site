@@ -52,8 +52,8 @@
 }
 .primary:disabled,
 .primary.pseudo-disabled {
-  background: var(--semantic-color-border-disabled);
-  border-color: var(--semantic-color-border-disabled);
+  background: var(--semantic-color-interaction-disabled);
+  border-color: var(--semantic-color-interaction-disabled);
   color: var(--semantic-color-text-disabled);
 }
 
@@ -75,8 +75,8 @@
 }
 .alt:disabled,
 .alt.pseudo-disabled {
-  background: var(--semantic-color-border-disabled);
-  border-color: var(--semantic-color-border-disabled);
+  background: var(--semantic-color-interaction-disabled);
+  border-color: var(--semantic-color-interaction-disabled);
   color: var(--semantic-color-text-disabled);
 }
 
