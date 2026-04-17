@@ -1,6 +1,6 @@
 import type { GlobalProvider } from "@ladle/react";
 import { useEffect } from "react";
-import axe from "axe-core";
+import "axe-core"; // registers window.axe in browser context
 import "../src/app/globals.css";
 import "../src/styles/tokens.css";
 import "../src/styles/tokens.semantic.css";
@@ -11,13 +11,14 @@ import "../src/styles/motion.css";
 import "./ladle.css";
 
 export const Provider: GlobalProvider = ({ children }) => {
-  // Run axe after every render with a 1s debounce. axe-core is pre-bundled
-  // via optimizeDeps in .ladle/config.mjs so the default import resolves correctly.
+  // Run axe after every render with a 1s debounce. axe-core registers itself
+  // on window.axe in browser context rather than via module exports.
   useEffect(() => {
     let cancelled = false;
     const timer = setTimeout(async () => {
       if (cancelled) return;
-      const results = await axe.run();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const results = await (window as any).axe.run();
       if (cancelled || results.violations.length === 0) return;
       console.group(`%c axe: ${results.violations.length} violation(s)`, "color: #e06c75; font-weight: bold");
       for (const v of results.violations) {
