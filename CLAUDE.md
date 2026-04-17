@@ -65,6 +65,8 @@ James is a design systems expert and experienced Figma practitioner, but not a d
 
 Examples of things worth flagging: naming conventions, file organization patterns, CI/CD practices, testing strategies, security patterns, dependency management approaches, Git workflows, documentation standards.
 
+**Before writing a custom integration for any third-party tool, check whether the tool already provides it natively.** Read the tool's docs or search its source before reaching for a manual implementation. This applies especially to addons, plugins, and dev-tool integrations where built-in support is common but not obvious.
+
 ## Docs
 
 Architecture decisions: `docs/decisions/` (ADR format — context, options, decision, consequences).
