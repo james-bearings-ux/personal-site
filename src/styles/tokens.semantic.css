@@ -52,6 +52,7 @@
   --semantic-color-interaction-active: #102456;
   --semantic-color-interaction-alt-active: #102456;
   --semantic-color-interaction-subtle-active: #becdf3;
+  --semantic-color-interaction-disabled: #aac1d3;
   --semantic-color-shadow-text-overlay: #0e1521;
 }
 
@@ -88,5 +89,6 @@
   --semantic-color-interaction-active: #102456;
   --semantic-color-interaction-alt-active: #ffffff;
   --semantic-color-interaction-subtle-active: #becdf3;
+  --semantic-color-interaction-disabled: #16202e;
   --semantic-color-shadow-text-overlay: #aac1d3;
 }
