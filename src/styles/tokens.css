@@ -61,6 +61,7 @@
   --primitive-border-radius-none: 0px;
   --primitive-border-width-default: 1px;
   --primitive-border-width-emphasis: 2px;
+  --primitive-border-width-focus: 2px;
   --primitive-typography-size-ui-small: 12px;
   --primitive-typography-size-ui-medium: 14px;
   --primitive-typography-size-ui-large: 18px;
