@@ -1,8 +1,9 @@
 import type { StoryDefault, Story } from "@ladle/react";
 import type { Surface } from "@/styles/tokens.surface";
+import { withPageFrame } from "../../.ladle/PageFrame";
 import { OffsetList } from "./OffsetList";
 
-export default { title: "OffsetList" } satisfies StoryDefault;
+export default { title: "OffsetList", decorators: [withPageFrame] } satisfies StoryDefault;
 
 const clients = [
   "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery",
@@ -24,9 +25,7 @@ export const ShortList: Story = () => (
 );
 
 export const Interactive: Story<{ surface: Surface }> = ({ surface }) => (
-  <div style={{ backgroundColor: "var(--semantic-color-surface-ground)" }}>
-    <OffsetList heading="Clients" items={clients} surface={surface} />
-  </div>
+  <OffsetList heading="Clients" items={clients} surface={surface} />
 );
 
 Interactive.args = { surface: "low" };

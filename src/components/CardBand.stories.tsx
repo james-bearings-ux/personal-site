@@ -1,9 +1,10 @@
 import type { StoryDefault, Story } from "@ladle/react";
 import type { Surface } from "@/styles/tokens.surface";
+import { withPageFrame } from "../../.ladle/PageFrame";
 import { CardBand } from "./CardBand";
 import { Card } from "./Card";
 
-export default { title: "CardBand" } satisfies StoryDefault;
+export default { title: "CardBand", decorators: [withPageFrame] } satisfies StoryDefault;
 
 export const TwoImageCards: Story = () => (
   <CardBand heading="Destinations" surface="base">
@@ -54,13 +55,11 @@ export const ThreeTextCardsCta: Story = () => (
 );
 
 export const Interactive: Story<{ surface: Surface }> = ({ surface }) => (
-  <div style={{ backgroundColor: "var(--semantic-color-surface-ground)" }}>
-    <CardBand heading="Destinations" surface={surface}>
-      <Card variant="image" interactive="card-link" image="/img/sample-img-square.jpg" imageAlt="Sample 1" metadata="Iceland" heading="Skógafoss waterfall" ctaHref="/work" />
-      <Card variant="image" interactive="card-link" image="/img/sample-img-square-2.jpg" imageAlt="Sample 2" metadata="England" heading="Kew Botanic Gardens" ctaHref="/work" />
-      <Card variant="image" interactive="card-link" image="/img/sample-img-square-3.jpg" imageAlt="Sample 3" metadata="Wales" heading="Caernarfon Castle" ctaHref="/work" />
-    </CardBand>
-  </div>
+  <CardBand heading="Destinations" surface={surface}>
+    <Card variant="image" interactive="card-link" image="/img/sample-img-square.jpg" imageAlt="Sample 1" metadata="Iceland" heading="Skógafoss waterfall" ctaHref="/work" />
+    <Card variant="image" interactive="card-link" image="/img/sample-img-square-2.jpg" imageAlt="Sample 2" metadata="England" heading="Kew Botanic Gardens" ctaHref="/work" />
+    <Card variant="image" interactive="card-link" image="/img/sample-img-square-3.jpg" imageAlt="Sample 3" metadata="Wales" heading="Caernarfon Castle" ctaHref="/work" />
+  </CardBand>
 );
 
 Interactive.args = { surface: "low" };

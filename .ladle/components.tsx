@@ -14,7 +14,7 @@ export const Provider: GlobalProvider = ({ children }) => (
     data-density="default"
     style={{
       minHeight: "100vh",
-      backgroundColor: "var(--semantic-color-surface-ground)",
+      backgroundColor: "var(--semantic-color-surface-high)",
       padding: "40px",
     }}
   >

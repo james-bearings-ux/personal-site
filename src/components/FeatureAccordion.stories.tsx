@@ -1,8 +1,9 @@
 import type { StoryDefault, Story } from "@ladle/react";
 import type { Surface } from "@/styles/tokens.surface";
+import { withPageFrame } from "../../.ladle/PageFrame";
 import { FeatureAccordion, AccordionPanel } from "./FeatureAccordion";
 
-export default { title: "FeatureAccordion" } satisfies StoryDefault;
+export default { title: "FeatureAccordion", decorators: [withPageFrame] } satisfies StoryDefault;
 
 const bodyStyle = {
   padding: "8px 0 16px 16px",
@@ -52,8 +53,7 @@ export const WithCta: Story = () => (
 );
 
 export const Interactive: Story<{ surface: Surface }> = ({ surface }) => (
-  <div style={{ backgroundColor: "var(--semantic-color-surface-ground)" }}>
-    <FeatureAccordion
+  <FeatureAccordion
       heading="Services"
       body="Design systems strategy and hands-on craft, from token architecture to shipped components."
       surface={surface}
@@ -74,7 +74,6 @@ export const Interactive: Story<{ surface: Surface }> = ({ surface }) => (
         <p className="type-body" style={bodyStyle}>Custom Figma plugins, token pipelines, and developer handoff infrastructure.</p>
       </AccordionPanel>
     </FeatureAccordion>
-  </div>
 );
 
 Interactive.args = { surface: "low" };

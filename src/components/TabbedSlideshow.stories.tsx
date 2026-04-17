@@ -1,10 +1,11 @@
 import type { StoryDefault, Story } from "@ladle/react";
 import type { Surface } from "@/styles/tokens.surface";
+import { withPageFrame } from "../../.ladle/PageFrame";
 import { TabbedSlideshow, SlideshowPanel } from "./TabbedSlideshow";
 import { SideBySide } from "./SideBySide";
 import { StackedImage } from "./StackedImage";
 
-export default { title: "TabbedSlideshow" } satisfies StoryDefault;
+export default { title: "TabbedSlideshow", decorators: [withPageFrame] } satisfies StoryDefault;
 
 export const WithSideBySide: Story = () => (
   <TabbedSlideshow heading="Featured Work" surface="low">
@@ -39,19 +40,17 @@ export const Interactive: Story<{ bandSurface: Surface; contentSurface: Surface 
   bandSurface,
   contentSurface,
 }) => (
-  <div style={{ backgroundColor: "var(--semantic-color-surface-ground)" }}>
-    <TabbedSlideshow heading="Featured Work" surface={bandSurface}>
-      <SlideshowPanel label="Discovery">
-        <SideBySide image="/img/sample-img.jpg" imageAlt="Discovery phase" surface={contentSurface} heading="Understanding the problem space" body="Research, stakeholder interviews, and competitive analysis to frame the design challenge." />
-      </SlideshowPanel>
-      <SlideshowPanel label="Structure">
-        <SideBySide image="/img/sample-img-2.jpg" imageAlt="IA work" surface={contentSurface} heading="Shaping the information architecture" body="Card sorting, tree testing, and IA diagrams to establish a navigation model users can trust." />
-      </SlideshowPanel>
-      <SlideshowPanel label="Design">
-        <SideBySide image="/img/sample-img-3.jpg" imageAlt="Final design" surface={contentSurface} heading="High-fidelity interaction design" body="Component-based layouts built on a token-driven design system." />
-      </SlideshowPanel>
-    </TabbedSlideshow>
-  </div>
+  <TabbedSlideshow heading="Featured Work" surface={bandSurface}>
+    <SlideshowPanel label="Discovery">
+      <SideBySide image="/img/sample-img.jpg" imageAlt="Discovery phase" surface={contentSurface} heading="Understanding the problem space" body="Research, stakeholder interviews, and competitive analysis to frame the design challenge." />
+    </SlideshowPanel>
+    <SlideshowPanel label="Structure">
+      <SideBySide image="/img/sample-img-2.jpg" imageAlt="IA work" surface={contentSurface} heading="Shaping the information architecture" body="Card sorting, tree testing, and IA diagrams to establish a navigation model users can trust." />
+    </SlideshowPanel>
+    <SlideshowPanel label="Design">
+      <SideBySide image="/img/sample-img-3.jpg" imageAlt="Final design" surface={contentSurface} heading="High-fidelity interaction design" body="Component-based layouts built on a token-driven design system." />
+    </SlideshowPanel>
+  </TabbedSlideshow>
 );
 
 Interactive.args = { bandSurface: "low", contentSurface: "low" };
