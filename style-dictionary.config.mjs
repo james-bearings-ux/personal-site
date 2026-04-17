@@ -10,9 +10,10 @@
  *   src/styles/tokens.typography.css   — typography composite tokens as .type-* utility classes
  *
  * Figma collections → CSS prefixes:
- *   primitive            → --primitive-*         (tokens.css, :root)
- *   semantic-light/dark  → --semantic-*          (tokens.semantic.css, [data-theme])
- *   density-[mode]/component → --component-*     (tokens.component.css, [data-density] / :root)
+ *   primitive              → --primitive-*         (tokens.css, :root)
+ *   semantic-light/dark    → --semantic-*          (tokens.semantic.css, [data-theme])
+ *   semantic-motion        → --semantic-motion-*   (tokens.semantic.css, :root)
+ *   density-[mode]/component → --component-*       (tokens.component.css, [data-density] / :root)
  *   breakpoint-*         → --grid-* / --layout-* (tokens.breakpoints.css, @media)
  *
  * Tokens with any path segment prefixed with "_" are Figma-only and skipped in all outputs.
@@ -65,7 +66,79 @@ StyleDictionary.registerTransformGroup({
 });
 
 // ---------------------------------------------------------------------------
-// Custom format: themed CSS blocks
+// Custom format: semantic CSS variables
+//
+// Outputs two kinds of blocks into tokens.semantic.css:
+//
+//   1. :root — modeless semantic collections (e.g. semantic-motion).
+//      No theme variation; defined once.
+//      path ["semantic-motion","interactive","duration"] → --semantic-motion-interactive-duration
+//
+//   2. [data-theme="light/dark"] — modal semantic-color collections.
+//      Variable names strip the mode suffix so the same var name works
+//      across themes: "semantic-light/color/text/primary" → --semantic-color-text-primary
+//      in both [data-theme="light"] and [data-theme="dark"].
+//
+// The modal/modeless distinction: modal collections contain a known theme
+// mode as their last hyphen-separated segment (light, dark).
+// ---------------------------------------------------------------------------
+
+const THEME_MODES = new Set(['light', 'dark']);
+
+StyleDictionary.registerFormat({
+  name: 'css/semantic-variables',
+  format: ({ dictionary }) => {
+    const lines = [
+      '/**',
+      ' * Do not edit directly, this file was auto-generated.',
+      ' */',
+      '',
+    ];
+
+    // 1. Modeless semantic tokens → :root
+    const modeless = dictionary.allTokens.filter((t) => {
+      const segments = t.path[0].split('-');
+      return !THEME_MODES.has(segments[segments.length - 1]);
+    });
+    if (modeless.length > 0) {
+      lines.push(':root {');
+      for (const token of modeless) {
+        const varName = `--${token.path.join('-')}`;
+        lines.push(`  ${varName}: ${token.$value};`);
+      }
+      lines.push('}');
+      lines.push('');
+    }
+
+    // 2. Modal semantic tokens → [data-theme] blocks
+    const groups = new Map();
+    for (const token of dictionary.allTokens) {
+      const segments = token.path[0].split('-');
+      if (!THEME_MODES.has(segments[segments.length - 1])) continue;
+      const key = token.path[0];
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(token);
+    }
+
+    for (const [key, tokens] of groups) {
+      const segments = key.split('-');
+      const themeName = segments.pop();
+      const collectionBase = segments.join('-');
+      lines.push(`[data-theme="${themeName}"] {`);
+      for (const token of tokens) {
+        const varName = `--${collectionBase}-${token.path.slice(1).join('-')}`;
+        lines.push(`  ${varName}: ${token.$value};`);
+      }
+      lines.push('}');
+      lines.push('');
+    }
+
+    return lines.join('\n');
+  },
+});
+
+// ---------------------------------------------------------------------------
+// Custom format: themed CSS blocks (used for density/component)
 //
 // Groups tokens by their first path segment (e.g. "semantic-light",
 // "component-default") and outputs one [data-*] scoped block per mode.
@@ -370,11 +443,12 @@ const sd = new StyleDictionary({
           },
         },
         {
-          // Semantic tokens → [data-theme="light"] and [data-theme="dark"] blocks
+          // Semantic tokens → :root (modeless) + [data-theme="light/dark"] (modal) blocks
+          // Both semantic-motion (modeless) and semantic-light/dark (modal) normalize
+          // to --semantic-* CSS variable names.
           destination: 'tokens.semantic.css',
-          format: 'css/themed-variables',
+          format: 'css/semantic-variables',
           filter: (token) => token.path[0].startsWith('semantic-'),
-          options: { attribute: 'data-theme' },
         },
         {
           // Component tokens → :root (modeless) + [data-density="..."] (density-modal) blocks

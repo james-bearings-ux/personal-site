@@ -61,7 +61,7 @@
   font-family: inherit;
   cursor: pointer;
   padding: var(--component-accordion-surface-v-padding) var(--component-accordion-surface-h-padding);
-  transition: padding var(--primitive-motion-duration-quick) var(--primitive-motion-easing-appear);
+  transition: padding var(--semantic-motion-interactive-duration) var(--semantic-motion-interactive-easing);
 }
 
 .face:hover {
@@ -81,7 +81,7 @@
   width: var(--component-accordion-icon-size);
   height: var(--component-accordion-icon-size);
   background-color: var(--semantic-color-icon-primary);
-  transition: transform var(--primitive-motion-duration-normal) var(--primitive-motion-easing-spring);
+  transition: transform var(--semantic-motion-enter-duration) var(--semantic-motion-enter-easing);
 }
 
 .item[data-open="true"] .icon {
@@ -93,7 +93,7 @@
 .content {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--primitive-motion-duration-normal) var(--primitive-motion-easing-spring);
+  transition: grid-template-rows var(--semantic-motion-expand-duration) var(--semantic-motion-expand-easing);
 }
 
 .contentInner {

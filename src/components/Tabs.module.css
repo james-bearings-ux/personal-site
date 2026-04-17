@@ -21,7 +21,7 @@
   color: var(--semantic-color-text-reverse);
   cursor: pointer;
   white-space: nowrap;
-  transition: background var(--primitive-motion-duration-quick) var(--primitive-motion-easing-spring);
+  transition: background var(--semantic-motion-interactive-duration) var(--semantic-motion-interactive-easing);
 }
 
 .tab.selected {

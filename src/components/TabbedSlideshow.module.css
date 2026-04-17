@@ -57,14 +57,14 @@
 
 .panel[data-direction="forward"] {
   animation:
-    panelFadeIn       var(--primitive-motion-duration-normal) var(--primitive-motion-easing-appear) both,
-    panelSlideForward var(--primitive-motion-duration-slow)   var(--primitive-motion-easing-spring) both;
+    panelFadeIn       var(--semantic-motion-slide-duration) var(--semantic-motion-slide-easing) both,
+    panelSlideForward var(--semantic-motion-navigate-duration) var(--semantic-motion-navigate-easing) both;
 }
 
 .panel[data-direction="backward"] {
   animation:
-    panelFadeIn        var(--primitive-motion-duration-normal) var(--primitive-motion-easing-appear) both,
-    panelSlideBackward var(--primitive-motion-duration-slow)   var(--primitive-motion-easing-spring) both;
+    panelFadeIn        var(--semantic-motion-slide-duration) var(--semantic-motion-slide-easing) both,
+    panelSlideBackward var(--semantic-motion-navigate-duration) var(--semantic-motion-navigate-easing) both;
 }
 
 @media (prefers-reduced-motion: reduce) {

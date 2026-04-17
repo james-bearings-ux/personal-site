@@ -2,26 +2,18 @@
  * Motion — scroll reveal and micro-interaction base classes.
  * Global (not CSS Modules) so class names are stable for IntersectionObserver.
  *
- * Proto-token candidates (→ motion token mapping):
- *   duration-fade:       400ms  → motion.duration.normal
- *   duration-translate:  560ms  → motion.duration.deliberate
- *   easing-fade:         ease-out  → motion.easing.appear
- *   easing-translate:    cubic-bezier(0.16, 1, 0.3, 1)  → motion.easing.spring
- *   distance:            32px  → motion.distance.large
- *   delay:               via --reveal-delay custom property (default 0ms)
- *
- * Opacity and transform intentionally use different durations and easings.
+ * Opacity and transform intentionally use different semantic motion tokens.
  * The spring easing progresses 80%+ in ~100ms, making opacity appear as a
- * pop rather than a fade. Opacity uses ease-out at normal duration so the
- * fade resolves around the halfway point of the spring translation.
+ * pop rather than a fade. block (normal+appear) keeps the fade smooth while
+ * scroll (slow+spring) drives the translation.
  */
 
 .scroll-reveal {
   opacity: 0;
   transform: translateY(var(--primitive-motion-distance-large));
   transition:
-    opacity   var(--primitive-motion-duration-normal) var(--primitive-motion-easing-appear)  var(--reveal-delay, 0ms),
-    transform var(--primitive-motion-duration-deliberate)   var(--primitive-motion-easing-spring)  var(--reveal-delay, 0ms);
+    opacity   var(--semantic-motion-block-duration)  var(--semantic-motion-block-easing)  var(--reveal-delay, 0ms),
+    transform var(--semantic-motion-scroll-duration) var(--semantic-motion-scroll-easing) var(--reveal-delay, 0ms);
 }
 
 .scroll-reveal[data-revealed="true"] {

@@ -2,6 +2,23 @@
  * Do not edit directly, this file was auto-generated.
  */
 
+:root {
+  --semantic-motion-interactive-duration: 250ms;
+  --semantic-motion-interactive-easing: ease-out;
+  --semantic-motion-enter-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --semantic-motion-enter-duration: 400ms;
+  --semantic-motion-expand-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --semantic-motion-expand-duration: 400ms;
+  --semantic-motion-navigate-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --semantic-motion-navigate-duration: 1000ms;
+  --semantic-motion-slide-easing: ease-out;
+  --semantic-motion-slide-duration: 400ms;
+  --semantic-motion-scroll-easing: ease-out;
+  --semantic-motion-scroll-duration: 400ms;
+  --semantic-motion-block-easing: cubic-bezier(0.16, 1, 0.3, 1);
+  --semantic-motion-block-duration: 1000ms;
+}
+
 [data-theme="light"] {
   --semantic-color-text-primary: #0e1521;
   --semantic-color-text-secondary: #3c5471;
