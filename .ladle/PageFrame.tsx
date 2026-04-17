@@ -10,14 +10,25 @@ import type { StoryDecorator } from "@ladle/react";
  * Usage:
  *   export default { title: "MyComponent", decorators: [withPageFrame] } satisfies StoryDefault;
  */
+// Provider applies 40px padding. The outer div uses negative margin to break
+// out of that padding so surface-ground fills the full canvas — coupling is
+// intentional; both files live in .ladle/ and change together.
 export const withPageFrame: StoryDecorator = (Story) => (
   <div
     style={{
       backgroundColor: "var(--semantic-color-surface-ground)",
-      maxWidth: "var(--grid-max-width)",
-      margin: "0 auto",
+      margin: "-40px",
+      padding: "40px 0",
     }}
   >
-    <Story />
+    <div
+      style={{
+        backgroundColor: "var(--semantic-color-surface-high)",
+        maxWidth: "var(--grid-max-width)",
+        margin: "0 auto",
+      }}
+    >
+      <Story />
+    </div>
   </div>
 );
