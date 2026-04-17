@@ -631,6 +631,10 @@
         "subtle-active": {
           "$value": "{primitive.color.blue.85}",
           "$type": "color"
+        },
+        "disabled": {
+          "$value": "{primitive.color.slate.75}",
+          "$type": "color"
         }
       },
       "shadow": {
@@ -786,6 +790,10 @@
         },
         "subtle-active": {
           "$value": "{primitive.color.blue.85}",
+          "$type": "color"
+        },
+        "disabled": {
+          "$value": "{primitive.color.slate.13}",
           "$type": "color"
         }
       },
