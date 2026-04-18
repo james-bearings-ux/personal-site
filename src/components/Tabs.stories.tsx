@@ -5,13 +5,6 @@ export default { title: "Tabs" } satisfies StoryDefault;
 
 // ── Configurations ───────────────────────────────────────────────────
 
-export const TwoTabs: Story = () => (
-  <Tabs defaultValue="light">
-    <Tab value="light">Light</Tab>
-    <Tab value="dark">Dark</Tab>
-  </Tabs>
-);
-
 export const ThreeTabs: Story = () => (
   <Tabs defaultValue="one">
     <Tab value="one">One</Tab>

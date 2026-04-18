@@ -23,14 +23,14 @@
 
 /* Focus ring — shared across all hierarchies */
 .btn:focus-visible,
-.btn.pseudo-focus {
+.btn:global(.pseudo-focus) {
   outline: var(--primitive-border-width-focus) solid var(--semantic-color-border-focus);
   outline-offset: 2px;
 }
 
 /* Disabled base — cursor only; colors handled per-hierarchy below */
 .btn:disabled,
-.btn.pseudo-disabled {
+.btn:global(.pseudo-disabled) {
   cursor: not-allowed;
 }
 
@@ -41,17 +41,17 @@
   color: var(--semantic-color-text-reverse);
 }
 .primary:hover,
-.primary.pseudo-hover {
+.primary:global(.pseudo-hover) {
   background: var(--semantic-color-interaction-hover);
   border-color: var(--semantic-color-interaction-hover);
 }
 .primary:active,
-.primary.pseudo-pressed {
+.primary:global(.pseudo-pressed) {
   background: var(--semantic-color-interaction-active);
   border-color: var(--semantic-color-interaction-active);
 }
 .primary:disabled,
-.primary.pseudo-disabled {
+.primary:global(.pseudo-disabled) {
   background: var(--semantic-color-interaction-disabled);
   border-color: var(--semantic-color-interaction-disabled);
   color: var(--semantic-color-text-disabled);
@@ -64,17 +64,17 @@
   color: var(--semantic-color-text-reverse);
 }
 .alt:hover,
-.alt.pseudo-hover {
+.alt:global(.pseudo-hover) {
   background: var(--semantic-color-interaction-alt-hover);
   border-color: var(--semantic-color-interaction-alt-hover);
 }
 .alt:active,
-.alt.pseudo-pressed {
+.alt:global(.pseudo-pressed) {
   background: var(--semantic-color-interaction-alt-active);
   border-color: var(--semantic-color-interaction-alt-active);
 }
 .alt:disabled,
-.alt.pseudo-disabled {
+.alt:global(.pseudo-disabled) {
   background: var(--semantic-color-interaction-disabled);
   border-color: var(--semantic-color-interaction-disabled);
   color: var(--semantic-color-text-disabled);
@@ -87,19 +87,19 @@
   color: var(--semantic-color-interaction-default);
 }
 .secondary:hover,
-.secondary.pseudo-hover {
+.secondary:global(.pseudo-hover) {
   background: var(--semantic-color-interaction-subtle);
   border-color: var(--semantic-color-interaction-hover);
   color: var(--semantic-color-interaction-hover);
 }
 .secondary:active,
-.secondary.pseudo-pressed {
+.secondary:global(.pseudo-pressed) {
   background: var(--semantic-color-interaction-subtle-active);
   border-color: var(--semantic-color-interaction-active);
   color: var(--semantic-color-interaction-active);
 }
 .secondary:disabled,
-.secondary.pseudo-disabled {
+.secondary:global(.pseudo-disabled) {
   border-color: var(--semantic-color-border-disabled);
   color: var(--semantic-color-text-disabled);
 }
@@ -118,14 +118,14 @@
   color: var(--semantic-color-interaction-default);
 }
 .ghost:hover,
-.ghost.pseudo-hover {
+.ghost:global(.pseudo-hover) {
   background: var(--semantic-color-interaction-subtle);
 }
 .ghost:active,
-.ghost.pseudo-pressed {
+.ghost:global(.pseudo-pressed) {
   background: var(--semantic-color-interaction-subtle-active);
 }
 .ghost:disabled,
-.ghost.pseudo-disabled {
+.ghost:global(.pseudo-disabled) {
   color: var(--semantic-color-text-disabled);
 }

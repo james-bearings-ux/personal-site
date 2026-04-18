@@ -3,37 +3,70 @@ import { Input } from "./Input";
 
 export default { title: "Input" } satisfies StoryDefault;
 
-// ── States ───────────────────────────────────────────────────────────
+const densities = ["compact", "default", "spacious"] as const;
 
-export const Default: Story = () => <Input placeholder="Placeholder text" />;
-export const WithValue: Story = () => <Input defaultValue="Entered value" />;
-export const WithIcon: Story = () => <Input placeholder="Search" icon="search" />;
-export const ErrorState: Story = () => <Input defaultValue="Invalid entry" hasError />;
-export const Disabled: Story = () => <Input defaultValue="Disabled value" disabled />;
-export const DisabledWithIcon: Story = () => <Input defaultValue="Disabled" icon="search" disabled />;
-export const ErrorWithIcon: Story = () => <Input defaultValue="Bad value" icon="search" hasError />;
+const labelStyle = {
+  width: 72,
+  fontSize: 11,
+  color: "var(--semantic-color-text-secondary)",
+  fontFamily: "monospace",
+  flexShrink: 0,
+};
 
-// ── All states ───────────────────────────────────────────────────────
+// ── States ────────────────────────────────────────────────────────────
+// Two rows (without icon, with icon) × five states.
+// focus uses .pseudo-focus on the wrapper; disabled uses the native prop.
 
-export const AllStates: Story = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: 12, maxWidth: 400 }}>
-    <Input placeholder="Default" />
-    <Input defaultValue="With value" />
-    <Input placeholder="With icon" icon="search" />
-    <Input defaultValue="Error state" hasError />
-    <Input defaultValue="Error with icon" icon="search" hasError />
-    <Input defaultValue="Disabled" disabled />
-    <Input defaultValue="Disabled with icon" icon="search" disabled />
+const states = [
+  { label: "default",  wrapClass: undefined,       disabled: false },
+  { label: "focus",    wrapClass: "pseudo-focus",  disabled: false },
+  { label: "error",    wrapClass: undefined,       disabled: false, hasError: true },
+  { label: "disabled", wrapClass: undefined,       disabled: true },
+] as const;
+
+const rows = [
+  { label: "no icon",   icon: undefined },
+  { label: "with icon", icon: "search" as const },
+] as const;
+
+export const States: Story = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 560 }}>
+    {/* Header row */}
+    <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+      <span style={labelStyle} />
+      {states.map(({ label }) => (
+        <span key={label} style={{ ...labelStyle, width: 112 }}>{label}</span>
+      ))}
+    </div>
+    {/* One row per icon variant */}
+    {rows.map(({ label, icon }) => (
+      <div key={label} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <span style={labelStyle}>{label}</span>
+        {states.map(({ label: stateLabel, wrapClass, disabled, ...stateProps }) => (
+          <div key={stateLabel} style={{ width: 112 }}>
+            <Input
+              placeholder="Placeholder"
+              icon={icon}
+              wrapClassName={wrapClass}
+              disabled={disabled}
+              {...stateProps}
+            />
+          </div>
+        ))}
+      </div>
+    ))}
   </div>
 );
 
-// ── Densities ────────────────────────────────────────────────────────
+// ── Densities ─────────────────────────────────────────────────────────
+// One example per density at default state and with icon to verify
+// height and padding tokens.
 
 export const Densities: Story = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: 20, maxWidth: 400 }}>
-    {(["compact", "default", "spacious"] as const).map((density) => (
+    {densities.map((density) => (
       <div key={density} style={{ display: "flex", alignItems: "center", gap: 12 }} data-density={density}>
-        <span style={{ width: 72, fontSize: 11, color: "var(--semantic-color-text-secondary)", fontFamily: "monospace", flexShrink: 0 }}>{density}</span>
+        <span style={labelStyle}>{density}</span>
         <Input placeholder="Placeholder" icon="search" />
       </div>
     ))}

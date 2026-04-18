@@ -10,7 +10,8 @@
   background-color: var(--semantic-color-surface-low);
 }
 
-.wrap:focus-within {
+.wrap:focus-within,
+.wrap:global(.pseudo-focus) {
   border-color: var(--semantic-color-interaction-hover);
 }
 
@@ -18,7 +19,8 @@
   border-color: var(--semantic-color-border-error);
 }
 
-.wrap:has(input:disabled) {
+.wrap:has(input:disabled),
+.wrap:global(.pseudo-disabled) {
   border-color: var(--semantic-color-border-disabled);
   cursor: not-allowed;
 }
