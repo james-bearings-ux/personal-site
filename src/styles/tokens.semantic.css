@@ -47,12 +47,12 @@
   --semantic-color-interaction-hover: #2859d7;
   --semantic-color-interaction-alt: #16202e;
   --semantic-color-interaction-alt-hover: #233142;
-  --semantic-color-interaction-_subtle-hover-deprecate: #233142;
   --semantic-color-interaction-subtle: rgba(22, 32, 46, 0.08);
   --semantic-color-interaction-active: #102456;
   --semantic-color-interaction-alt-active: #102456;
   --semantic-color-interaction-subtle-active: #becdf3;
   --semantic-color-interaction-disabled: #aac1d3;
+  --semantic-color-interaction-subtle-hover: rgba(132, 158, 179, 0.1);
   --semantic-color-shadow-text-overlay: #0e1521;
 }
 
@@ -84,11 +84,11 @@
   --semantic-color-interaction-hover: #2048ac;
   --semantic-color-interaction-alt: #849eb3;
   --semantic-color-interaction-alt-hover: #aac1d3;
-  --semantic-color-interaction-_subtle-hover-deprecate: #aac1d3;
   --semantic-color-interaction-subtle: rgba(132, 158, 179, 0.1);
   --semantic-color-interaction-active: #102456;
   --semantic-color-interaction-alt-active: #ffffff;
   --semantic-color-interaction-subtle-active: #becdf3;
   --semantic-color-interaction-disabled: #16202e;
+  --semantic-color-interaction-subtle-hover: rgba(22, 32, 46, 0.08);
   --semantic-color-shadow-text-overlay: #aac1d3;
 }
