@@ -67,6 +67,10 @@ Examples of things worth flagging: naming conventions, file organization pattern
 
 **Before writing a custom integration for any third-party tool, check whether the tool already provides it natively.** Read the tool's docs or search its source before reaching for a manual implementation. This applies especially to addons, plugins, and dev-tool integrations where built-in support is common but not obvious.
 
+**For every new dependency, do a quick legitimacy check before installing:** maintainer identity, download count, last commit date, and whether it's a known package in the ecosystem. The bar is "nothing that would make a thoughtful senior engineer wince in a code review" — this project is a client-facing demo, not a production system, but credibility depends on clean, considered choices.
+
+**For every new component, run the scoping process before writing any code.** See `docs/guides/component-scoping.md`. Key gates: free-list features → in/out prioritization → a11y pattern → story structure → naming. Stories are token validation tools, not demos — structure them to reveal meaningful differences across variants and states.
+
 ## Docs
 
 Architecture decisions: `docs/decisions/` (ADR format — context, options, decision, consequences).
