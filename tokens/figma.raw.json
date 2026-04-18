@@ -612,10 +612,6 @@
           "$value": "{primitive.color.slate.20}",
           "$type": "color"
         },
-        "_subtle-hover-deprecate": {
-          "$value": "{primitive.color.slate.20}",
-          "$type": "color"
-        },
         "subtle": {
           "$value": "{primitive.color.slate.13a}",
           "$type": "color"
@@ -634,6 +630,10 @@
         },
         "disabled": {
           "$value": "{primitive.color.slate.75}",
+          "$type": "color"
+        },
+        "subtle-hover": {
+          "$value": "{primitive.color.slate.61a}",
           "$type": "color"
         }
       },
@@ -772,10 +772,6 @@
           "$value": "{primitive.color.slate.75}",
           "$type": "color"
         },
-        "_subtle-hover-deprecate": {
-          "$value": "{primitive.color.slate.75}",
-          "$type": "color"
-        },
         "subtle": {
           "$value": "{primitive.color.slate.61a}",
           "$type": "color"
@@ -794,6 +790,10 @@
         },
         "disabled": {
           "$value": "{primitive.color.slate.13}",
+          "$type": "color"
+        },
+        "subtle-hover": {
+          "$value": "{primitive.color.slate.13a}",
           "$type": "color"
         }
       },
