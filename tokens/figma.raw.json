@@ -942,6 +942,16 @@
           "$value": "{primitive.space.4x}",
           "$type": "dimension"
         }
+      },
+      "content": {
+        "h-padding": {
+          "$value": "{primitive.space.0x}",
+          "$type": "number"
+        },
+        "v-padding": {
+          "$value": "{primitive.space.1x}",
+          "$type": "dimension"
+        }
       }
     },
     "input": {
@@ -1128,6 +1138,16 @@
           "$value": "{primitive.space.6x}",
           "$type": "dimension"
         }
+      },
+      "content": {
+        "h-padding": {
+          "$value": "{primitive.space.0x}",
+          "$type": "number"
+        },
+        "v-padding": {
+          "$value": "{primitive.space.2x}",
+          "$type": "dimension"
+        }
       }
     },
     "input": {
@@ -1312,6 +1332,16 @@
       "icon": {
         "size": {
           "$value": "{primitive.space.6x}",
+          "$type": "dimension"
+        }
+      },
+      "content": {
+        "h-padding": {
+          "$value": "{primitive.space.0x}",
+          "$type": "number"
+        },
+        "v-padding": {
+          "$value": "{primitive.space.3x}",
           "$type": "dimension"
         }
       }
