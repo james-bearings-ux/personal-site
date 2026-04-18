@@ -32,11 +32,11 @@ export const WithStackedImage: Story = () => (
   </TabbedSlideshow>
 );
 
-// ── Interactive ──────────────────────────────────────────────────────
+// ── SurfaceOptions ──────────────────────────────────────────────────────
 // bandSurface controls the TabbedSlideshow container.
 // contentSurface controls the SideBySide panels inside.
 
-export const Interactive: Story<{ bandSurface: Surface; contentSurface: Surface }> = ({
+export const SurfaceOptions: Story<{ bandSurface: Surface; contentSurface: Surface }> = ({
   bandSurface,
   contentSurface,
 }) => (
@@ -53,8 +53,8 @@ export const Interactive: Story<{ bandSurface: Surface; contentSurface: Surface 
   </TabbedSlideshow>
 );
 
-Interactive.args = { bandSurface: "low", contentSurface: "low" };
-Interactive.argTypes = {
+SurfaceOptions.args = { bandSurface: "low", contentSurface: "low" };
+SurfaceOptions.argTypes = {
   bandSurface: {
     control: { type: "radio" },
     options: ["low", "base", "high"],

@@ -1,8 +1,7 @@
 import type { StoryDefault, Story } from "@ladle/react";
-import { withPageFrame } from "../../.ladle/PageFrame";
 import { SideBySide } from "./SideBySide";
 
-export default { title: "SideBySide", decorators: [withPageFrame] } satisfies StoryDefault;
+export default { title: "SideBySide" } satisfies StoryDefault;
 
 export const SurfaceLow: Story = () => (
   <SideBySide

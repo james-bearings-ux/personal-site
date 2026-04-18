@@ -11,7 +11,7 @@ const allIcons: IconName[] = [
 ];
 
 export const AllIcons: Story = () => (
-  <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+  <div style={{ display: "flex", flexDirection: "column", gap: "32px", color: "var(--semantic-color-icon-primary)" }}>
     {(["small", "medium", "large"] as const).map((size) => (
       <div key={size}>
         <p style={{ color: "var(--semantic-color-text-secondary)", marginBottom: "12px" }}>

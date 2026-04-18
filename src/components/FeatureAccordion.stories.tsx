@@ -52,7 +52,7 @@ export const WithCta: Story = () => (
   </FeatureAccordion>
 );
 
-export const Interactive: Story<{ surface: Surface }> = ({ surface }) => (
+export const SurfaceOptions: Story<{ surface: Surface }> = ({ surface }) => (
   <FeatureAccordion
       heading="Services"
       body="Design systems strategy and hands-on craft, from token architecture to shipped components."
@@ -76,8 +76,8 @@ export const Interactive: Story<{ surface: Surface }> = ({ surface }) => (
     </FeatureAccordion>
 );
 
-Interactive.args = { surface: "low" };
-Interactive.argTypes = {
+SurfaceOptions.args = { surface: "low" };
+SurfaceOptions.argTypes = {
   surface: {
     control: { type: "radio" },
     options: ["low", "base", "high"],

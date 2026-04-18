@@ -1,8 +1,7 @@
 import type { StoryDefault, Story } from "@ladle/react";
-import { withPageFrame } from "../../.ladle/PageFrame";
 import { StackedImage } from "./StackedImage";
 
-export default { title: "StackedImage", decorators: [withPageFrame] } satisfies StoryDefault;
+export default { title: "StackedImage" } satisfies StoryDefault;
 
 export const WithTitle: Story = () => (
   <StackedImage
