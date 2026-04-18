@@ -53,6 +53,8 @@
   --component-accordion-surface-v-padding: 4px;
   --component-accordion-surface-h-padding: 0;
   --component-accordion-icon-size: 16px;
+  --component-accordion-content-h-padding: 0;
+  --component-accordion-content-v-padding: 4px;
   --component-input-surface-height: 26px;
   --component-input-surface-gap: 4px;
   --component-input-surface-v-padding: 4px;
@@ -90,6 +92,8 @@
   --component-accordion-surface-v-padding: 8px;
   --component-accordion-surface-h-padding: 0;
   --component-accordion-icon-size: 24px;
+  --component-accordion-content-h-padding: 0;
+  --component-accordion-content-v-padding: 8px;
   --component-input-surface-height: 34px;
   --component-input-surface-gap: 4px;
   --component-input-surface-v-padding: 4px;
@@ -127,6 +131,8 @@
   --component-accordion-surface-v-padding: 12px;
   --component-accordion-surface-h-padding: 0;
   --component-accordion-icon-size: 24px;
+  --component-accordion-content-h-padding: 0;
+  --component-accordion-content-v-padding: 12px;
   --component-input-surface-height: 50px;
   --component-input-surface-gap: 4px;
   --component-input-surface-v-padding: 4px;
