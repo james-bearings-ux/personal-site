@@ -1,0 +1,87 @@
+/* Group wrapper — bottom border closes the frame opened by each item's top border */
+
+.accordion {
+  border-bottom: var(--component-accordion-border-width) solid var(--semantic-color-border-secondary);
+}
+
+/* Each item — top border is the divider */
+
+.item {
+  border-top: var(--component-accordion-border-width) solid var(--semantic-color-border-secondary);
+}
+
+/* Heading — structural only; resets browser default h2/h3/h4 styles */
+
+.heading {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/* Face — the trigger button */
+
+.face {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: none;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  padding: var(--component-accordion-surface-v-padding) var(--component-accordion-surface-h-padding);
+  transition: padding var(--semantic-motion-interactive-duration) var(--semantic-motion-interactive-easing);
+}
+
+.face:hover {
+  padding-top: calc(var(--component-accordion-surface-v-padding) + var(--primitive-motion-distance-xsmall));
+  padding-bottom: calc(var(--component-accordion-surface-v-padding) + var(--primitive-motion-distance-xsmall));
+}
+
+.face:focus-visible {
+  outline: var(--primitive-border-width-focus) solid var(--semantic-color-border-focus);
+  outline-offset: -2px;
+}
+
+.label {
+  color: var(--semantic-color-text-primary);
+  text-align: left;
+}
+
+/* Icon — sizing, color, and rotation animation */
+
+.icon {
+  flex-shrink: 0;
+  width: var(--component-accordion-icon-size);
+  height: var(--component-accordion-icon-size);
+  background-color: var(--semantic-color-icon-primary);
+  transition: transform var(--semantic-motion-enter-duration) var(--semantic-motion-enter-easing);
+}
+
+.item[data-open="true"] .icon {
+  transform: rotate(180deg);
+}
+
+/* Content panel — CSS grid row animation: 0fr → 1fr */
+
+.content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--semantic-motion-expand-duration) var(--semantic-motion-expand-easing);
+}
+
+.item[data-open="true"] .content {
+  grid-template-rows: 1fr;
+}
+
+.contentInner {
+  overflow: hidden;
+}
+
+.contentPadding {
+  padding: var(--component-accordion-content-v-padding) var(--component-accordion-content-h-padding);
+}
+
+.contentPadding.noPadding {
+  padding: 0;
+}

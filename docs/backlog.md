@@ -16,6 +16,11 @@ When an Enterprise Figma account is available, restore `scripts/fetch-tokens.mjs
 
 ## Component System
 
+**Accordion density design**
+Density token slots and the Densities story exist, but values haven't been deliberately spec'd in Figma yet. Needs a design pass before the story is meaningful validation.
+
+
+
 **Icon as a component**
 Formalize the CSS mask-image technique into a shared `<Icon>` component. Accepts an SVG filename (matching `/public/img/*.svg`) and renders a sized, theme-aware `<span>` using `background-color: currentColor` + `mask-image`. Would replace the inline `<Icon>` helper currently local to `Button.tsx` and the ad-hoc span in `FeatureAccordion.tsx`. Consider a token-backed size scale (e.g. `size?: "sm" | "md" | "lg"`) and an icon name union type derived from available SVG filenames.
 
@@ -46,7 +51,7 @@ Findings from a 2026-03-18 audit of all component CSS modules, updated 2026-03-1
 ### Needs new tokens in Figma first
 
 - ~~**`24px`, `12px`, `8px`, `16px` spacing**~~ — resolved: spacing primitive scale (ADR 012) introduced `primitives/space/1x`–`20x` and `breakpoints/space/1x`–`20x`. All component CSS migrated off hardcoded values and off the deprecated `layout-helpers` tokens.
-- **`component-accordion-icon-size`** — accordion chevron `width/height: 24px` is hardcoded. Should be a density-responsive component token so it scales with compact/default/spacious.
+- ~~**`component-accordion-icon-size`**~~ — resolved: Accordion component uses `var(--component-accordion-icon-size)` across all densities.
 - **Controls bar `padding: 10px`** — odd value in `src/app/tokens/page.module.css`. Standardize to `--primitives-space-2x` (8px) or `--primitives-space-3x` (12px).
 
 ### Not actionable in CSS (known limitation)

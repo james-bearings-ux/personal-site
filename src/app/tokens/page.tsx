@@ -8,7 +8,7 @@ import { TabbedSlideshow, SlideshowPanel } from "@/components/TabbedSlideshow";
 import { SideBySide } from "@/components/SideBySide";
 import { StackedImage } from "@/components/StackedImage";
 import { OffsetList } from "@/components/OffsetList";
-import { FeatureAccordion, AccordionPanel } from "@/components/FeatureAccordion";
+import { FeatureAccordion, AccordionItem } from "@/components/FeatureAccordion";
 import { Button } from "@/components/Button";
 import { InputShowcase } from "@/components/InputShowcase";
 import { AiPromptBar } from "@/components/AiPromptBar";
@@ -136,18 +136,18 @@ export default function TokensPage() {
               { minWidth: breakpoints.tablet, density: "spacious" },
             ]}
         >
-          <AccordionPanel label="Design Systems">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>End-to-end design systems work — token architecture, component libraries, documentation, and adoption strategy across large product organizations.</p>
-          </AccordionPanel>
-          <AccordionPanel label="UX Strategy">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>Framing complex product problems through research synthesis, journey mapping, and systems thinking before any design work begins.</p>
-          </AccordionPanel>
-          <AccordionPanel label="Interaction Design">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>High-fidelity interaction design with a focus on motion, feedback, and component-level behavior validated through usability testing.</p>
-          </AccordionPanel>
-          <AccordionPanel label="Design Tooling">
-            <p className="type-body" style={{ padding: "8px 0 16px 16px", color: "var(--semantic-color-text-primary)" }}>Custom Figma plugins, token pipelines, and developer handoff infrastructure that close the gap between design intent and production output.</p>
-          </AccordionPanel>
+          <AccordionItem label="Design Systems">
+            <p className="type-body" style={{ color: "var(--semantic-color-text-primary)" }}>End-to-end design systems work — token architecture, component libraries, documentation, and adoption strategy across large product organizations.</p>
+          </AccordionItem>
+          <AccordionItem label="UX Strategy">
+            <p className="type-body" style={{ color: "var(--semantic-color-text-primary)" }}>Framing complex product problems through research synthesis, journey mapping, and systems thinking before any design work begins.</p>
+          </AccordionItem>
+          <AccordionItem label="Interaction Design">
+            <p className="type-body" style={{ color: "var(--semantic-color-text-primary)" }}>High-fidelity interaction design with a focus on motion, feedback, and component-level behavior validated through usability testing.</p>
+          </AccordionItem>
+          <AccordionItem label="Design Tooling">
+            <p className="type-body" style={{ color: "var(--semantic-color-text-primary)" }}>Custom Figma plugins, token pipelines, and developer handoff infrastructure that close the gap between design intent and production output.</p>
+          </AccordionItem>
         </FeatureAccordion>
 
         <OffsetList
