@@ -1,0 +1,62 @@
+/* Height is set by JS (window.innerHeight) to match the exact visible viewport.
+   The 12-column grid and var(--grid-edge) padding align content with the rest of the page. */
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: var(--grid-gutter);
+  padding: 0 var(--grid-edge);
+  background-color: var(--semantic-color-surface-high);
+}
+
+/* Left column — slide text panels, clipped to column bounds */
+
+.leftCol {
+  grid-column: span 6;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-v-margin-m);
+}
+
+.heading {
+  color: var(--semantic-color-text-primary);
+}
+
+.body {
+  color: var(--semantic-color-text-secondary);
+}
+
+/* Right column — independently animated objects, clipped to column bounds */
+
+.rightCol {
+  grid-column: span 6;
+  position: relative;
+  overflow: hidden;
+}
+
+.lottie {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  top: calc(50% - 140px);
+  left: calc(50% - 140px);
+}
+
+.square {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: calc(50% - 60px);
+  left: calc(50% - 60px);
+}
+
+/* Demo placeholder — replace with design tokens once approach is proven */
+.squareB { background-color: #f4a432; }

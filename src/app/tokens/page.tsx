@@ -12,6 +12,7 @@ import { FeatureAccordion, AccordionItem } from "@/components/FeatureAccordion";
 import { Button } from "@/components/Button";
 import { InputShowcase } from "@/components/InputShowcase";
 import { AiPromptBar } from "@/components/AiPromptBar";
+import { ParallaxHero } from "@/components/ParallaxHero";
 import { Card } from "@/components/Card";
 import { CardBand } from "@/components/CardBand";
 import { ButtonGroup } from "@/components/ButtonGroup";
@@ -51,6 +52,8 @@ export default function TokensPage() {
 
   return (
     <div className={styles.page}>
+
+      <ParallaxHero />
 
       <AiPromptBar />
 

@@ -31,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="light" data-density="default">
+    <html lang="en" data-theme="light" data-density="default" suppressHydrationWarning>
       <head>
         {/* Blocking script: reads localStorage and prefers-color-scheme before first paint
             to prevent a flash of unstyled theme. Must be inline and synchronous. */}
