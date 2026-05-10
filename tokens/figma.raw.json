@@ -9,6 +9,18 @@
         "black": {
           "$value": "#000000",
           "$type": "color"
+        },
+        "warm-neutral": {
+          "$value": "#f4f1ed",
+          "$type": "color"
+        },
+        "warm-black": {
+          "$value": "#1e252f",
+          "$type": "color"
+        },
+        "teal": {
+          "$value": "#a3d7d7",
+          "$type": "color"
         }
       },
       "slate": {
@@ -292,6 +304,10 @@
           "small": {
             "$value": "14px",
             "$type": "dimension"
+          },
+          "quote": {
+            "$value": "32px",
+            "$type": "dimension"
           }
         },
         "heading": {
@@ -515,19 +531,23 @@
           "$type": "color"
         },
         "low": {
-          "$value": "{primitive.color.slate.100}",
+          "$value": "{primitive.color.universal.warm-neutral}",
           "$type": "color"
         },
         "base": {
-          "$value": "{primitive.color.slate.96}",
+          "$value": "{primitive.color.universal.white}",
           "$type": "color"
         },
         "high": {
-          "$value": "{primitive.color.slate.91}",
+          "$value": "{primitive.color.red.40}",
           "$type": "color"
         },
         "animated": {
           "$value": "{primitive.color.slate.34}",
+          "$type": "color"
+        },
+        "quote": {
+          "$value": "{primitive.color.universal.white}",
           "$type": "color"
         }
       },
@@ -688,6 +708,10 @@
         },
         "animated": {
           "$value": "{primitive.color.slate.61}",
+          "$type": "color"
+        },
+        "quote": {
+          "$value": "{primitive.color.slate.0}",
           "$type": "color"
         }
       },
@@ -1813,6 +1837,34 @@
           "$type": "dimension"
         }
       }
+    },
+    "content-band": {
+      "v-padding": {
+        "$value": "{breakpoint-mode-1.space.v-margin-xl}",
+        "$type": "dimension"
+      },
+      "h-padding": {
+        "$value": "{breakpoint-mode-1.grid.edge}",
+        "$type": "dimension"
+      }
+    },
+    "block-quote": {
+      "v-padding": {
+        "$value": "{breakpoint-mode-1.space.8x}",
+        "$type": "dimension"
+      },
+      "h-padding": {
+        "$value": "{breakpoint-mode-1.space.8x}",
+        "$type": "dimension"
+      },
+      "gap": {
+        "$value": "{breakpoint-mode-1.space.2x}",
+        "$type": "dimension"
+      },
+      "border-radius": {
+        "$value": "{primitive.border.radius.medium}",
+        "$type": "dimension"
+      }
     }
   },
   "semantic-motion": {
@@ -1901,7 +1953,7 @@
     "heading-2": {
       "$value": {
         "fontFamily": "Overpass",
-        "fontWeight": 600,
+        "fontWeight": 400,
         "fontSize": "36px",
         "lineHeight": 1.149999976158142,
         "letterSpacing": "-1px"
@@ -1911,7 +1963,7 @@
     "heading-3": {
       "$value": {
         "fontFamily": "Overpass",
-        "fontWeight": 600,
+        "fontWeight": 400,
         "fontSize": "24px",
         "lineHeight": 1.149999976158142,
         "letterSpacing": "-1px"
@@ -1991,7 +2043,7 @@
     "display-l": {
       "$value": {
         "fontFamily": "Overpass",
-        "fontWeight": 600,
+        "fontWeight": 400,
         "fontSize": "80px",
         "lineHeight": 0.949999988079071,
         "letterSpacing": "-2px"
@@ -2001,10 +2053,20 @@
     "display": {
       "$value": {
         "fontFamily": "Overpass",
-        "fontWeight": 600,
+        "fontWeight": 400,
         "fontSize": "64px",
         "lineHeight": 0.949999988079071,
         "letterSpacing": "-2px"
+      },
+      "$type": "typography"
+    },
+    "quote": {
+      "$value": {
+        "fontFamily": "Quicksand",
+        "fontWeight": 400,
+        "fontSize": "32px",
+        "lineHeight": 1.350000023841858,
+        "letterSpacing": "0"
       },
       "$type": "typography"
     }
