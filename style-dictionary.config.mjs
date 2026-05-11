@@ -56,6 +56,52 @@ StyleDictionary.registerTransform({
   transform: (token) => `${token.$value}px`,
 });
 
+// ---------------------------------------------------------------------------
+// Preprocessor: normalize Figma internal mode names in breakpoint references
+//
+// When a component variable's value references a breakpoint variable in Figma,
+// the plugin outputs the mode's internal ID ("mode-1", "mode-2", ...) rather
+// than its display name ("mobile", "tablet", "desktop"). This is a Figma API
+// behavior — the display name isn't available at the point the alias is written.
+//
+// Mode numbers map to breakpoint names by position (ascending min-width):
+//   mode-1 → mobile   (min-width: 0)
+//   mode-2 → tablet
+//   mode-3 → desktop
+//
+// This preprocessor rewrites the reference strings before Style Dictionary
+// resolves them, so {breakpoint-mode-1.grid.edge} → {breakpoint-mobile.grid.edge}
+// and the reference resolves correctly.
+// ---------------------------------------------------------------------------
+
+const BREAKPOINT_MODE_MAP = {
+  'mode-1': 'mobile',
+  'mode-2': 'tablet',
+  'mode-3': 'desktop',
+};
+
+function normalizeBreakpointModeRefs(obj) {
+  for (const key of Object.keys(obj)) {
+    const val = obj[key];
+    if (key === '$value' && typeof val === 'string') {
+      obj[key] = val.replace(
+        /\{(breakpoint)-(mode-\d+)\./g,
+        (_, collection, mode) => `{${collection}-${BREAKPOINT_MODE_MAP[mode] ?? mode}.`,
+      );
+    } else if (val && typeof val === 'object' && !Array.isArray(val)) {
+      normalizeBreakpointModeRefs(val);
+    }
+  }
+}
+
+StyleDictionary.registerPreprocessor({
+  name: 'normalize/breakpoint-mode-refs',
+  preprocessor: (tokens) => {
+    normalizeBreakpointModeRefs(tokens);
+    return tokens;
+  },
+});
+
 StyleDictionary.registerTransformGroup({
   name: 'css/extended',
   transforms: [
@@ -205,7 +251,26 @@ StyleDictionary.registerFormat({
 //
 // Both collections normalize to the --component-* CSS prefix. The two-collection
 // split is a Figma authoring concern; CSS consumers see one unified namespace.
+//
+// Breakpoint reference passthrough: if a token's original value is a reference
+// to a breakpoint collection token (e.g. {breakpoint-mobile.grid.edge}), the
+// output is var(--grid-edge) rather than the resolved value. This lets the
+// component token inherit responsive behavior from the breakpoint CSS variables
+// already defined in tokens.breakpoints.css — the CSS cascade does the rest.
 // ---------------------------------------------------------------------------
+
+// If a token aliases a breakpoint variable, output var(--path) so the component
+// token stays responsive. All other tokens resolve to their final value.
+function tokenValue(token) {
+  const orig = token.original?.$value;
+  if (typeof orig === 'string' && orig.startsWith('{') && orig.endsWith('}')) {
+    const segments = orig.slice(1, -1).split('.');
+    if (segments[0].startsWith('breakpoint-')) {
+      return `var(--${segments.slice(1).join('-')})`;
+    }
+  }
+  return token.$value;
+}
 
 StyleDictionary.registerFormat({
   name: 'css/component-variables',
@@ -224,7 +289,7 @@ StyleDictionary.registerFormat({
       for (const token of modeless) {
         // path: ['component','button','border-radius'] → '--component-button-border-radius'
         const varName = `--${token.path.join('-')}`;
-        lines.push(`  ${varName}: ${token.$value};`);
+        lines.push(`  ${varName}: ${tokenValue(token)};`);
       }
       lines.push('}');
       lines.push('');
@@ -247,7 +312,7 @@ StyleDictionary.registerFormat({
       for (const token of groups.get(key)) {
         // path: ['density-compact','button','padding'] → '--component-button-padding'
         const varName = `--component-${token.path.slice(1).join('-')}`;
-        lines.push(`  ${varName}: ${token.$value};`);
+        lines.push(`  ${varName}: ${tokenValue(token)};`);
       }
       lines.push('}');
       lines.push('');
@@ -427,6 +492,7 @@ StyleDictionary.registerFormat({
 
 const sd = new StyleDictionary({
   source: ['tokens/figma.raw.json'],
+  preprocessors: ['normalize/breakpoint-mode-refs'],
   platforms: {
     css: {
       transformGroup: 'css/extended',

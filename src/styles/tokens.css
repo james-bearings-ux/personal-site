@@ -5,6 +5,9 @@
 :root {
   --primitive-color-universal-white: #ffffff;
   --primitive-color-universal-black: #000000;
+  --primitive-color-universal-warm-neutral: #f4f1ed;
+  --primitive-color-universal-warm-black: #1e252f;
+  --primitive-color-universal-teal: #a3d7d7;
   --primitive-color-slate-0: #000000;
   --primitive-color-slate-9: #0e1521;
   --primitive-color-slate-13: #16202e;
@@ -68,6 +71,7 @@
   --primitive-typography-size-body-large: 21px;
   --primitive-typography-size-body-medium: 16px;
   --primitive-typography-size-body-small: 14px;
+  --primitive-typography-size-body-quote: 32px;
   --primitive-typography-size-heading-heading-3: 24px;
   --primitive-typography-size-heading-heading-2: 36px;
   --primitive-typography-size-heading-heading-1: 48px;

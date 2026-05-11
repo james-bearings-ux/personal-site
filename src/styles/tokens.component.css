@@ -25,6 +25,12 @@
   --component-icon-size-small: 16px;
   --component-icon-size-medium: 24px;
   --component-icon-size-large: 32px;
+  --component-content-band-v-padding: var(--space-v-margin-xl);
+  --component-content-band-h-padding: var(--grid-edge);
+  --component-block-quote-v-padding: var(--space-6x);
+  --component-block-quote-h-padding: var(--space-8x);
+  --component-block-quote-gap: var(--space-2x);
+  --component-block-quote-border-radius: 8px;
 }
 
 [data-density="compact"] {
