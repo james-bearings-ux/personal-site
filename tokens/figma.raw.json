@@ -1850,7 +1850,7 @@
     },
     "block-quote": {
       "v-padding": {
-        "$value": "{breakpoint-mode-1.space.8x}",
+        "$value": "{breakpoint-mode-1.space.6x}",
         "$type": "dimension"
       },
       "h-padding": {
