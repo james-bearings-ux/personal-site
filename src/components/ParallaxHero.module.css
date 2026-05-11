@@ -6,7 +6,7 @@
   grid-template-columns: repeat(12, 1fr);
   column-gap: var(--grid-gutter);
   padding: 0 var(--grid-edge);
-  background-color: var(--semantic-color-surface-high);
+  background-color: var(--semantic-color-surface-low);
 }
 
 /* Left column — slide text panels, clipped to column bounds */

@@ -92,7 +92,7 @@ export default function TokensPage() {
 
         <TabbedSlideshow
             heading="Travel"
-            surface="high"
+            surface="low"
             densityByBreakpoint={[
               { minWidth: breakpoints.mobile, density: "default" },
               { minWidth: breakpoints.tablet, density: "spacious" },
@@ -130,7 +130,7 @@ export default function TokensPage() {
         <FeatureAccordion
             heading="Services"
             body="Design systems strategy and hands-on craft, from token architecture to shipped components."
-            surface="base"
+            surface="low"
             showCta
             label="Get in touch"
             href="/work"
@@ -155,7 +155,7 @@ export default function TokensPage() {
 
         <OffsetList
             heading="Clients"
-            surface="base"
+            surface="low"
             items={[
               "Amgen", "Autodesk", "Cisco", "Collibra", "Cvent", "Discovery", "Faire",
               "International Monetary Fund", "JDRF", "JLL", "Kelly Services", "Key Bank",
@@ -167,7 +167,7 @@ export default function TokensPage() {
 
         <TabbedSlideshow
           heading="Featured Work"
-          surface="base"
+          surface="low"
           densityByBreakpoint={[
             { minWidth: breakpoints.mobile, density: "default" },
             { minWidth: breakpoints.tablet, density: "spacious" },
@@ -177,7 +177,7 @@ export default function TokensPage() {
             <SideBySide
               image="/img/sample-img.jpg"
               imageAlt="Discovery phase work"
-              surface="base"
+              surface="low"
               heading="Understanding the problem space"
               body="Research, stakeholder interviews, and competitive analysis to frame the design challenge before touching a single wireframe."
             />
@@ -186,7 +186,7 @@ export default function TokensPage() {
             <SideBySide
               image="/img/sample-img-2.jpg"
               imageAlt="Information architecture work"
-              surface="base"
+              surface="low"
               heading="Shaping the information architecture"
               body="Card sorting, tree testing, and IA diagrams to establish a navigation model users can predict and trust."
             />
@@ -195,7 +195,7 @@ export default function TokensPage() {
             <SideBySide
               image="/img/sample-img-3.jpg"
               imageAlt="Final design work"
-              surface="base"
+              surface="low"
               heading="High-fidelity interaction design"
               body="Component-based layouts built on a token-driven design system, validated through usability testing before handoff."
             />
@@ -203,7 +203,7 @@ export default function TokensPage() {
         </TabbedSlideshow>
 
 
-        <CardBand heading="Destinations" surface="base">
+        <CardBand heading="Destinations" surface="low">
           <Card
             variant="image"
             interactive="card-link"
@@ -230,7 +230,7 @@ export default function TokensPage() {
           />
         </CardBand>
 
-        <CardBand heading="Capabilities" surface="base">
+        <CardBand heading="Capabilities" surface="low">
           <Card
             variant="heading"
             interactive="none"
@@ -257,7 +257,7 @@ export default function TokensPage() {
           />
         </CardBand>
 
-        <CardBand heading="Guides" surface="base">
+        <CardBand heading="Guides" surface="low">
           <Card
             variant="text"
             interactive="cta"
